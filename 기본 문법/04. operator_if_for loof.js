@@ -71,9 +71,9 @@ console.log(`and: ${value1 && value2 && check()}`);
 
 // often used to compress long if-statement
 // nullableObject && nullableObject.something
-if (nullableObject != null) {
-    nullableObject.something;
-}
+// if (nullableObject != null) {
+//     nullableObject.something;
+// }
 
 // ! (not) - 값을 반대로 출력
 console.log(!value1);
@@ -170,4 +170,32 @@ for (let i = 0; i < 10; i++) {
   for (let j = 0; j < 10; j++) {
     console.log(`i: ${i}, j: ${j}`);
   }
+}
+
+console.clear();
+
+//break, continue
+// Q1. iterate from 0 to 10 and print only even numbers (use continue)
+
+for (let i = 0; i < 11; i++) {
+  if(i % 2 !== 0){
+    continue;
+  }
+  console.log(`Q1: ${i}`);
+}
+
+// for (let i = 0; i < 11; i++) {
+//   if(i % 2 === 0){
+//     continue;
+//   }
+//   console.log(`Q1: ${i}`);
+// }
+
+// Q2. iterate from 0 to 10 and print numbers until reaching 8 (use break)
+
+for (let i = 0; i < 11; i++) {
+  if(i > 8){
+    break;
+  }
+  console.log(`Q2: ${i}`);
 }
