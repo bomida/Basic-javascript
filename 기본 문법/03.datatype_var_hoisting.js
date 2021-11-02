@@ -78,3 +78,29 @@ console.log(`value: ${greeting}, type: ${typeof greeting}`);
 const helloBob = `h1 ${brendan}!`; // template literals (string)
 console.log(`value: ${helloBob}, type: ${typeof helloBob}`);
 // console.log('value: ' + helloBob + ', type: ' + helloBob);
+
+// boolean
+// false: 0, null, undefined, NaN, ''
+// true: any other value
+const canRead = true;
+const test = 3 < 1; //false
+console.log(`value: ${canRead}, type: ${typeof canRead}`);
+console.log(`value: ${test}, type: ${typeof test}`);
+
+// null
+let nothing = null;
+console.log(`value: ${nothing}, type: ${typeof nothing}`);
+
+//undefined
+let x;
+// let x = undefined
+console.log(`value: ${x}, type: ${typeof x}`);
+
+// symbol, create unique identifiers for objects
+const symbol1 = Symbol('id');
+const symbol2 = Symbol('id');
+console.log(symbol1 === symbol2);
+const gsymbol1 = Symbol.for('id');
+const gsymbol2 = Symbol.for('id');
+console.log(gsymbol1 === gsymbol2); // true
+console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`);
