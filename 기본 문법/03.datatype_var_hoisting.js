@@ -64,3 +64,17 @@ const nAn = 'not a number' / 2;
 console.log(infinity);
 console.log(negativeInfinity);
 console.log(nAn);
+
+// bigInt (fairly new, don't use it yet)
+const bigInt = 123456789012345678901234567890123456789012345678901234567890n; // over (-2**53 ~ 2*53)
+console.log(`value: ${bigInt}, type: ${typeof bigInt}`);
+Number.MAX_SAFE_INTEGER;
+
+// string
+const char = 'c';
+const brendan = 'brendan';
+const greeting = 'hello' + brendan;
+console.log(`value: ${greeting}, type: ${typeof greeting}`);
+const helloBob = `h1 ${brendan}!`; // template literals (string)
+console.log(`value: ${helloBob}, type: ${typeof helloBob}`);
+// console.log('value: ' + helloBob + ', type: ' + helloBob);
