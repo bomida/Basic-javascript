@@ -56,3 +56,5 @@ var d = {
 
 console.log(d['weight']);
 // answer : 84 - 제일 마지막 값이 출력된다.
+
+// 9. concat을 활용한 출력 방법
