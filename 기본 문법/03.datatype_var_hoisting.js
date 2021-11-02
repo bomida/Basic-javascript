@@ -48,6 +48,11 @@ const maxNumber = 5;
 // - reduce human mistakes
 
 // 4. Variable types
-// primitive, single item: number, string, boolean, null, undefined, symbol
-// object, box container
-// function, first-class function
+// primitive, single item: number, string, boolean, null, undefined, symbol - 더이상 작은 단위로 나눠질 수 없는 한가지 아이템
+// object, box container - 싱글 아이템들을 여러개 묶어서 한 단위, 한 박스로 관리할 수 있게 해주는 것
+// function, first-class function - 자바스크립트에서는 함수도 데이터 타입으로 간주한다.
+
+const count =17; // integer
+const size = 17.1;
+console.log(`value: ${count}, type: ${typeof count}`);
+console.log(`value: ${size}, type: ${typeof size}`);
