@@ -26,3 +26,9 @@ log(123);
 // 2. Parameters
 // premitive parameters: passed by value
 // object parameters: passed by reference
+function changeName(obj){
+  obj.name = 'coder';
+}
+const bomi = { name: 'bomi' };
+changeName(bomi);
+console.log(bomi);
