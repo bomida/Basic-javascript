@@ -1,3 +1,23 @@
+
+// 1. 배열의 삭제
+//다음 배열에서 400, 500를 삭제하는 code를 입력하세요.
+var nums = [100, 200, 300, 400, 500];
+nums.pop();
+nums.pop();
+console.log(nums);
+
+// 2. 배열의 내장함수
+// <pass>부분에 배열 내장함수를 이용하여 코드를 입력하고 다음과 같이 출력되게 하세요.
+
+// 데이터
+var arr = [200, 100, 300];
+arr.splice(2, 0, 1000);
+console.log(arr);
+
+// 출력
+// [200, 100, 10000, 300]
+
+
 // 3. 변수 타입 1
 let arr = [100, 200, 300];
 console.log(typeof(arr));
@@ -45,7 +65,6 @@ console.log(a+b);
 
 // 8. 객체의 키 이름 중복
 // 자바스크립트 객체를 다음과 같이 만들었다. 출력값을 입력하시오. (출력값은 공백을 넣지 않습니다.)
-
 var d = {
   'height':180,
   'weight':78,
@@ -80,3 +99,46 @@ console.log(result);
 
 //출력
 //2019/04/26 11:34:27
+
+// 11. for를 이용한 기본 활용
+// 1부터 100까지 모두 더하는 Code를 <pass> 부분에 완성하세요. `for`를 사용해야 합니다.
+
+let s = 0;
+
+for (let i=1; i<=100; i++) {
+  s += i;
+}
+
+console.log(s);
+
+// 13. 몇 번째 행성인가요?
+const order = prompt('숫자 1을 누르세요.');
+switch (order) {
+  case '1':
+    console.log('수성');
+    break;
+  case '2':
+    console.log('금성');
+    break;
+  case '3':
+    console.log('지구');
+    break;
+  case '4':
+    console.log('화성');
+    break;
+  case '5':
+    console.log('목성');
+    break;
+  default:
+    console.log('1~5까지 눌러주세요.');
+    break;
+}
+
+// const planets = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성'];
+// const n = prompt('몇 번째 행성인가요?');
+// console.log(planets[n-1]);
+
+// 17. 놀이기구 키 제한
+const height = prompt('키를 적어주세요.');
+let progrss = ( height >= 150 ? 'YES' : 'NO');
+let result = alert(progrss);
