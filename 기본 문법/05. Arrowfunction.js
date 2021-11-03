@@ -11,3 +11,8 @@
 // naming: doSomething, command, verb
 // e.g. createCardAndPoint -> createCard, createPoint
 // function is object in JS
+
+function printHello() {
+  console.log('Hello');
+}
+printHello();
