@@ -138,6 +138,8 @@ switch (order) {
 // const n = prompt('몇 번째 행성인가요?');
 // console.log(planets[n-1]);
 
+// 14.
+
 // 17. 놀이기구 키 제한
 const height = prompt('키를 적어주세요.');
 let progrss = ( height >= 150 ? 'YES' : 'NO');
