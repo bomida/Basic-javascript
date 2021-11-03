@@ -22,3 +22,7 @@ function log(message) {
 }
 log('Hello!');
 log(123);
+
+// 2. Parameters
+// premitive parameters: passed by value
+// object parameters: passed by reference
