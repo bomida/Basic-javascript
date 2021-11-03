@@ -58,3 +58,25 @@ console.log(d['weight']);
 // answer : 84 - 제일 마지막 값이 출력된다.
 
 // 9. concat을 활용한 출력 방법
+//데이터
+let year = '2019';
+let month = '04';
+let day = '26';
+let hour = '11';
+let minute = '34';
+let second = '27';
+
+// mine
+// let result = [year, month, day, hour, minute, second];
+// let i = result;
+// for (i = 0; i < i.length; i++) {
+//   document.write('<p>'+'/'+ result +'</p>');
+// }
+
+// answer
+let result = year.concat(`/${month}/${day}/ ${hour}:${minute}:${second}`);
+
+console.log(result);
+
+//출력
+//2019/04/26 11:34:27
