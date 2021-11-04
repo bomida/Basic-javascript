@@ -93,3 +93,5 @@ Math. max(1, 2, 3, 4, 5); // 5
 (12345).toString(); // '12345' - 숫자를 문자열로 변경
 (12345).toLocaleString(); // '12,345' - 숫자를 천 단위로 끊기
 console.log((1.2345).toFixed(2)); // '1.23' - 두번째 소수점 까지 보이기
+
+// 출처 : https://helloworldjavascript.net/pages/130-number.html#number-타입의-메소드
