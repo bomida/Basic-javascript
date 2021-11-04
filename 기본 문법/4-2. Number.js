@@ -81,9 +81,15 @@ Math.min
 Math.random
 
 // practice
-
 console.log(Math.cos(Math.PI)); // -1
 console.log(Math.log(Math.E)); // 1
 Math.round(0.5); // 1
 console.log(Math.random()*10); // 0 ~ 1 사이의 값이 임의로 변환됩니다.
 Math. max(1, 2, 3, 4, 5); // 5
+
+// number 타입의 메소드
+// numeber 타입은 객체가 아니지만, 마치 객체처럼 메소드를 사용할 수 있다.
+// Javascript가 래퍼 객체(Wrapper object)라는 기능을 제공하기 때문
+(12345).toString(); // '12345' - 숫자를 문자열로 변경
+(12345).toLocaleString(); // '12,345' - 숫자를 천 단위로 끊기
+console.log((1.2345).toFixed(2)); // '1.23' - 두번째 소수점 까지 보이기
