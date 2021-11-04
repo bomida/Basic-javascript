@@ -95,6 +95,77 @@ Math. max(1, 2, 3, 4, 5); // 5
 console.log((1.2345).toFixed(2)); // '1.23' - 두번째 소수점 까지 보이기
 
 // *********************String*********************
+'hello' === "hello"; // true
+
+// 템플릿 리터럴(Template Literal)
+`hello world`
+
+const name1 = 'Foo';
+const name2 = 'Bar';
+const sentence = `${name1} meets ${name2}`;
+console.log(sentence);
+
+// 문자열과 연산자
+// 문자열 연결하기
+'hello' + 'world'; // 'helloworld'
+
+// 등호 비교
+'hello' === 'hello'; // true
+'hello' !== 'hello'; // false
+
+// 유니코드 코드포인트 비교. 앞에서부터 한 글자씩 차례대로 비교합니다.
+'a' < 'b'; // true
+'aaa' < 'abc'; // true
+'a' < 'Z'; // false
+'한글' < '한국어'; // false
+'2' < '10'; // false
+
+// 문자열을 배열로 바꾸기
+[...'hello']; // ['h', 'e', 'l', 'l', 'o']
+
+// 유니코드 코드포인트 비교는 사전순 비교가 아니므로 주의해야 함.
+// 사전순 비교를 하려면 localCompare 메소드를 사용
+
+'b'.localeCompare('a'); // 1
+'b'.localeCompare('b'); // 0
+'b'.localeCompare('z'); // -1
+'b'.localeCompare('Z'); // -1
+'가나다'.localeCompare('마바사'); // -1
+
+// 속성 및 메소드
+// number 타입과 마찬가지로 string 타입도 래퍼 객체의 속성과 메소드를 사용할 수 있다.
+
+// 문자열의 길이 알아내기
+'hello'.length; // 5
+
+// 여러 문자열 연결하기
+'hello'.concat('fun', 'javascript'); // 'hellojjavascript'
+
+// 특정 문자열이 포함되어 있는지 확인하기
+'hello javascript'.includes('hello'); // true
+'hello javascript'.startsWith('he'); // true
+'hello javascript'.endsWith('ript'); // true
+'hello javascript'.indexOf('java'); // 6 - 0부터 카운트
+
+// 문자열의 일부를 잘라낸 새 문자열 생성하기
+'hello javascript'.replace('java', 'type'); // 'hello typescript'
+
+// 문자열의 일부를 잘라낸 새 문자열 생성하기
+'hello'.slice(0, 2); // - begin ~ end 전까지의 배열 자르기
+
+// 좌우 공백문자를 제거한 새 문자열 생성하기
+' hello '.trim(); // 'hello'
+' hello '.trimLeft(); // 'hello '
+' hello '.trimRight(); // ' hello'
+
+// 좌우 공백문자를 추가한 새 문자열 생성하기
+console.log('hello'.padStart(8, '*')); // ***hello - 특정 문자열 왼쪽에 새로운 문자열의 길이에 대한 차이 값으로 채워 넣을 문자열를 지정
+console.log('hello'.padEnd(8, '*')); // hello*** - 특정 문자열 오른쪽에 새로운 문자열을 지정
+
+// 문자열을 특정 문자를 기준으로 잘라 새 배열 생성하기
+'Hello Javascript'.toLowerCase(); // 'hello javascript'
+'Hello Javascript'.toUpperCase(); //  'HELLO JAVASCRIPT'
+
 
 
 
