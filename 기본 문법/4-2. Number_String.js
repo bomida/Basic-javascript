@@ -1,5 +1,5 @@
 'use strict';
-
+// *********************Number*********************
 // isNaN
 // NaN은 JavaScript의 값들 중 유일하게 자기 자신과 같지 않은 값입니다.
 // 따라서 어떤 값이 NaN인지 판별하기 위해서는 Number.isNaN 또는 Object.is 함수를 사용
@@ -94,4 +94,11 @@ Math. max(1, 2, 3, 4, 5); // 5
 (12345).toLocaleString(); // '12,345' - 숫자를 천 단위로 끊기
 console.log((1.2345).toFixed(2)); // '1.23' - 두번째 소수점 까지 보이기
 
-// 출처 : https://helloworldjavascript.net/pages/130-number.html#number-타입의-메소드
+// *********************String*********************
+
+
+
+
+// 출처
+// Number-type https://helloworldjavascript.net/pages/130-number.html#number-타입의-메소드
+// String-type https://helloworldjavascript.net/pages/140-string.html
