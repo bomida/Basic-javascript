@@ -46,6 +46,11 @@ console.log(age);
 const daysInWeek = 7;
 const maxNumber = 5;
 
+// DO NOT use like this!
+// const notAssigned;
+// const assigned = 1;
+// assigned = 2;
+
 // Note!
 // Immutable data types: premitive types, frozen objects (i.e. object.freeze())
 // Mutable data types: all objects by default are mutable in JS
@@ -53,6 +58,14 @@ const maxNumber = 5;
 // - security
 // - thread safety
 // - reduce human mistakes
+
+// let과 const 모두 한 번에 여러 개의 변수를 선언하는 문법을 지원합니다.
+let one = 1, two = 2, nothing;
+const three = 3, four = 4;
+
+// let과 const로 선언한 이름은 다시 선언될 수 없습니다.
+// let seven = 7;
+// let seven = 77;
 
 // 4. Variable types
 // primitive, single item: number, string, boolean, null, undefined, symbol - 더이상 작은 단위로 나눠질 수 없는 한가지 아이템

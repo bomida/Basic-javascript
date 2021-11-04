@@ -13,8 +13,8 @@ console.log(1 + 1); // add
 console.log(1 - 1); // substract
 console.log(1 / 1); // divide
 console.log(1 * 1); // multiply
-console.log(5 % 2); // remainder
-console.log(2 ** 3); // exponentiation
+console.log(5 % 2); // remainder: 나머지
+console.log(2 ** 3); // exponentiation: 거듭제곱
 
 // 3. Increment and decrement operators
 let counter = 2;
@@ -46,10 +46,10 @@ x *= y;
 x /= y;
 
 // 5. Comparison operators
-console.log(10 < 6); // less than - 10이 6보다 작니
-console.log(10 <= 6); //less than or equal - 10이 6보다 작거나 같니
-console.log(10 > 6); //greater than - 10이 6보다 크니
-console.log(10 >= 6); //greater than or equal - 10이 6보다 크거나 같니
+console.log(10 < 6); // less than - 10이 6보다 작다
+console.log(10 <= 6); //less than or equal - 10이 6보다 작거나 같다
+console.log(10 > 6); //greater than - 10이 6보다 크다
+console.log(10 >= 6); //greater than or equal - 10이 6보다 크거나 같다
 
 // 6. Logical operators: || (or), && (and), ! (not)
 const value1 = false;
@@ -199,3 +199,17 @@ for (let i = 0; i < 11; i++) {
   }
   console.log(`Q2: ${i}`);
 }
+
+// Infinity
+// 어떤 값이 infinity인지 아닌지 판별하려면, Number.isFinite 메소드를 사용
+Number.isFinite(1); // true
+Number.isFinite(Infinity); // false
+Number.isFinite('1'); // false
+isFinite('1'); // true - `isFinite`는 문자열을 숫자로 변환합니다.
+
+// parseInt, parseFloat
+// 문자열을 numeber 타입으로 바꾸기 위해  parseInt 혹은 parseFloat 함수를 사용
+
+parseInt('123');
+const parsed = parseInt('110', 2);
+console.log(parsed);
