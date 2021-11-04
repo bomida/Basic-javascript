@@ -50,3 +50,63 @@ console.log(false ? 1 : 2) // 2
 // let age = prompt('나이를 적으시오');
 // let limit = age > 18;
 // alert( limit ? 'beer' : 'juice');
+
+// 논리 연산의 여러 가지 법칙
+// a, b, c가 **모두 boolean 타입** 이라고 할 때,
+// 다음 식의 결과값을 a, b, c의 값과 관계 없이 모두 true
+
+// 이중 부정
+// !!a === a;
+
+// // 교환 법칙
+// a || b === b || a;
+// a && b === b && a;
+
+// // 결합 법칙
+// (a || b) || c === a || (b || c);
+// (a && b) && c === a && (b && c);
+
+// // 분배 법칙
+// a || (b && c) === (a || b) && (a || c);
+// a && (b || c) === (a && b) || (a && c);
+
+// // 흡수 법칙
+// a && (a || b) === a;
+// a || (a && b) === a;
+
+// // 드 모르간의 법칙
+// !(a || b) === !a && !b;
+// !(a && b) === !a || !b;
+
+// // 그 밖에...
+// a || true === true;
+// a || false === a;
+// a && true === a;
+// a && false === false;
+
+// a || !a === true;
+// a && !a === false;
+
+// a || a === a;
+// a && a === a;
+
+// truthy & falsy
+// JS에서는 boolean 타입이 와야하는 자리에 다른 타입의 값이 와도 에러가 나지않고 실행됨.
+
+if (1) {
+  console.log('이 코드는 실행됩니다.');
+}
+if (0) {
+  console.log('이 코드는 실행되지 않습니다.');
+}
+
+// JS에서는 아래의 값들은 모두 falsy이고, 이를 제외한 모든 값들은 truthy
+// truthy와 falsy를 활용하면 짧은 코드를 작성할 수 있지만, 코드의 의미가 불분명해 지거나 논리적으로 놓치는 부분이 생길 수 있기 때문에 주의해서 사용
+// false / null / undefined / 0 / NaN / ''
+
+// 다른 타입의 값을 진리값으로 변환하기
+// 어떤 값을 명시적으로 boolean 타입으로 변환해야 할 때가 있는데, 그 때에는 두가지 방법이 있다.
+!!'hello'; // true
+Boolean('hello'); // true
+
+// 부정 연산자(!) 뒤의 값이 truthy면 false, falsy이면 true를 반환하는 성질을 이용해서 이중 부정을 통해 값을 boolean 타입으로 변환할 수 있다.
