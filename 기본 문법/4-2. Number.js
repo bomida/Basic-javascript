@@ -1,6 +1,5 @@
 'use strict';
 
-
 // isNaN
 // NaN은 JavaScript의 값들 중 유일하게 자기 자신과 같지 않은 값입니다.
 // 따라서 어떤 값이 NaN인지 판별하기 위해서는 Number.isNaN 또는 Object.is 함수를 사용
