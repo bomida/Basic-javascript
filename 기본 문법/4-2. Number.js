@@ -41,7 +41,7 @@ isFinite('1'); // true - `isFinite`는 문자열을 숫자로 변환합니다.
 parseInt('123'); // 123
 parseInt('110', 2); // 6
 parseInt('Hello'); // NaN
-console.log(parseFloat('12.345'));
+// console.log(parseFloat('12.345'));
 
 // const input = prompt('정수를 입력하세요.');
 // const num = parseInt(input);
@@ -79,3 +79,11 @@ Math.min
 
 // 랜덤
 Math.random
+
+// practice
+
+console.log(Math.cos(Math.PI)); // -1
+console.log(Math.log(Math.E)); // 1
+Math.round(0.5); // 1
+console.log(Math.random()*10); // 0 ~ 1 사이의 값이 임의로 변환됩니다.
+Math. max(1, 2, 3, 4, 5); // 5
