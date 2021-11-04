@@ -19,6 +19,13 @@ let globalName = 'global name';
 console.log(name);
 console.log(globalName);
 
+//let 변수를 대입하는 방법 
+let eight;
+eight = 8;
+let seven = 7;
+seven = 77;
+seven = 777;
+
 // var (don't ever use this!)
 // var hoisting (move declaration from bottom to top)
 // 끌어 올려주다. : 어디에 선언 했느냐에 상관없이, 항상 제일 위로 선언을 끌어올려주는 것
