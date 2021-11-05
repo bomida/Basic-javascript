@@ -76,6 +76,7 @@ Math.trunc // 소수점 아래 잘라내기
 let randomNum = Math.random()*10;
 let trunc = Math.trunc(randomNum);
 console.log(trunc);
+
 // 최대값, 최소값
 Math.max
 Math.min
@@ -89,6 +90,14 @@ console.log(Math.log(Math.E)); // 1
 Math.round(0.5); // 1
 console.log(Math.random()*10); // 0 ~ 1 사이의 값이 임의로 변환됩니다.
 Math. max(1, 2, 3, 4, 5); // 5
+
+// 난수 생성함수(범위지정)
+function makeRandom(min, max){
+  let randNum = Math.floor(Math.random()*(max-min+1)) + min;
+  return randNum;
+}
+
+console.log(makeRandom(1,6));
 
 // number 타입의 메소드
 // numeber 타입은 객체가 아니지만, 마치 객체처럼 메소드를 사용할 수 있다.
@@ -142,7 +151,7 @@ console.log(sentence);
 'hello'.length; // 5
 
 // 여러 문자열 연결하기
-'hello'.concat('fun', 'javascript'); // 'hellojjavascript'
+console.log('hello'.concat(' fun', ' javascript')); // 'hellojavascript'
 
 // 특정 문자열이 포함되어 있는지 확인하기
 'hello javascript'.includes('hello'); // true
