@@ -1,7 +1,7 @@
 'use strict';
 
 // 함수 선언
-function doSomething(add ) {
+function doSomething(add) {
   const result = add(2, 3);
   console.log(result);
 }
