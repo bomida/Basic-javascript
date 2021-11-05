@@ -74,9 +74,8 @@ Math.round // 반올림
 Math.trunc // 소수점 아래 잘라내기
 
 let randomNum = Math.random()*10;
-let totalNum = Math.trunc(randomNum, 2);
-console.log(totalNum);
-
+let trunc = Math.trunc(randomNum);
+console.log(trunc);
 // 최대값, 최소값
 Math.max
 Math.min
