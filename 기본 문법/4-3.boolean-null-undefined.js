@@ -110,3 +110,45 @@ if (0) {
 Boolean('hello'); // true
 
 // 부정 연산자(!) 뒤의 값이 truthy면 false, falsy이면 true를 반환하는 성질을 이용해서 이중 부정을 통해 값을 boolean 타입으로 변환할 수 있다.
+
+
+// Null and undefined
+// JS에는 '없음'을 나타내는 값이 null과 undefined가 있습니다. 각각이 상요되는 목적와 장소가 다름
+
+// 값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환
+// let foo;
+foo // undefined
+
+const obj = {};
+obj.prop; // undefined
+
+// null은 '객체가 없음'을 나타냄. 실제로 typeof연산을 해보면 아래와 같은 값을 반환
+typeof null // 'object'
+typeof undefined // 'undefined'
+
+let foo; // 값을 대입한 적 없음
+let bar = undefined; // 값을 대입함
+foo; // undefined
+bar; // undefined
+
+let obj1 = {}; // 속성을 지정하지 않음
+let obj2 = {prop: undefined}; // 속성을 지정함
+obj1.prop; // undefined
+obj2.prop; // undefined (??)
+
+// 이렇게 하는 경우는 많지 않습니다.
+{
+  name: 'Seungha',
+  address: null
+}
+
+// 그냥 이렇게 하는 경우가 많습니다.
+{
+  name: 'Seungha'
+}
+
+// 어쨌든 이렇게 하지는 말아주세요.
+{
+  name: 'Seungha',
+  address: undefined
+}
