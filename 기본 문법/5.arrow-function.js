@@ -99,13 +99,35 @@ function upgradeUser(user) {
 // can be returned by another function
 
 // 1. Function expression
-// a function declaration can be called earlier than it is defined. (hoisting)
+// a function declaration can be called earlier than it is defined. (hoisted)
 // a function expression is created when the execution reaches it.
 const print = function () { // anonymous function: 이름이 없는 함수
   console.log('print');
 }
-print();
+print(); // first print
 const printAgain = print;
-printAgain();
+printAgain(); // second print
 const sumAgain = sum;
-console.log(sumAgain(1, 3));
+console.log(sumAgain(1, 3)); // 4 
+
+// 2. Callback function using function expression
+function randomQuiz(answer, printYes, printNo) {
+  if (answer === 'love you') {
+    printYes();
+  } else {
+    printNo();
+  }
+}
+// anonymouse function
+const printYes = function () {
+  console.log('YES!');
+}
+
+// named function
+// better debugging in debugger's stack traces
+// recursions
+const printNo = function print() {
+  console.log('NO:(');
+}
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
