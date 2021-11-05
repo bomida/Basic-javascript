@@ -56,3 +56,56 @@ function printAll(...args) {
 printAll('earth', 'mercury', 'mars', 'venus');
 
 // ...args: rest parameters - 배열 형태로 전달
+
+// 5. Local scope
+// 밖에서는 안이 보이지 않고, 안에서만 밖을 볼 수 있다.
+let globalMessage = 'global'; // global bariable
+function printMessage() {
+  let message = 'hello';
+  console.log(message); // local variable
+  console.log(globalMessage);
+  // return undefined; // 생략 가능
+}
+printMessage();
+
+// 6. Return a value
+function sum(a, b) {
+  return a + b;
+}
+const result = sum(1, 2); // 3
+console.log(`sum: ${sum(1, 2)}`);
+
+// 7. Early return, early exit
+// bad way
+function upgradeUser(user) {
+  if (user.point > 10) {
+    // long upgrade logic...
+  }
+}
+
+// good way
+function upgradeUser(user) {
+  if (user.point <= 10) {
+    return;
+  }
+  // long upgrade logic...
+}
+
+
+// First-class function
+// functions are treated like any other variable
+// can be assigned as a value to variable
+// can be passed as an argument to other function.
+// can be returned by another function
+
+// 1. Function expression
+// a function declaration can be called earlier than it is defined. (hoisting)
+// a function expression is created when the execution reaches it.
+const print = function () { // anonymous function: 이름이 없는 함수
+  console.log('print');
+}
+print();
+const printAgain = print;
+printAgain();
+const sumAgain = sum;
+console.log(sumAgain(1, 3));
