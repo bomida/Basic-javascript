@@ -117,10 +117,10 @@ Boolean('hello'); // true
 
 // 값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환
 // let foo;
-foo // undefined
+// foo // undefined
 
-const obj = {};
-obj.prop; // undefined
+// const obj = {};
+// obj.prop; // undefined
 
 // null은 '객체가 없음'을 나타냄. 실제로 typeof연산을 해보면 아래와 같은 값을 반환
 typeof null // 'object'
@@ -137,18 +137,54 @@ obj1.prop; // undefined
 obj2.prop; // undefined (??)
 
 // 이렇게 하는 경우는 많지 않습니다.
-{
-  name: 'Seungha',
-  address: null
+// {
+//   name: 'Seungha',
+//   address: null
+// }
+
+// // 그냥 이렇게 하는 경우가 많습니다.
+// {
+//   name: 'Seungha'
+// }
+
+// // 어쨌든 이렇게 하지는 말아주세요.
+// {
+//   name: 'Seungha',
+//   address: undefined
+// }
+
+// Null Check
+// 어떤 값이 null or undefined인지 확인하는 작업
+// null이나 undefined는 어떤 변수에도, 어떤 속성에도 들어있을 수 있기 때문에
+// 코드를 짤 때 값이 있는 경우와 없는 경우 (즉, null or undefined인 경우)를 모두 고려해야함
+
+function printIfNotNull(input){
+  if (input !== null && input !== undefined) {
+    console.log(input);
+  }
 }
 
-// 그냥 이렇게 하는 경우가 많습니다.
-{
-  name: 'Seungha'
-}
+// 아래 세 개의 식은 완전히 같은 의미입니다.
+input !== null && input !== undefined;
+input !== null;
+input !== undefined;
 
-// 어쨌든 이렇게 하지는 말아주세요.
-{
-  name: 'Seungha',
-  address: undefined
-}
+// 아래 세 개의 식은 완전히 같은 의미입니다.
+input === null || input === undefined;
+input == null;
+input == undefined;
+
+// === - strict equality comparison operator
+// ==  - abstract equality comparison operator
+
+null === undefined; // false
+null == undefined; // true
+
+null == 1; // false
+null == 'hello'; // false
+null == false; // false
+
+undefined == 1; // false
+undefined == 'hello'; // false
+undefined == false; // false
+
