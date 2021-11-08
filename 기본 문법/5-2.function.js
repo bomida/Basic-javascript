@@ -100,13 +100,70 @@ console.log(add5(x));
 // 안쪽 스코프에서는 바깥쪽 스코프에 있는 이름이 무시됨. - 변수 가리기(Variable Shadowing)
 
 // 어휘적 스코핑(Lexical Scoping)
-// 스코프는 코드가 작성된 구조에 의해서 결정되는 것이지, 함수 호출의 형태에 의해 결정되는 것이 아님.
+// 스코프는 코드가 작성된 구조에 의해서 결정되는 것이지, 함수 호출의 형태에 의해 결정되는 것이 아님. (아래 예시 참고)
 function add6(x) {
   const six = 6;
-  return add(x);
+  return add2(x);
 }
 add6(3); // 9
 
-function add(x) {
+function add2(x) {
   return six + x; // ReferenceError: Can't find variable: five
 }
+
+// 스코프는 코드가 작성된 구조에 의해 결정되는 성질이다. 위 코드를 동작 시키기 위해서는 아래와 같이 수정이 필요함.
+function add6(x) {
+  const six = 6;
+  function add2(x) {
+    return six + x;
+  }
+  return add2(x);
+}
+add6(3); // 9
+
+
+// 값으로서의 함수
+// JS에서는 함수도 값이다.
+function add(x, y) {
+  return x + y;
+}
+const  plus = add;
+plus(1, 2); // 3
+// 다른 값과 마찬가지로, 함수를 선언한 뒤 변수에 대입해서 호출할 수도 있고, 배열이나 객체에 넣을 수도 있고, 심지어 함수를 다른 함수에 인수로 넘기거나, 함수에서 함수를 반환할 수도 있다.
+
+// 함수를 배열이나 객체에 넣기
+function add(x, y) {
+  return x + y;
+}
+[add];
+{addFunc: add};
+
+// 함수를 인수로 넘기기
+function isEven(x) {
+  return x % 2 === 0;
+}
+[1, 2, 3, 4, 5].filter(isEven); // [2, 4]
+
+// 함수에서 함수 반환하기
+function createEmptyFunc() {
+  function func() {}
+  return func;
+}
+// 컴퓨터 과학 분야에서 사용되는 용어 중 1급 시민(First-Class Citizen)이라는 특이한 용어가 있습니다. 값으로 사용할 수 있는 JS의 함수는 1급 시민입니다. (1급 시민인 함수를 줄여서 1급함수라 부름)
+
+
+// 익명 함수(Anonymous Function)
+// JS에서 함수를 선언할 때 꼭 이름을 붙여줘야하는 것은 아님.
+// 이름을 붙이지 않은 함수를 가지고 익명 함수(Anonymous Function) or 함수 리터럴(Function literal)이라 한다.
+
+// 두 수를 더해서 반환하는 익명 함수
+function (x, y) {
+  return x + y;
+}
+// 위의 익명 함수는 이름이 없어서 이름을 가지고 호출을 할 수 없다.
+
+// 호출을 하려면 변수에 저장한 후에 변수의 이름을 통해 호출해야함.
+const add3 = function(x, y) {
+  return x + y;
+}
+add3(1, 2); // 3
