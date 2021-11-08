@@ -73,3 +73,40 @@ function add5(x) {
 }
 add5(3); // 8
 
+// 함수가 여러 겹 중첩(nested)되어 있다고 하더라도 가능함.
+const four = 4;
+function add4(x) {
+  function add(y) {
+    return x + y;
+  }
+  return add(four);
+}
+console.log(add4(3)); // 7
+// 식별자와 같은 이름을 갖는 변수를 현재 스코프에서 찾아본 뒤, 변수가 존재하면 그것을 그대로 사용.
+// 만약 현재 스코프에서 변수를 찾지 못하면 바로 바깥 스코프에서 변수를 찾보고 없으면 또 올라가서 찾아보는 과정을 되풀이한다. - 이러한 과정을 스코프 연쇄라 한다.
+// 가장 바깥에 있는 스코프를 최상위 스코프(top-level scope) or 전역 스코프(global scope) - 위 코드 상에서는 four가 정의된 스코프가 전역 스코프임.
+
+// 변수 가리기 (Varialbe Shadowing)
+// 단일 스코프에서는 같은 이름을 갖는 서로 다른 변수가 존재할 수 없다. 하지만 스코프 연쇄가 일어나면 이야기가 달라진다.
+const x = 3;
+function add5(x) { //'x'라는 변수가 다시 정의됨
+  function add(x, y) { // 'x'라는 변수가 다시 정의됨
+    return x + y;
+  }
+  return add(x, 5);
+}
+console.log(add5(x));
+// 바깥쪽 스코프에 존재하는 변수과 같은 이름을 같은 변수를 안쪽 스코프에서 정의 할 수 있다.
+// 안쪽 스코프에서는 바깥쪽 스코프에 있는 이름이 무시됨. - 변수 가리기(Variable Shadowing)
+
+// 어휘적 스코핑(Lexical Scoping)
+// 스코프는 코드가 작성된 구조에 의해서 결정되는 것이지, 함수 호출의 형태에 의해 결정되는 것이 아님.
+function add6(x) {
+  const six = 6;
+  return add(x);
+}
+add6(3); // 9
+
+function add(x) {
+  return six + x; // ReferenceError: Can't find variable: five
+}
