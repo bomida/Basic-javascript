@@ -1,19 +1,19 @@
 
 // 1. 배열의 삭제
 //다음 배열에서 400, 500를 삭제하는 code를 입력하세요.
-var nums = [100, 200, 300, 400, 500];
-nums.pop();
-nums.pop();
-console.log(nums);
+// var nums = [100, 200, 300, 400, 500];
+// nums.pop();
+// nums.pop();
+// console.log(nums);
 
 
 // 2. 배열의 내장함수
 // <pass>부분에 배열 내장함수를 이용하여 코드를 입력하고 다음과 같이 출력되게 하세요.
 
 // 데이터
-var arr = [200, 100, 300];
-arr.splice(2, 0, 1000);
-console.log(arr);
+// var arr = [200, 100, 300];
+// arr.splice(2, 0, 1000);
+// console.log(arr);
 
 // 출력
 // [200, 100, 10000, 300]
@@ -157,8 +157,18 @@ console.log(arr);
 // console.log(planets[n-1]);
 
 
-// 14.
+// 14. 3의 배수 인가요?
+// 영희는 친구와 게임을 하고 있습니다. 서로 돌아가며 랜덤으로 숫자를 하나 말하고 그게 3의 배수이면 박수를 치고 아니면 그 숫자를 그대로 말하는 게임입니다.
+// 입력으로 랜덤한 숫자 n이 주어집니다.
+// 만약 그 수가 3의 배수라면 '짝'이라는 글자를, 3의 배수가 아니라면 n을 그대로 출력해 주세요.
 
+const ranNum = Math.floor(Math.random()*10);
+console.log(ranNum);
+for (let i = 0; i < ranNum; i++) {
+  if (i % 2 === 1 ) {
+    
+  } 
+}
 
 // 17. 놀이기구 키 제한
 // const height = prompt('키를 적어주세요.');
