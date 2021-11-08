@@ -157,9 +157,9 @@ function createEmptyFunc() {
 // 이름을 붙이지 않은 함수를 가지고 익명 함수(Anonymous Function) or 함수 리터럴(Function literal)이라 한다.
 
 // 두 수를 더해서 반환하는 익명 함수
-function (x, y) {
-  return x + y;
-}
+// function (x, y) {
+//   return x + y;
+// }
 // 위의 익명 함수는 이름이 없어서 이름을 가지고 호출을 할 수 없다.
 
 // 호출을 하려면 변수에 저장한 후에 변수의 이름을 통해 호출해야함.
@@ -167,3 +167,9 @@ const add3 = function(x, y) {
   return x + y;
 }
 add3(1, 2); // 3
+
+// 익명 함수는 함수를 만든 쪽이 아니라 다른 쪽에서 그 함수를 호출할 때 많이 사용됨.
+// 대표적인 경우는 함수를 인수로 넘겨줄 때 
+[1, 2, 3, 4, 5].filter(function(x) {
+  return x % 2 === 0;
+}); // [2, 4]
