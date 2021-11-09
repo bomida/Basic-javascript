@@ -54,4 +54,30 @@ function game() {
     }
   }
 }
-game();
+// game();
+
+// 위와 같이 if...else 구문이 단순히 중첩된 경우라면 바깥쪽 else의 중괄호(culry brace)를 생략할 수 있다.
+// if (result >= 5) {
+//   alert('당신이 이겼습니다.');
+// } else if (result >= 3) {
+//   alert('비겼습니다.');
+// } else {
+//   alert('당신이 졌습니다.');
+// }
+
+// 경우의 수가 많은 경우에는 if...else 구문을 아래와 같이 계속 이어나갈 수 있다.
+function translateColor(english) {
+  if (english === 'red') {
+    return '빨간색';
+  } else if (english === 'blue') {
+    return '파란색';
+  } else if (english === 'purple' || english === 'violet') {
+    return '보라색';
+  } else {
+    return '일치하는 색깔이 없습니다.';
+  }
+}
+
+
+// switch 구문
+// 바로 위의 예제와 같이 하나의 변수에 대해 많은 경우의 수가 있는 경우, switch 구문을 사용하면 깔끔하게 만들 수 있다.
