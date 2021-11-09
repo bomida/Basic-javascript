@@ -180,3 +180,18 @@ const arr3 = ['🍅', '🍇', '🍈', '🍉', '🍊'];
 for (let item of arr3) {
   console.log(`현재 요소는 ${item} 입니다.`);
 }
+
+
+// break, continue
+// 간혹 루프를 도중에 멈추거나 남은 코드를 건너뛰어버리고 루프의 다음번 차례로 넘어가야할 필요가 있을 때 사용
+alert(`퀴즈를 시작합니다.`);
+while (true) {
+  const answer = prompt(`빨강의 보생은 무엇일까요?`);
+  if (answer === '초록','초록색') {
+    alert(`정답입니다! 👏`);
+    break; // 루프를 종료하고 다음 코드로 넘어감
+  } else {
+    alert(`틀렸습니다! 다시 시도해보세요😢`);
+  }
+}
+alert(`퀴즈가 끝났습니다.`);
