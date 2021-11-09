@@ -81,3 +81,27 @@ function translateColor(english) {
 
 // switch 구문
 // 바로 위의 예제와 같이 하나의 변수에 대해 많은 경우의 수가 있는 경우, switch 구문을 사용하면 깔끔하게 만들 수 있다.
+function translateColor(english) {
+  let result;
+  switch (english) {
+    case 'red':
+      result = '빨간색';
+      break;
+    case 'blue':
+      result = '파란색';
+      break;
+    case 'purple':
+      result = '보라색';
+      break;
+    case 'violet':
+      result = '보라색';
+      break;
+    default:
+      result = '일치하는 색깔이 없습니다.';
+  }
+  return result;
+}
+// switch 구문은 case, break, default 라는 키워드와 함께 사용한다.
+// switch 바로 뒤의 괄호의 값이 '코드 실행 여부를 판별할 기준이 되는 값'이고, 이 기준이 되는 값과 case 바로 뒤에 오는 값이 일치1하면 콜론(:) 뒤의 코드 영역이 실행된다. 일치하는 값이 없으면 default 코드 영역이 대신 실행된다.
+// 단, case 뒤쪽의 코드 영역 마지막에 break를 써주지 않으면, 해당 case가 실행될 때 바로 뒤의 case 코드 영역이 뒤이어 실행되게 된다. 예를 들어, 위 코드 예제에서 case 'blue': 부분의 break를 지우고 코드를 실행해보면 이런 결과가 나온다.
+console.log(translateColor('blue')); // '보라색'
