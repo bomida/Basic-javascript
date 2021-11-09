@@ -195,3 +195,11 @@ while (true) {
   }
 }
 alert(`퀴즈가 끝났습니다.`);
+
+for (let i = 1; i < 100; i++) {
+  console.log(`현재 숫자는 ${i} 입니다.`);
+  if ( i % 7 !== 0) {
+    continue; // 루프의 나머지 코드를 건너뜀
+  }
+  console.log(`${i}는 7의 배수 입니다.`);
+}
