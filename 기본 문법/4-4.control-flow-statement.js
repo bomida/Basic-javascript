@@ -203,26 +203,3 @@ for (let i = 1; i < 100; i++) {
   }
   console.log(`${i}는 7의 배수 입니다.`);
 }
-
-// 함수를 즉시 종료하기
-// return
-function translateColor(english) {
-  switch (english) {
-    case 'red': return '빨강색';
-    case 'blue': return '파랑색';
-    case 'purple':
-    case 'violet': return '보라색';
-    default: return '일치하는 색깔이 없습니다.';
-  }
-}
-
-// throw
-function translateColor(english) {
-  switch (english) {
-    case 'red': return '빨강색';
-    case 'blue': return '파랑색';
-    case 'purple':
-    case 'violet': return '보라색';
-    default: throw new Error('일치하는 색깔이 없습니다.');
-  }
-}
