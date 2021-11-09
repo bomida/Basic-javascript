@@ -165,13 +165,18 @@ console.log('루프가 종료되었습니다.');
 
 // 배열의 순회
 // ES5가 나오기 전까지는 for 구문이 배열을 순회하는 데에도 많이 사용됨
-const arr = [1, 2, 3, 4, 5];
+const arr = ['🍅', '🍇', '🍈', '🍉', '🍊'];
 for (let i = 0; i < arr.length; i++) {
   console.log(`배열의 ${i + 1} 번째 요소는 ${arr[i]} 입니다.`);
 }
 
 // 최근에는 위의 방법보다 forEach 메소드나 for...of 구문을 더 많이 사용함
-const arr2 = [1, 2, 3, 4, 5];
+const arr2 = ['🍅', '🍇', '🍈', '🍉', '🍊'];
 arr2.forEach((item, index) => {
   console.log(`배열의 ${index + 1} 번째 요소는 ${item} 입니다.`);
 });
+
+const arr3 = ['🍅', '🍇', '🍈', '🍉', '🍊'];
+for (let item of arr3) {
+  console.log(`현재 요소는 ${item} 입니다.`);
+}
