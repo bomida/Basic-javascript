@@ -205,6 +205,7 @@ for (let i = 1; i < 100; i++) {
 }
 
 // 함수를 즉시 종료하기
+// return
 function translateColor(english) {
   switch (english) {
     case 'red': return '빨강색';
@@ -215,6 +216,7 @@ function translateColor(english) {
   }
 }
 
+// throw
 function translateColor(english) {
   switch (english) {
     case 'red': return '빨강색';
