@@ -47,3 +47,13 @@ class User {
 const user1 = new User('Steve', 'Job', -1);
 console.log(user1.age);
 
+// 3. Fields (public, private);
+// Too soon!
+
+class Experiment {
+  publicField = 2;
+  #privateField = 0; // 앞에 해시를 붙이면 PrivateField가 되어 class 내부에서만 값이 보여지고, 변경 가능, 접근이 됨
+}
+const experiment = new Experiment();
+console.log(experiment.publicField);
+console.log(experiment.privateField);
