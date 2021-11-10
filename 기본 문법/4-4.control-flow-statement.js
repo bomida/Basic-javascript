@@ -214,3 +214,14 @@ function translateColor (english) {
     default: return '일치하는 색깔이 없습니다.';
   }
 }
+
+// throw
+function translateColor(english) {
+  switch (english) {
+    case 'red': return '빨간색';
+    case 'blue': return '파란색';
+    case 'purple':
+    case 'violet': return '보라색';
+    default: throw new Error('일치하는 색깔이 없습니다.');
+  }
+}
