@@ -104,6 +104,10 @@ class Triangle extends Shape {
   getArea() {
     return (this.width * this.height) / 2;
   }
+
+  toString() {
+    return `Triangle: color: ${this.color}`;
+  }
 }
 
 const rectangle = new Rectangle(20, 20, 'blue');
@@ -112,3 +116,11 @@ console.log(rectangle.getArea());
 const triangle = new Triangle(20, 20, 'red');
 triangle.draw();
 console.log(triangle.getArea());
+
+// 6. Class checking: instanceOf
+console.log(rectangle instanceof Rectangle); // t
+console.log(triangle instanceof Rectangle); // f
+console.log(triangle instanceof Triangle); // t
+console.log(triangle instanceof Shape); // t
+console.log(triangle instanceof Object); // t
+console.log(triangle.toString());
