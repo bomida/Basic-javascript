@@ -203,3 +203,14 @@ for (let i = 1; i < 100; i++) {
   }
   console.log(`${i}는 7의 배수 입니다.`);
 }
+
+// return
+function translateColor (english) {
+  switch (english) {
+    case 'red': return '빨간색';
+    case 'blue': return '파란색';
+    case 'purple':
+    case 'violet': return '보라색';
+    default: return '일치하는 색깔이 없습니다.';
+  }
+}
