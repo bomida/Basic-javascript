@@ -99,3 +99,18 @@ for(let i = 0; i< array.length; i++) {
 
 // 7. Fun cloning
 // Object.assign(dest, [obj1, obj2, obj3...])
+const user = { name: 'bomi', age: '20' };
+const user2 = user;
+user2.name = 'coder';
+console.log(user);
+
+// old way
+const user3 = {};
+for (let key in user) {
+  user3[key] = user[key];
+}
+console.clear();
+console.log(user3);
+
+const user4 = Object.assign({}, user);
+console.log(user4);
