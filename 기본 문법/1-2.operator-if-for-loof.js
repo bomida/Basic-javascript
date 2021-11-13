@@ -62,12 +62,21 @@ function check() {
   }
   return true;
 }
+// ?? (nullish coalescing operator) - 첫 번째 정의된(defined) 값을 반환합니다
+console.log(`??: ${value1 ?? value2 ?? check()}`);
 
 // || (or), finds the first truthy value - 처음으로 true가 나오면 멈춘다.
 console.log(`or: ${value1 || value2 || check()}`);
 
 // && (and), finds the first falsy value - 모두 true가 되어야 true로 리턴한다.
 console.log(`and: ${value1 && value2 && check()}`);
+
+// ??와 ||의 차이
+// 'height || 100'은 height에 0을 할당했지만 0을 false 값으로 취급했기 때문에 null이나 undefined를 할당한 것과 동일하게 처리한다.
+// 'height ?? 100'의 평가 결과는 height가 정확하게 null이나 undefined일 경우에만 100이 된다.
+let height = 0;
+console.log(height || 100); // 100
+console.log(height ?? 100); // 0
 
 // often used to compress long if-statement
 // nullableObject && nullableObject.something
