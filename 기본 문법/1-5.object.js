@@ -50,3 +50,28 @@ printValue(bomi, 'age');
 
 // 3. Property value shorthand
 // 다른 계산을 하지 않고 순수하게 오브젝트를 생성하는 함수들의 네이밍은 대문자로 시작
+const person1 = { name: 'bob', age: 2 };
+const person2 = { name: 'steve', age: 3 };
+const person3 = { name: 'dave', age: 4 };
+
+// 객체를 더 쉽게 만드는 법
+// function makePerson(name, age) {
+//   return {
+//     name,
+//     age,
+//   };
+// };
+// const person4 = makePerson('bomi', 5);
+// console.log(person4);
+
+// 4. Constructor Function
+// 오브젝트를 생성하는 함수를 만들 때에는 이름을 대문자로 시작하게 만든다.
+// 그리고 return을 사용하지 않고, this를 사용
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+const person4 = new Person('bomi', 5);
+console.log(person4);
+
+// 5. in operator: property existence check (key in obj)
