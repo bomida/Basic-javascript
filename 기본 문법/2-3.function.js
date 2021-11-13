@@ -79,7 +79,7 @@ function add4(x) {
   function add(y) {
     return x + y;
   }
-  return add(four);
+  return add(four); // y의 값
 }
 console.log(add4(3)); // 7
 // 식별자와 같은 이름을 갖는 변수를 현재 스코프에서 찾아본 뒤, 변수가 존재하면 그것을 그대로 사용.
