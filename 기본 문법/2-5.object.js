@@ -66,3 +66,5 @@ delete person3.address;
 'phoneNumber' in person3; // false
 console.log('name' in person3);
 console.log('phoneNumber' in person3);
+
+// 메소드 (Method)
