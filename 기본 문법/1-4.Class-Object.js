@@ -15,12 +15,12 @@ class Person {
     this.name = name;
     this.age = age;
   }
-  // methods
+  // methods (행동)
   speak() {
-    console.log(`${this.name} hello`);
+    console.log(`${this.name}, hello`);
   }
 }
-const bomi = new Person(`bomi`, 20);
+const bomi = new Person(`bomi`, 20); // 새로운 오브젝트를 만들 때에는 new라는 키워드 사용
 console.log(bomi.name);
 console.log(bomi.age);
 bomi.speak();
@@ -43,7 +43,6 @@ class User {
     this._age = value < 0 ? 0 : value;
   }
 }
-
 const user1 = new User('Steve', 'Job', -1);
 console.log(user1.age);
 
@@ -65,8 +64,6 @@ class Article {
   constructor(articleNumber) {
     this.articleNumber = articleNumber;
   }
-
-
   static printPublisher() {
     console.log(Article.publisher);
   }
