@@ -130,6 +130,18 @@ if (name === 'ellie') {
 // condition ? value1 : value2;
 console.log(name === 'ellie' ? 'yes' : 'no');
 
+let geustAge = prompt('나이를 입력하세요');
+
+let adult = (geustAge >= 18) ? true : false;
+
+if(geustAge >= 18) {
+  adult = true;
+  alert(`사용자의 나이가 18살 이상이므로 홈페이지 이용이 가능합니다.`);
+} else {
+  adult = false;
+  alert(`사용자의 나이가 ${geustAge}살 이므로 홈페이지를 이용할 수 없습니다.`);
+}
+
 // 10. Switch statement
 // use for multiple if checks
 // use for enum-like value check
