@@ -131,9 +131,7 @@ if (name === 'ellie') {
 console.log(name === 'ellie' ? 'yes' : 'no');
 
 let geustAge = prompt('나이를 입력하세요');
-
 let adult = (geustAge >= 18) ? true : false;
-
 if(geustAge >= 18) {
   adult = true;
   alert(`사용자의 나이가 18살 이상이므로 홈페이지 이용이 가능합니다.`);

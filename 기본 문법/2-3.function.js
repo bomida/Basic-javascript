@@ -12,13 +12,13 @@ add(2, 3); // 5 -> 함수 호출
 // 2, 3 - 인수(argument)
 
 // 실행 순서
-// 1 - 함수 정의
+// 1. 함수 정의
 function add (x, y) {
-  return x + y; // 3 - 함수 실행
+  return x + y; // 3. 함수 실행
 }
-// 2 - 함수 호출
+// 2. 함수 호출
 const result = add(2, 3);
-// 4- 나머지 코드 실행
+// 4. 나머지 코드 실행
 console.log(result);
 
 
