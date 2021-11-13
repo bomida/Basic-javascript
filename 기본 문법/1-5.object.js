@@ -75,3 +75,27 @@ const person4 = new Person('bomi', 5);
 console.log(person4);
 
 // 5. in operator: property existence check (key in obj)
+console.log('name' in bomi);
+console.log('age' in bomi);
+console.log('random' in bomi);
+console.log(bomi.random);
+
+// 6. for..in vs for..of
+// for (key in obj)
+console.clear();
+for (let key in bomi) {
+  console.log(key);
+}
+// for (value of iterable)
+const array = [1, 2, 3, 4];
+for (let value of array) {
+  console.log(value);
+}
+/*
+for(let i = 0; i< array.length; i++) {
+  console.log(array[i]);
+}
+*/
+
+// 7. Fun cloning
+// Object.assign(dest, [obj1, obj2, obj3...])
