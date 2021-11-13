@@ -38,3 +38,31 @@ const obj = {
   [propName]: 1
 };
 obj.prop; // 1
+
+// 점 표기법, 대괄호 표기법
+// 아래와 같이 속성 접근자(property accessor)를 이용해 이미 생성된 객체의 속성을 지정해줄 수도 있습니다.
+const person3 = {}; //빈 객체
+// 점 표기법 (Dot notation)
+person3.name = '도보미';
+person3.age = 20;
+person3.languages = ['Korean', 'English'];
+console.log(person3);
+
+// 대괄호 표기법 (Bracket notation)
+person['한국 나이'] = 20;
+
+// 속성 읽기
+person3.name = '신하경';
+person3.age = 20;
+
+// 새 속성 추가하기
+person.address = '서울특별시 강서구';
+
+// 속성 삭제하기
+delete person3.address;
+
+// 속성이 객체에 존재하는지 확인하기
+'name' in person3; // true
+'phoneNumber' in person3; // false
+console.log('name' in person3);
+console.log('phoneNumber' in person3);
