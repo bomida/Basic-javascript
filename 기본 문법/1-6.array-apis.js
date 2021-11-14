@@ -28,3 +28,22 @@ for (let fruit of fruits) {
 
 // e. forEach
 fruits.forEach((fruits) => console.log(`forEach: ${fruits}`));
+
+// 4. Addition, deletion, copy
+// push: add an item to the end
+fruits.push('🍓', '🍑');
+console.log(fruits);
+
+// pop: remove an item from the end
+fruits.pop();
+console.log(fruits);
+
+// unshift: add an item to the beginning
+fruits.unshift('🍓', '🍋');
+console.log(fruits);
+
+// shift: remove an item from the beginning
+fruits.shift();
+console.log(fruits);
+
+// note!! shift, unshift are slower than pop, push
