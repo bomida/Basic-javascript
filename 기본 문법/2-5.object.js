@@ -56,7 +56,7 @@ person3.name = '신하경';
 person3.age = 20;
 
 // 새 속성 추가하기
-person.address = '서울특별시 강서구';
+person3.address = '서울특별시 강서구';
 
 // 속성 삭제하기
 delete person3.address;
@@ -68,3 +68,36 @@ console.log('name' in person3);
 console.log('phoneNumber' in person3);
 
 // 메소드 (Method)
+console.clear();
+
+
+// function Person(name, first, second) {
+//   this.name = name;
+//   this.first = first;
+//   this.second = second;
+// }
+// Person.prototype.sum = function() {
+//   return this.first + this.second;
+// }
+
+class Person {
+  constructor(name, first, second) {
+    this.name = name;
+    this.first = first;
+    this.second = second;
+  }
+  sum() {
+    return this.first + this.second;
+  }
+}
+
+let kim = new Person('kim', 20, 10);
+console.log('kim', kim);
+console.log('kim', kim.sum());
+
+let lee = new Person('lee', 10, 10);
+lee.sum = function() {
+  return 'this ' + (this.first + this.second);
+}
+console.log('lee', lee);
+console.log('lee', lee.sum());
