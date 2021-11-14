@@ -7,6 +7,7 @@ const arr1 = new Array();
 const arr2 = [1, 2];
 
 console.group('No.2');
+
 // 2. Index position
 const fruits = ['🍎', '🍌'];
 console.log(fruits);
@@ -31,9 +32,11 @@ for (let fruit of fruits) {
 
 // e. forEach
 fruits.forEach((fruits) => console.log(`forEach: ${fruits}`));
+
 console.groupEnd('No.3');
 
 console.group('No.4');
+
 // 4. Addition, deletion, copy
 // push: add an item to the end
 fruits.push('🍓', '🍑');
@@ -67,4 +70,25 @@ console.log(fruits);
 const fruits2 = ['🍐', '🥥'];
 const newFruits = fruits.concat(fruits2);
 console.log(newFruits);
+
 console.groupEnd('No.4');
+
+console.group('No.5');
+
+// 5. Searching
+// find the index
+// indexOf: 몇번째 인덱스에 있는지 확인해주는 함수 / 중복 된 데이터가 있을 시 제일 처음에 있는 인덱스 값을 알려준다.
+console.log(fruits.indexOf('🍎'));
+console.log(fruits.indexOf('🍉'));
+console.log(fruits.indexOf('🥥')); // 배열에 해당하는 값이 없을 때는 -1을 출력함
+
+// includes: true of false로 나타내는 함수
+console.log(fruits.includes('🍉')); 
+console.log(fruits.includes('🥥'));
+
+// lastIndexOf: 반대로 중복 된 데이터가 있을 시 제일 마지막에 있는 인덱스 값을 알려준다.
+fruits.push('🍎');
+console.log(fruits.indexOf('🍎'));
+console.log(fruits.lastIndexOf('🍎'));
+
+console.groupEnd('No.5');
