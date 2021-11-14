@@ -98,7 +98,3 @@ console.log(fruits.reverse());
 console.log(fruits.slice(2,5));
 
 console.groupEnd('No.5');
-
-
-console.group('------------- part2 -------------');
-
