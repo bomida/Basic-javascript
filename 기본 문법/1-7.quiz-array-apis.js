@@ -53,12 +53,14 @@ const students = [
   // console.log(students.prototype.indexOf(90)); // mine
   const result = students.find((student) => student.score === 90);
   console.log(result);
+  // find: 첫번째로 찾아진 요소를 리턴한다. 전달된 콜백함수가 true일때 리턴, 만약 찾지 못하면 undefined로 리턴된다.
 }
 
 // Q6. make an array of enrolled students
 {
   const result = students.filter((student) => student.enrolled);
   console.log(result);
+  // filter: 콜백함수를 전달해서 콜백함수가 true인 요소만 찾아서 배열로 전달.
 }
 
 // Q7. make an array containing only the students' scores
@@ -66,25 +68,44 @@ const students = [
 {
   const result = students.map((student) => student.score);
   console.log(result);
+  // map: 배열안에 들어있는 요소 하나하나를 다른 것으로 변환해주는 것
 }
 
 // Q8. check if there is a student with the score lower than 50
 {
-  const result = students.some((student) => student.score < 50);
-  console.log(result);
-  // some: 배열의 요소 중에서 콜백함수가 리턴이 true가 되는게 있는지 없는지
+  const result1 = students.some((student) => student.score < 50);
+  console.log(`Q8. result2: ${result1}`);
+  
+  const result2  = students.every((student) => student.score >= 50);
+  console.log(`Q8. result2: ${result2}`)
+  // some: 배열의 요소 중에서 하나라도 조건에 만족되는 요소가 있다면 true가 리턴이 된다.
+  // every: 배열에 있는 모든 요소들이 조건에 충족해야지만 true가 리턴된다.
 }
 
 // Q9. compute students' average score
 {
+  const result = students.reduce((prev, curr) => {
+    console.log('------------');
+    console.log(prev);
+    console.log(curr);
+    return prev + curr.score;
+  }, 0);
+  console.log(result / students.length);
+  // reduce: 배열안에 들어있는 모든 요소마다 호출이 된다. 배열에 있는 모든 요소들의 값을 누적하는 뭔가 함께 모아놓을 때 쓰는 함수
 }
 
 // Q10. make a string containing all the scores
 // result should be: '45, 80, 90, 66, 88'
 {
+  const result = students
+  .map((student) => student.score)
+  .filter((score) => score >= 50)
+  .join();
+  console.log(result);
 }
 
 // Bonus! do Q10 sorted in ascending order
 // result should be: '45, 66, 80, 88, 90'
 {
+  
 }
