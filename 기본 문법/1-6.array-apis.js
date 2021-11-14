@@ -18,13 +18,13 @@ console.log(fruits[fruits.length - 1]); // 배열의 마지막 아이템을 찾�
 // print all fruits
 // a. for
 for(let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
+  console.log(`for: ${fruits[i]}`);
 }
 
 // b. for of
 for (let fruit of fruits) {
-  console.log(fruit);
+  console.log(`for of: ${fruit}`);
 }
 
 // e. forEach
-fruits.forEach((fruits) => console.log(fruits));
+fruits.forEach((fruits) => console.log(`forEach: ${fruits}`));
