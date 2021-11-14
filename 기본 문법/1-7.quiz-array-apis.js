@@ -107,9 +107,15 @@ const students = [
 // Bonus! do Q10 sorted in ascending order
 // result should be: '45, 66, 80, 88, 90'
 {
-  const result = students
+  const result1 = students
   .map((student) => student.score)
   .sort((a, b) => a - b)
   .join();
-  console.log(result);
+  console.log(result1);
+
+  const result2 = students
+  .map((student) => student.score)
+  .sort((a, b) => b - a)
+  .join();
+  console.log(result2);
 }
