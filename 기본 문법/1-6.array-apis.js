@@ -91,4 +91,14 @@ fruits.push('🍎');
 console.log(fruits.indexOf('🍎'));
 console.log(fruits.lastIndexOf('🍎'));
 
+// reverse: 배열 순서 뒤집기
+console.log(fruits.reverse());
+
+// slice:  몇번째 인덱스 부터 자를지(포함), 몇번째 인덱스까지 자를지(미포함)
+console.log(fruits.slice(2,5));
+
 console.groupEnd('No.5');
+
+
+console.group('------------- part2 -------------');
+
