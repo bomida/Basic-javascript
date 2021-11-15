@@ -36,3 +36,22 @@ new Array(1000); // [empty x 1000]
 // `string` 타입은 래퍼 객체를 통해 iterable로 다루어질 수 있습니다.
 Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
 console.log(Array.from('hello'));
+
+// element 읽기
+// 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
+// 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
+{
+const arr = ['one', 'two', 'three'];
+arr[0]; // 'one'
+arr[1]; // 'two'
+arr[2]; // 'three'
+arr[3]; // 'undefined'
+}
+
+{
+const arr = [1, 2, 3, 4, 5];
+
+// 전체를 0으로 채우기
+arr.fill(0);
+console.log(arr); 
+}
