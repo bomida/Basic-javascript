@@ -49,9 +49,19 @@ arr[3]; // 'undefined'
 }
 
 {
+// fill: 한꺼번에 많은 요소를 같은 값으로 바꿀 수 있다.
 const arr = [1, 2, 3, 4, 5];
 
 // 전체를 0으로 채우기
 arr.fill(0);
-console.log(arr); 
+console.log(arr);
+
+// 인덱스 2와 4 사이를 1로 채우기
+arr.fill(1, 2, 4);
+console.log(arr);
+
+// fill 메소드를 사용하면, 큰 배열을 만들고 값을 채원허는 일을 쉽게 할 수 있다.
+new Array(1000);
+const fillArray = new Array(1000).fill(5);
+console.log(fillArray);
 }
