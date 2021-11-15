@@ -37,6 +37,7 @@ new Array(1000); // [empty x 1000]
 Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
 console.log(Array.from('hello'));
 
+
 {
 // element 읽기
 // 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
@@ -47,6 +48,7 @@ arr[1]; // 'two'
 arr[2]; // 'three'
 arr[3]; // 'undefined'
 } 
+
 
 { console.group('요소 수정하기');
 
@@ -66,7 +68,8 @@ arr[3]; // 'undefined'
   const fillArray = new Array(1000).fill(5);
   console.log(fillArray);
 
-  console.groupEnd('요소 수정하기'); }
+console.groupEnd('요소 수정하기'); }
+
 
 { console.group('요소 추가/삭제');
   const arr = [];
@@ -93,7 +96,8 @@ arr[3]; // 'undefined'
   // shift: '배열의 앞 부분에' 요소를 삭제하는 메소드
   arr.shift();
   console.log(arr);
-  console.groupEnd('요소 추가/삭제'); }
+console.groupEnd('요소 추가/삭제'); }
+
 
 { console.group('요소를 배열 중간에 삽입');
   // splice: 배열에 속해있는 연속된 여러요소 즉, 배열의 일부분을 통째로 바꿀 수도 있다.
@@ -114,4 +118,22 @@ arr[3]; // 'undefined'
   // 두번째 인수로 0을 입력하면 삭제없이 그 위치에 요소를 삽입할 수 있다.
   arr.splice(1, 0, 2, 3, 4);
   console.log(arr);
-  console.groupEnd('요소를 배열 중간에 삽입'); }
+console.groupEnd('요소를 배열 중간에 삽입'); }
+
+
+{ console.group('배열 뒤집기');
+  // reverse: 메소드를 호출 하면 해당 배열을 거꾸로 뒤집는다.
+  let arr = [1, 2, 3, 4, 5];
+  arr.reverse();
+  console.log(arr);
+console.groupEnd('배열 뒤집기'); }
+
+
+{ console.group('배열 정렬하기');
+  // sort: 메소드를 통해 원하는 방식대로 배열을 정렬할 수 있다.
+  // `sort` 메소드는 `arr`을 비교 함수에 따라 정렬한 뒤, `arr`을 그대로 반환한다.)
+  const arr = [3, 1, 4, 5, 2];
+  console.log(arr);
+  arr.sort((x, y) => x - y);
+  console.log(arr);
+console.groupEnd('배열 정렬하기'); }
