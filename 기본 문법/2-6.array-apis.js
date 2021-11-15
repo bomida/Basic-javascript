@@ -136,10 +136,35 @@ console.groupEnd('배열 뒤집기'); }
   console.log(arr);
   arr.sort((x, y) => x - y);
   console.log(arr);
+  arr.sort((x, y) => y - x);
+  console.log(arr);
 
+  // NOTE!
   // 만약 어떤 두 값 a, b에 대해서 비교 함수 compare를 compare(a, b)와 같이 호출했을 때:
+  // - 음수를 반환하면, a가 b 앞에 오도록 정렬합니다.
+  // - 0을 반환하면, a와 b를 같은 순서로 간주합니다.
+  // - 양수를 반환하면, b가 a 앞에 오도록 정렬합니다.
 
-  // 음수를 반환하면, a가 b 앞에 오도록 정렬합니다.
-  // 0을 반환하면, a와 b를 같은 순서로 간주합니다.
-  // 양수를 반환하면, b가 a 앞에 오도록 정렬합니다.
+  const names = ['Denton', 'Kathleen', 'Ebba', 'Bruce'];
+  names.sort((x, y) => x.length - y.length);
+  console.log(names);
+
+  // NOTE!!
+  // 비교 함수를 넘기지 않더라도 아래의 코드 처럼 정렬이 잘 되는 것 처럼 보일 수 있다.
+  const arr2 = [3, 1, 4, 5, 2];
+  arr2.sort();
+  console.log(arr2);
+  // 비교 함수를 인수로 넘겨주지 않으면, sort 메소드는 먼저 요소를 전부 문자열로 변환한 후, 유니코드 코드포인트를 비교하는 방식으로 정렬한다.
+  // sort를 사용할 때에는 꼭 비교함수를 넘겨주도록 하자!
+  
+  let ex1 = [20, 3, 100].sort();
+  console.log(`ex1: ${ex1}`);
+  let ex2 = ['abc', 'DEF', 'aBC'].sort();
+  console.log(`ex2: ${ex2}`);
+
+  let ex3 = [20, 3, 100].sort((x, y) => x - y);
+  console.log(`ex1: ${ex3}`);
+  let ex4 = ['abc', 'DEF', 'aBC'].sort((x, y) => x.localeCompare(y));
+  console.log(`ex2: ${ex4}`);
+
 console.groupEnd('배열 정렬하기'); }
