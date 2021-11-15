@@ -37,31 +37,58 @@ new Array(1000); // [empty x 1000]
 Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
 console.log(Array.from('hello'));
 
-// element 읽기
-// 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
-// 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
 {
-const arr = ['one', 'two', 'three'];
-arr[0]; // 'one'
-arr[1]; // 'two'
-arr[2]; // 'three'
-arr[3]; // 'undefined'
+  // element 읽기
+  // 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
+  // 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
+  const arr = ['one', 'two', 'three'];
+  arr[0]; // 'one'
+  arr[1]; // 'two'
+  arr[2]; // 'three'
+  arr[3]; // 'undefined'
 }
 
 {
-// fill: 한꺼번에 많은 요소를 같은 값으로 바꿀 수 있다.
-const arr = [1, 2, 3, 4, 5];
+  // fill: 한꺼번에 많은 요소를 같은 값으로 바꿀 수 있다.
+  const arr = [1, 2, 3, 4, 5];
 
-// 전체를 0으로 채우기
-arr.fill(0);
-console.log(arr);
+  // 전체를 0으로 채우기
+  arr.fill(0);
+  console.log(arr);
 
-// 인덱스 2와 4 사이를 1로 채우기
-arr.fill(1, 2, 4);
-console.log(arr);
+  // 인덱스 2와 4 사이를 1로 채우기
+  arr.fill(1, 2, 4);
+  console.log(arr);
 
-// fill 메소드를 사용하면, 큰 배열을 만들고 값을 채원허는 일을 쉽게 할 수 있다.
-new Array(1000);
-const fillArray = new Array(1000).fill(5);
-console.log(fillArray);
+  // fill 메소드를 사용하면, 큰 배열을 만들고 값을 채원허는 일을 쉽게 할 수 있다.
+  new Array(1000);
+  const fillArray = new Array(1000).fill(5);
+  console.log(fillArray);
+}
+
+{
+  const arr = [];
+
+  // push: '배열의 끝 부분에' 요소를 추가하는 메소드
+  arr.push('one');
+  console.log(arr);
+  arr.push('two', 'three');
+  console.log(arr);
+  
+  // pop: '배열의 끝 부분에' 요소를 삭제하는 메소드
+  arr.pop();
+  console.log(arr);
+  arr.pop();
+  arr.pop();
+  console.log(arr);
+
+  // unshift: '배열의 앞 부분에' 요소를 추가하는 메소드
+  arr.unshift(1);
+  console.log(arr);
+  arr.unshift(2, 3);
+  console.log(arr);
+
+  // shift: '배열의 앞 부분에' 요소를 삭제하는 메소드
+  arr.shift();
+  console.log(arr);
 }
