@@ -136,4 +136,10 @@ console.groupEnd('배열 뒤집기'); }
   console.log(arr);
   arr.sort((x, y) => x - y);
   console.log(arr);
+
+  // 만약 어떤 두 값 a, b에 대해서 비교 함수 compare를 compare(a, b)와 같이 호출했을 때:
+
+  // 음수를 반환하면, a가 b 앞에 오도록 정렬합니다.
+  // 0을 반환하면, a와 b를 같은 순서로 간주합니다.
+  // 양수를 반환하면, b가 a 앞에 오도록 정렬합니다.
 console.groupEnd('배열 정렬하기'); }
