@@ -38,17 +38,18 @@ Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
 console.log(Array.from('hello'));
 
 {
-  // element 읽기
-  // 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
-  // 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
-  const arr = ['one', 'two', 'three'];
-  arr[0]; // 'one'
-  arr[1]; // 'two'
-  arr[2]; // 'three'
-  arr[3]; // 'undefined'
-}
+// element 읽기
+// 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
+// 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
+const arr = ['one', 'two', 'three'];
+arr[0]; // 'one'
+arr[1]; // 'two'
+arr[2]; // 'three'
+arr[3]; // 'undefined'
+} 
 
-{
+{ console.group('요소 수정하기');
+
   // fill: 한꺼번에 많은 요소를 같은 값으로 바꿀 수 있다.
   const arr = [1, 2, 3, 4, 5];
 
@@ -64,9 +65,10 @@ console.log(Array.from('hello'));
   new Array(1000);
   const fillArray = new Array(1000).fill(5);
   console.log(fillArray);
-}
 
-{
+  console.groupEnd('요소 수정하기'); }
+
+{ console.group('요소 추가/삭제');
   const arr = [];
 
   // push: '배열의 끝 부분에' 요소를 추가하는 메소드
@@ -91,4 +93,25 @@ console.log(Array.from('hello'));
   // shift: '배열의 앞 부분에' 요소를 삭제하는 메소드
   arr.shift();
   console.log(arr);
-}
+  console.groupEnd('요소 추가/삭제'); }
+
+{ console.group('요소를 배열 중간에 삽입');
+  // splice: 배열에 속해있는 연속된 여러요소 즉, 배열의 일부분을 통째로 바꿀 수도 있다.
+  let arr = [1, 2, 3, 4, 5];
+
+  // 인덱스 '1'인 요소부터 '3'개를 바꿔치기 해보자.
+  // splice메소드는 바꿔치기를 토해 제거된 요소들을 반환한다.
+  arr.splice(1, 3, 'two', 'three', 'four');
+  // 시작할 인덱스 번호, 삭제할 인덱스 갯수, 삭제한 자리에 넣을 요소(삭제한 인덱스 갯수와 상관없음)
+  console.log(arr);
+  arr.splice(1, 3, 'four');
+  console.log(arr);
+
+  // 삭제 후 추가할 인수를 생략하면 요소를 제거할 뿐 배열에 아무것도 삽입되지 않는다.
+  arr.splice(1, 1);
+  console.log(arr);
+
+  // 두번째 인수로 0을 입력하면 삭제없이 그 위치에 요소를 삽입할 수 있다.
+  arr.splice(1, 0, 2, 3, 4);
+  console.log(arr);
+  console.groupEnd('요소를 배열 중간에 삽입'); }
