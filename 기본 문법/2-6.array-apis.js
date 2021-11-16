@@ -241,6 +241,7 @@ console.groupEnd('배열 순회하기'); }
   const sliceArr2 = sliceArr.slice();
   console.log(`sliceArr2: ${sliceArr2}`);
 
+
   // map: 배열의 각 요소에 함수를 적용해, 그 반환값을 요소로 갖는 새로운 배열을 만든다.
   // forEach와 비슷해 보이지만 새로운 배열을 만든다는 차이가 있다.
   const mapArr = [1, 2, 3, 4, 5];
@@ -254,20 +255,62 @@ console.groupEnd('배열 순회하기'); }
   const map = mapArr.map((item, index, array) => item * index);
   console.log(`인수 3개를 넘겼을 때: ${map}`);
 
+
   // concat: 메소드는 여러 배열을 연결해서 새 배열을 만들 때 사용한다.
   const concatArr1 = [1, 2];
   const concatArr2 = [3, 4];
   const concat = concatArr1.concat([5, 6], [7, 8], concatArr2);
   console.log(`concat: ${concat}`);
 
+
   // reduce: 메소드는 모든 요소의 값을 종합해서 하나의 값으로 만드는 계산을 할 때 사용합니다.
   const reduceArr = [1, 2, 3];
   const reduce = reduceArr.reduce((acc, item) => acc + item, 0);
   console.log(`reduce: ${reduce}`);
+
   // 코드 수행 순서
   // 1. 초기값 0과 배열의 첫번째 요소인 1을 인수로 해서 함수를 호출. 즉, acc매개변수에 0이 대입되고, item 매개변수에 1이 대입된다. 그래서 결과값은 1이 된다. 이것을 누적값(accumulator)이라한다.
   // 2. 누적값 1과 배열의 두 번째 요소인 2를 인수로해서 함수를 호출. 결과값 3이 다시 누적값이 된다.
   // 3. 누적값 3과 배열의 세 번째 요소인 3을 인수로해서 함수를 호출. 결과값은 6이 된다.
   // 4. 더 이상 요소가 남아있지 않으므로 reduce 호출의 결과값은 6이 된다.
 
+  const stringArr = ['one', 'two', 'three'];
+  const reduce2 = stringArr.reduce((acc, item, index, array) => {
+    return acc + `(${index}: ${item})`;
+  }, '');
+  console.log(`reduce2: ${reduce2}`);
+  // reduce는 (누적값, 현재요소, 인덱스, 배열)과 같은 인수를 받는다.
+  // reduce 메소드에 초기값 인수를 주지 않으면, 첫 번째 인수가 초기값으로 지정되어 첫 번째 요소와 두번째 요소에 대한 계산부터 시작한다. 즉, 위 두 예제에서 초기값을 생략해도 같은 결과가 나온다.
+  // 다만, 배열의 요소가 하나 밖에 없다면 아래와 같이 계산이 수행되지 않고 첫 번째 요소가 그대로 반환되므로 초기값은 항상 제공해주는 것이 좋다.
+
+  const reduceArr2 = ['one'];
+
+  // 문자열의 길이를 모두 더하려고 했지만 계산을 수행할 대상이 하나밖에 없어서 함수가 호출되지 못하고 결과값으로 'one'이 반환
+  const reduce3 = reduceArr2.reduce((acc, item) => acc + item.length);
+  console.log(`reduce3: ${reduce3}`);
+
+  const reduce4 = reduceArr2.reduce((acc, item) => acc + item.length, 0);
+  console.log(`reduce3: ${reduce4}`);
+
+
+  // filter: 배열에서 원하는 요소만을 골라내어 새로운 배열을 생성할 수 있다.
+  // filter 메소드에는 진릭밧(boolean)을 반환하는 함수를 주어야한다.
+  // 진리값을 반환하는 함수를 predicate라고 한다.
+  // filter에 주어지는 함수도 forEach와 같이 (현재요소, 인덱스, 배열)의 세 인수를 받는다.
+  const filterArr = [1, 2, 3, 4, 5];
+
+  // 짝수만 골라내기
+  const filter = filterArr.filter(item => item % 2 === 0);
+  console.log(`filter: ${filter}`);
+
+
+  // join: 배열의 요소들을 문자열로 변환 후, 메소드에 주어진 구분자(seperator)를 이용해 하나의 문자열로 결합하여 반환한다.
+  const joinArr = [1, 2, 3];
+  console.log(`joinArr: ${joinArr}`);
+
+  const join = joinArr.join(' & ');
+  console.log(`join ${join}`);
+
+  const join2 = joinArr.join(); // 구분자를 넘기지 않으면 `,` 문자가 구분자로 사용된다.
+  console.log(`join2: ${join2}`);
 console.groupEnd('배열로부터 새로운 값 생성'); }
