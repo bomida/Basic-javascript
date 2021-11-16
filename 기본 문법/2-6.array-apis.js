@@ -168,3 +168,26 @@ console.groupEnd('배열 뒤집기'); }
   console.log(`ex2: ${ex4}`);
 
 console.groupEnd('배열 정렬하기'); }
+
+
+{ console.group('SELF PRACTICE');
+  class Friend {
+    constructor (name, job, area) {
+      this.name = name;
+      this.drink = job;
+      this.area = area;
+    }
+  }
+  const friends = [
+    new Friend('suri', 'tea', 'seoul'),
+    new Friend('minimini', 'beer', 'seoul'),
+    new Friend('sunmi', 'cocoa', 'seoul'),
+    new Friend('suki', 'latte', 'incheon'),
+    new Friend('mangeun', 'soda', 'daegu'),
+  ];
+
+  const result = friends
+  .map((friend) => friend.name)
+  .sort((x, y) => x.localeCompare(y) + x.length - y.length);
+  console.log(result);
+console.groupEnd('SELF PRACTICE'); }
