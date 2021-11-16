@@ -191,3 +191,28 @@ console.groupEnd('배열 정렬하기'); }
   .sort((x, y) => x.localeCompare(y) + x.length - y.length);
   console.log(result);
 console.groupEnd('SELF PRACTICE'); }
+
+
+{ console.group('배열 순회하기');
+  // 배열의 각 요소를 차례대로 돌면서 요소에 대한 작업을 하는 것을 순회(traverse)라고 한다.
+  
+  const arr = [1, 2, 3];
+
+  // for 구문: 단순하게 for loop를 사용해 배열의 길이만큼 돌며, 전통적으로 많이 쓰이던 방식이었으나 forEach 메소드와 for...of 구문이 추가됨으로써 현재는 잘 쓰이지 않는다.
+  for(let i = 0; i < arr.length; i++) {
+    console.log(`for: ${arr[i]}`);
+  }
+
+  // forEach 메소드: 배열의 각 요소에 대해 함수를 호출할 수 있다.
+  // 1. 화살 함수를 사용하여 더욱 간결하고 읽기 편한 코드가 되었다.
+  arr.forEach(item => console.log(`item 요소${item}에 대한 요소가 실행 중`));
+  // 2. 메소드에 넘기는 함수에는 총 세 개의 인수가 들어가는데 현재 순회중인 배열의 요소, 인덱스 값, 순회중인 배열이 들어온다.
+  arr.forEach((item, index, array) => console.log(`index ${index + 1}번째 요소에 대해 함수가 실행 중`));
+
+  // for...of 구문: iterable을 순회하기 위해 사용할 수 있다.
+  const arr2 = [1, 2, 3, 4, 5];
+  for(let item of arr2) {
+    console.log(`for...of: ${item}`);
+  }
+
+console.groupEnd('배열 순회하기'); }
