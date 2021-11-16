@@ -321,9 +321,16 @@ console.groupEnd('배열로부터 새로운 값 생성'); }
   // indexOf는 배열의 왼쪽부터, lastIndexOf는 오른쪽부터 검색해서 처음 만나는 요소의 인덱스를 반환한다. 만약 일치하는 요소가 없다면, 두 메소드 모두 -1을 반환한다.
   const arr = ['a', 'b', 'c', 'b', 'a'];
 
-  console.log(arr.indexOf('b'));
-  console.log(arr.lastIndexOf('b'));
+  console.log('arr: '+ arr.indexOf('b'));
+  console.log('arr: '+ arr.lastIndexOf('b'));
+  console.log('arr: '+ arr.indexOf('z'));
+  console.log('arr: '+ arr.lastIndexOf('z'));
 
-  console.log(arr.indexOf('z'));
-  console.log(arr.lastIndexOf('z'));
+  // 두 메소드 모두 두 번째 인수로 시작 인덱스를 받는다. 시작 인덱스가 주어지면 해당 인덱스부터 검사를 시작한다.
+  const arr2 = ['a', 'b', 'c', 'b', 'a'];
+  console.log('arr2: ' + arr.indexOf('b', 2));
+  console.log('arr2: ' + arr.lastIndexOf('b', 2));
+
+  // find 메소드와 findIndex 메소드를 사용하면 특정 조건을 만족하는 요소를 찾을 수 있다. 두 메소드 모두 predicate을 이용해 왼쪽부터 검사해서 처음 만나는 요소를 찾는다.
+  // find는 요소 자체를 반환하며, findIndex는 요소의 인덱스를 반환한다는 차이점이 있다. 조건을 만족하는 요소를 찾지 못하면, find는 undefined를, findIndex는 -1을 반환한다.
 console.groupEnd('요소 찾기'); }
