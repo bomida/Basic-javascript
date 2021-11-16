@@ -365,7 +365,36 @@ console.groupEnd('요소 찾기'); }
   // NOTE! - forEach와 마찬가지로, every와 some에 주어지는 predicate에는 (현재요소, 인덱스, 배열)의 세 인수가 넘겨진다.
 console.groupEnd('배열이 특정 조건을 만족하는지 판별하기'); }
 
+
 { console.group('배열인지 아닌지 판별하기');
   // 어떤 값이 배열인지 아닌지 판별하기 위해서 Array.isArray 정적 메소드를 사용할 수 있다.
-  
+  console.log(Array.isArray([]));
+  console.log(Array.isArray({}));
+  console.log(Array.isArray('hello'));
 console.groupEnd('배열인지 아닌지 판별하기'); }
+
+
+{ console.group('문자열과 배열');
+  // 문자열은 배열과 유사한 문법을 통해 다뤄질 수 있다. 그리고 문자열의 메소드 중에는 배열의 메소드 중 몇몇과 이름이 같고 완전히 같은 방식으로 동작하는 것들이 있다.
+  console.log('hello'[0]);
+  console.log('hello'.slice(2, 4));
+  for (let c of 'hello') {
+    console.log(c);
+  }
+console.groupEnd('문자열과 배열'); }
+
+
+{ console.group('다차원 배열(Multidimensional Array)');
+  // 컴퓨터를 사용하다보면 표 형태의 자료를 많이 다르게 된다. JS에서는 표 형태의 자료를 간단히 나타내기 위해 배열을 요소로 갖는 배열을 사용할 수 있다.
+  const table = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+  // 이렇게 배열 속에 배열이 중첩되어 있는 자료구조를 가지고 다차원 배열이라고 한다.
+  // 다차원 배열 속에 있는 요소를 다루기 위해서, 대문자 표기법을 연이어 사용할 수 있다.
+  console.log(table[0][1]);
+  console.log(table[2][0]);
+console.groupEnd('다차원 배열(Multidimensional Array)'); }
+
+
