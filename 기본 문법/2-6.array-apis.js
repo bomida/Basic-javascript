@@ -314,3 +314,16 @@ console.groupEnd('배열 순회하기'); }
   const join2 = joinArr.join(); // 구분자를 넘기지 않으면 `,` 문자가 구분자로 사용된다.
   console.log(`join2: ${join2}`);
 console.groupEnd('배열로부터 새로운 값 생성'); }
+
+
+{ console.group('요소 찾기');
+  // indexOf와 lastIndexOf 메소드를 사용하면 특정 요소가 배열의 몇 번째에 위치하는 지를 알아낼 수 있다.
+  // indexOf는 배열의 왼쪽부터, lastIndexOf는 오른쪽부터 검색해서 처음 만나는 요소의 인덱스를 반환한다. 만약 일치하는 요소가 없다면, 두 메소드 모두 -1을 반환한다.
+  const arr = ['a', 'b', 'c', 'b', 'a'];
+
+  console.log(arr.indexOf('b'));
+  console.log(arr.lastIndexOf('b'));
+
+  console.log(arr.indexOf('z'));
+  console.log(arr.lastIndexOf('z'));
+console.groupEnd('요소 찾기'); }
