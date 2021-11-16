@@ -215,4 +215,9 @@ console.groupEnd('SELF PRACTICE'); }
     console.log(`for...of: ${item}`);
   }
 
+  // NOTE! - 그래서 어떤 것을 써야하나?
+  // for...of - 단순히 배열을 순회하기가 목적일 때, 간결하고 속도 적인 측면에서 유리하다.
+  // forEach - 배열을 순회하면서 배열의 인덱스가 필요한 경우
+  // for - 코드의 실행 속도가 정말로 중요할 때
+
 console.groupEnd('배열 순회하기'); }
