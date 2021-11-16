@@ -251,7 +251,23 @@ console.groupEnd('배열 순회하기'); }
   console.log(`ㄴ mapArr: ${mapArr}`);
 
   // map도 forEach와 같이 함수를 호출할 때 세 개의 인수를 넘긴다.
-  const result = mapArr.map((item, index, array) => item * index);
-  console.log(`인수 3개를 넘겼을 때: ${result}`);
+  const map = mapArr.map((item, index, array) => item * index);
+  console.log(`인수 3개를 넘겼을 때: ${map}`);
+
+  // concat: 메소드는 여러 배열을 연결해서 새 배열을 만들 때 사용한다.
+  const concatArr1 = [1, 2];
+  const concatArr2 = [3, 4];
+  const concat = concatArr1.concat([5, 6], [7, 8], concatArr2);
+  console.log(`concat: ${concat}`);
+
+  // reduce: 메소드는 모든 요소의 값을 종합해서 하나의 값으로 만드는 계산을 할 때 사용합니다.
+  const reduceArr = [1, 2, 3];
+  const reduce = reduceArr.reduce((acc, item) => acc + item, 0);
+  console.log(`reduce: ${reduce}`);
+  // 코드 수행 순서
+  // 1. 초기값 0과 배열의 첫번째 요소인 1을 인수로 해서 함수를 호출. 즉, acc매개변수에 0이 대입되고, item 매개변수에 1이 대입된다. 그래서 결과값은 1이 된다. 이것을 누적값(accumulator)이라한다.
+  // 2. 누적값 1과 배열의 두 번째 요소인 2를 인수로해서 함수를 호출. 결과값 3이 다시 누적값이 된다.
+  // 3. 누적값 3과 배열의 세 번째 요소인 3을 인수로해서 함수를 호출. 결과값은 6이 된다.
+  // 4. 더 이상 요소가 남아있지 않으므로 reduce 호출의 결과값은 6이 된다.
 
 console.groupEnd('배열로부터 새로운 값 생성'); }
