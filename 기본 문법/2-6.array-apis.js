@@ -342,3 +342,30 @@ console.groupEnd('배열로부터 새로운 값 생성'); }
   console.log(names.findIndex(item => item.length > 8));
 
 console.groupEnd('요소 찾기'); }
+
+
+{ console.group('배열이 특정 조건을 만족하는지 판별하기');
+  // 배열의 세 메소드 includes, every, some는 모두 배열이 특정 조건을 만족하는지를 나타내는 진리값을 반환
+  // includes 메소드는 배열이 특정 요소를 포함하고 있는지를 판별한다. indexOf로도 비슷한 일을 할 수 있지만 includes가 진리값을 반환한다는 점에서 조금 더 편리하다.
+  // includes 메소드 또한 시작 인덱스를 인수로 받는다.
+  const arr = ['one', 'two', 'three'];
+  console.log('includes: ' + arr.includes('one'));
+  console.log('includes: ' + arr.includes('one', 1)); // 1은 인덱스 값이다.
+
+  // every는 predicate를 인수로 받아서, 모든 요소가 조건을 만족하는 지를 검사한다.
+  const arr2 = ['one', 'two', 'three'];
+  console.log('every: ' + arr2.every(item => item.length > 2));
+  console.log('every: ' + arr2.every(item => item.length > 3));
+
+  // some은 predicate를 인수로 받아서, 조건을 만족하는 요소가 하나라도 있는지 검사한다.
+  const arr3 = ['one', 'two', 'three'];
+  console.log('some: ' + arr3.some(item => item.length > 3));
+  console.log('some: ' + arr3.some(item => item.length > 5));
+
+  // NOTE! - forEach와 마찬가지로, every와 some에 주어지는 predicate에는 (현재요소, 인덱스, 배열)의 세 인수가 넘겨진다.
+console.groupEnd('배열이 특정 조건을 만족하는지 판별하기'); }
+
+{ console.group('배열인지 아닌지 판별하기');
+  // 어떤 값이 배열인지 아닌지 판별하기 위해서 Array.isArray 정적 메소드를 사용할 수 있다.
+  
+console.groupEnd('배열인지 아닌지 판별하기'); }
