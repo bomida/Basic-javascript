@@ -229,12 +229,12 @@ console.groupEnd('배열 순회하기'); }
 
   // 인덱스 2부터 인덱스 4 사이의 요소들을 가지고 새로운 배열을 생성
   const newSliceArr = sliceArr.slice(2, 4); // [3, 4]
-  console.log(`slice: ${newSliceArr}`);
+  console.log(`newSliceArr: ${newSliceArr}`);
 
   // newArr을 조작해도, 원본 배열에는 영향을 미치지 않는다.
   newSliceArr[0] = 5;
-  console.log(newSliceArr); // [5, 4]
-  console.log(sliceArr); // [1, 2, 3, 4, 5]
+  console.log(`newSliceArr: ${newSliceArr}`); // [5, 4]
+  console.log(`ㄴ sliceArr: ${sliceArr}`); // [1, 2, 3, 4, 5]
 
   // 첫 번째 인수의 값은 0, 두번째 인수의 값은 배열의 length 속성이다. 즉, 인수없이 호출하면 배열 전체가 복사 된다.
   // slice는 얕은 복사(shallow copy)를 하므로, 배열 안에 배열 또는 객체가 들어있을 때는 주의해서 사용해야한다.
@@ -244,8 +244,14 @@ console.groupEnd('배열 순회하기'); }
   // map: 배열의 각 요소에 함수를 적용해, 그 반환값을 요소로 갖는 새로운 배열을 만든다.
   // forEach와 비슷해 보이지만 새로운 배열을 만든다는 차이가 있다.
   const mapArr = [1, 2, 3, 4, 5];
+
   // `mapArr`의 각 요소를 제곱한 값으로 새 배열을 만든다.
   const newMapArr = mapArr.map((item) => item ** 2);
-  console.log(`marArr: ${newMapArr}`);
+  console.log(`newMapArr: ${newMapArr}`);
+  console.log(`ㄴ mapArr: ${mapArr}`);
+
+  // map도 forEach와 같이 함수를 호출할 때 세 개의 인수를 넘긴다.
+  const result = mapArr.map((item, index, array) => item * index);
+  console.log(`인수 3개를 넘겼을 때: ${result}`);
 
 console.groupEnd('배열로부터 새로운 값 생성'); }
