@@ -398,3 +398,4 @@ console.groupEnd('문자열과 배열'); }
 console.groupEnd('다차원 배열(Multidimensional Array)'); }
 
 
+// 1. 배열의 요소는 비어있을 수 있다. 이는 undefined와는 다르다. 비어있는 요소에 대해서는 for...of나 forEach 등의 메소드를 통해 순회를 하려고 해도 순회가 되지 않는다.
