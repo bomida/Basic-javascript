@@ -50,6 +50,7 @@
 }
 
 
+console.group('점 표기법, 대괄호 표기법');
 // 점 표기법, 대괄호 표기법
 // 속성 접근자(property accessor)를 이용해 이미 생성된 객체의 속성을 지정해줄 수도 있다.
 {
@@ -65,10 +66,11 @@
   // 대괄호 표기법(Bracket notation)
   person['한국 나이'] = 20;
 }
-
 // NOTE! - 위와 같은 경우가 아니라면, 주로 점 표기법이 많이 사용되는 편이다.
+console.groupEnd('점 표기법, 대괄호 표기법');
 
 
+console.group('객체 다루기');
 // 객체 다루기
 // 속성 접근자, delete연산자, in여산자 등을 이용해서 객체에 대한 정보를 읽고 쓸 수 있다.
 
@@ -102,8 +104,10 @@
   console.log(`name in person: ${'name' in person}`);
   console.log(`phoneNumber in person: ${'phoneNumber' in person}`);
 }
+console.groupEnd('객체 다루기');
 
 
+console.group('메소드 (Method)');
 // 메소드 (Method)
 // 객체의 속성값으로 함수를 지정할 수도 있다.
 {
@@ -125,8 +129,10 @@
   };
   console.log(`person.greet: ${person.greet()}`);
 }
+console.groupEnd('메소드 (Method)');
 
 
+console.group('this');
 // this
 // 다른 함수들과 달리 '메소드'라는 특별한 이름을 사용하는 이유는, 메소드가 다른 함수들과는 다르게 특별히 취급되기 때문이다. this 키워드를 사용하면, 메소드 호출 시에 해당 메소드를 갖고 있는 객체에 접근할 수 있다.
 {
@@ -171,7 +177,50 @@
 // introduce라는 함수가 객체 외부에서 정의되었고, person1과 person2에서 재사용되었는데도 불구하고 메소드가 잘 동작했다. 즉, 같은 함수임에도 어떤 객체의 메소드로 사용되는냐에 따라 메소드 내부의 this가 가리키는 객체가 달라질 수 있다.
 
 // 화살표 함수는 this 키워드를 전혀 다르게 취급하기 때문에 위와 같은 방식으로 사용될 수 없다!
+console.groupEnd('this');
 
 
+console.group('프로토타입 (Prototype)');
 // 프로토타입 (Prototype)
-//
+
+// 사람을 나타내는 객체를 생성하는 팩토리 함수
+{
+  function personFactory(name) {
+    return {
+      name,
+      introduce: function() {
+        return `안녕하세요, 제 이름은 ${this.name}입니다.`;
+      }
+    };
+  }
+  
+  const people = [];
+
+  for(let i = 0; i < 1000; i++) {
+    people.push(personFactory('도보미'))
+  }
+  console.log(people[0].introduce === people[1].introduce);
+}
+
+// JS에서는 이렇게 객체 간에 공유되어야하는 속성과 메소드를, 프로토타입(prototype)이라는 기능을 이용해서 효율적으로 저장할 수 있다. 어떤 객체에 프로토타입을 지정하면, 프로토타입의 속성을 해당 객체에서 재사용할 수 있다.
+// 객체의 프로토타입을 지정하는 방법에는 여러 가지가 있는데, 가장 쉬운 방법은 Object.create 함수를 이용하는 것이다.
+
+{
+  const personPrototype = {
+    introduce: function() {
+      return `안녕하세요, 제 이름은 ${this.name}입니다.`
+    }
+  };
+
+  const person1 = Object.create(personPrototype);
+  console.log(person1.name = '도보미');
+
+  const person2 = Object.create(personPrototype);
+  console.log(person2.name = '임진주');
+
+  console.log(person1.introduce());
+  console.log(person2.introduce());
+
+  console.log(person1.introduce === person2.introduce);
+}
+console.groupEnd('프로토타입 (Prototype)');
