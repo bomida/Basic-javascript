@@ -223,4 +223,6 @@ console.group('프로토타입 (Prototype)');
 
   console.log(person1.introduce === person2.introduce);
 }
+// 프로토타입 상속(prototype inheritance)는 프로토타입 기능을 이용해 한 객체에서 다른 객체의 기능을 가져와 사용하는 것
+// personPrototype은 person1의 프로토타입이다. person1 객체는 personPrototype객체를 상속받았다.고 표현한다.
 console.groupEnd('프로토타입 (Prototype)');
