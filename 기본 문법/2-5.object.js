@@ -226,3 +226,44 @@ console.group('프로토타입 (Prototype)');
 // 프로토타입 상속(prototype inheritance)는 프로토타입 기능을 이용해 한 객체에서 다른 객체의 기능을 가져와 사용하는 것
 // personPrototype은 person1의 프로토타입이다. person1 객체는 personPrototype객체를 상속받았다.고 표현한다.
 console.groupEnd('프로토타입 (Prototype)');
+
+
+console.group('프로토타입 읽고 쓰기');
+// 어떤 객체의 프로토타입을 읽어오기 위해 Object.getPrototypeOf 함수를 사용할 수 있다. 또한 Object.setPrototypeOf 함수를 통해 이미 생성된 객체의 프로토타입을 변경할 수 있다.
+// 하지만 객체가 생성된 이후에 프로토타입을 변경하는 작업은 굉장히 느리므로 Object.setPrototypeOf 함수의 사용은 피하는 것이 좋다.
+{
+  const parent = {
+    familyName: '도'
+  };
+  const child = Object.create(parent);
+  
+  console.log(Object.getPrototypeOf(child) === parent);
+
+  const newParent = {
+    familyName: '임'
+  };
+  console.log(Object.setPrototypeOf(child, newParent));
+  console.log(Object.getPrototypeOf(child) === parent);
+}
+
+// 객체 리터럴을 통해 생성된 객체의 프로토타입에는 자동으로 Object.prototype이 지정된다.
+{
+  const obj = {};
+  console.log(Object.getPrototypeOf(obj) === Object.prototype);
+}
+console.groupEnd('프로토타입 읽고 쓰기');
+
+
+console.group('프로토타입 체인(Prototype Chain)');
+// 프로토타입 상속을 받은 객체가 실제로 어떻게 생겼는지를 확인해자.
+{
+  const parent = {
+    a: 1
+  };
+  const child = {
+    b: 2
+  };
+  Object.setPrototypeOf(child, parent);
+  console.log(child);
+}
+console.groupEnd('프로토타입 체인(Prototype Chain)');
