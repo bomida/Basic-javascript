@@ -59,11 +59,91 @@
   person.name = '도보미';
   person.age = 19;
   person.languages = ['Korean', 'English'];
+  
+  // 객체 리터럴을 이요해 빈 객체를 생성해 준 뒤, 점 표기법을 통해 속성을 갱신해주었다. 그러나 JS에서 식별자로 허용되지 않는 문자가 들어간 속성 이름을 사용해야 하는 경우에는 반드시 대괄호 표기법을 사용해야한다.
+  
+  // 대괄호 표기법(Bracket notation)
+  person['한국 나이'] = 20;
 }
 
-// 객체 리터럴을 이요해 빈 객체를 생성해 준 뒤, 점 표기법을 통해 속성을 갱신해주었다. 그러나 JS에서 식별자로 허용되지 않는 문자가 들어간 속성 이름을 사용해야 하는 경우에는 반드시 대괄호 표기법을 사용해야한다.
-
-// 대괄호 표기법(Bracket notation)
-person['한국 나이'] = 20;
-
 // NOTE! - 위와 같은 경우가 아니라면, 주로 점 표기법이 많이 사용되는 편이다.
+
+
+// 객체 다루기
+// 속성 접근자, delete연산자, in여산자 등을 이용해서 객체에 대한 정보를 읽고 쓸 수 있다.
+
+{
+  const person = {
+    name: '도보미',
+    age: 19,
+    languages: ['Korean', 'English']
+  };
+
+  // 속성 읽기
+  console.log(person.name);
+  console.log(person.age);
+  console.log(person.languages[0]);
+
+  // 속성 쓰기
+  person.name = '임진주';
+  person.age = 20;
+
+  // 새 속성 추가하기
+  person.address = '서울특별시 강남구 신사동';
+  console.log(person.address);
+
+  // 속성 삭제하기
+  delete person.address;
+  console.log(person.address);
+
+  // 속성이 객체에 존재하는지 확인하기
+  'name' in person; // true
+  'phoneNumber' in person; // false
+  console.log(`name in person: ${'name' in person}`);
+  console.log(`phoneNumber in person: ${'phoneNumber' in person}`);
+}
+
+
+// 메소드 (Method)
+// 객체의 속성값으로 함수를 지정할 수도 있다.
+{
+  const person = {
+    greet: function() {
+      return 'hello';
+    }
+  };
+  console.log(`person: ${person.greet()}`);
+}
+
+// 어떤 객체의 속성으로 접근해서 사용하는 함수를 메소드(method)라고 부른다.
+{
+  // 위 예제와 완전히 똑같이 동작한다.
+  const person = {
+    greet() {
+      return 'hello';
+    }
+  };
+  console.log(`person.greet: ${person.greet()}`);
+}
+
+
+// this
+// 다른 함수들과 달리 '메소드'라는 특별한 이름을 상요하는 이유는, 메소드가 다른 함수들과는 다르게 특별히 취급되기 때문이다. this 키워드를 사용하면, 메소드 호출 시에 해다아 메소드를 갖고 있는 객체에 접근할 수 있다.
+{
+  const person = {
+    name: '도보미',
+    age: 19,
+    introduce() {
+      // `this`를 사용해서 객체의 속성에 접근함
+      return `안녕하세요, 제 이름은 ${this.name}입니다. 제 나이는 ${this.age}살 입니다.`
+    },
+    getOlder() {
+      // `this`를 사용해서 객체의 속성을 갱신함
+      this.age++;
+    }
+  };
+
+  console.log(`person.introduce: ${person.introduce()}`);
+  console.log(`person.getOlder: ${person.getOlder()}`);
+  console.log(`person.introduce: ${person.introduce()}`);
+}
