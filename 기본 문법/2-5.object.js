@@ -228,42 +228,9 @@ console.group('프로토타입 (Prototype)');
 console.groupEnd('프로토타입 (Prototype)');
 
 
-console.group('프로토타입 읽고 쓰기');
-// 어떤 객체의 프로토타입을 읽어오기 위해 Object.getPrototypeOf 함수를 사용할 수 있다. 또한 Object.setPrototypeOf 함수를 통해 이미 생성된 객체의 프로토타입을 변경할 수 있다.
-// 하지만 객체가 생성된 이후에 프로토타입을 변경하는 작업은 굉장히 느리므로 Object.setPrototypeOf 함수의 사용은 피하는 것이 좋다.
-{
-  const parent = {
-    familyName: '도'
-  };
-  const child = Object.create(parent);
-  
-  console.log(Object.getPrototypeOf(child) === parent);
+console.group('생성자 (Constructor)');
+  const obj = new Object();
+  // 위 문장은 new 키워드가 붙었다는 것 말고는 함수 호출 문법과 비슷하게 생겼지만 사실은 object는 함수이다. 이렇게 객체를 만들 때 new 키워드와 함께 사용하는 함수를 가지고 생성자(constructor)라고 부른다.
 
-  const newParent = {
-    familyName: '임'
-  };
-  console.log(Object.setPrototypeOf(child, newParent));
-  console.log(Object.getPrototypeOf(child) === parent);
-}
-
-// 객체 리터럴을 통해 생성된 객체의 프로토타입에는 자동으로 Object.prototype이 지정된다.
-{
-  const obj = {};
-  console.log(Object.getPrototypeOf(obj) === Object.prototype);
-}
-console.groupEnd('프로토타입 읽고 쓰기');
-
-
-console.group('프로토타입 체인(Prototype Chain)');
-// 프로토타입 상속을 받은 객체가 실제로 어떻게 생겼는지를 확인해자.
-{
-  const parent = {
-    a: 1
-  };
-  const child = {
-    b: 2
-  };
-  Object.setPrototypeOf(child, parent);
-  console.log(child);
-}
-console.groupEnd('프로토타입 체인(Prototype Chain)');
+  const obj = new Object();
+console.groupEnd('생성자 (Constructor)');
