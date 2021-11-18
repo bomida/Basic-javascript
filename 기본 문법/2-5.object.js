@@ -128,7 +128,7 @@
 
 
 // this
-// 다른 함수들과 달리 '메소드'라는 특별한 이름을 상요하는 이유는, 메소드가 다른 함수들과는 다르게 특별히 취급되기 때문이다. this 키워드를 사용하면, 메소드 호출 시에 해다아 메소드를 갖고 있는 객체에 접근할 수 있다.
+// 다른 함수들과 달리 '메소드'라는 특별한 이름을 사용하는 이유는, 메소드가 다른 함수들과는 다르게 특별히 취급되기 때문이다. this 키워드를 사용하면, 메소드 호출 시에 해당 메소드를 갖고 있는 객체에 접근할 수 있다.
 {
   const person = {
     name: '도보미',
@@ -147,3 +147,31 @@
   console.log(`person.getOlder: ${person.getOlder()}`);
   console.log(`person.introduce: ${person.introduce()}`);
 }
+
+// 메소드를 사용하면, 데이터와 그 데이터와 관련된 동작을 객체라는 하나의 단위로 묶어서 다룰 수 있다. 이것이 함수 대신 메소드를 사용하는 핵심적인 이유다.
+// function 키워드를 통해 정의된 함수 내부의 this 키워드가 실제로 무엇을 가리킬 것인가는, 메소드가 어떻게 정의되는가에 의해 결정되는 것이 아니라 메소드가 어떻게 사용되는가에 의해 결정된다.
+{
+  function introduce() {
+    return `안녕하세요, 제 이름은 ${this.name}입니다.`;
+  }
+  const person1 = {
+    name: '도보미',
+    introduce
+  }
+
+  const person2 = {
+    name: '임진주',
+    introduce
+  };
+
+  console.log(person1.introduce());
+  console.log(person2.introduce());
+}
+
+// introduce라는 함수가 객체 외부에서 정의되었고, person1과 person2에서 재사용되었는데도 불구하고 메소드가 잘 동작했다. 즉, 같은 함수임에도 어떤 객체의 메소드로 사용되는냐에 따라 메소드 내부의 this가 가리키는 객체가 달라질 수 있다.
+
+// 화살표 함수는 this 키워드를 전혀 다르게 취급하기 때문에 위와 같은 방식으로 사용될 수 없다!
+
+
+// 프로토타입 (Prototype)
+//
