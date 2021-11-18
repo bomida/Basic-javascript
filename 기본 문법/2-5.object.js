@@ -40,3 +40,30 @@
 }
 
 // 아래와 같이 대괄호를 사용해서 다른 변수에 저장된 문자열을 그대로 속성의 이름으로 쓰는 것도 가능
+{
+  const propName = 'prop';
+
+  const obj = {
+    [propName]: 1
+  };
+  console.log(`obj: ${obj.prop}`);
+}
+
+
+// 점 표기법, 대괄호 표기법
+// 속성 접근자(property accessor)를 이용해 이미 생성된 객체의 속성을 지정해줄 수도 있다.
+{
+  const person = {}; // 빈 객체
+
+  // 점 표기법 (Dot notaiton)
+  person.name = '도보미';
+  person.age = 19;
+  person.languages = ['Korean', 'English'];
+}
+
+// 객체 리터럴을 이요해 빈 객체를 생성해 준 뒤, 점 표기법을 통해 속성을 갱신해주었다. 그러나 JS에서 식별자로 허용되지 않는 문자가 들어간 속성 이름을 사용해야 하는 경우에는 반드시 대괄호 표기법을 사용해야한다.
+
+// 대괄호 표기법(Bracket notation)
+person['한국 나이'] = 20;
+
+// NOTE! - 위와 같은 경우가 아니라면, 주로 점 표기법이 많이 사용되는 편이다.
