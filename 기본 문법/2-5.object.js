@@ -299,5 +299,25 @@ console.group('생성자 (Constructor)');
 
   const person = new Person('도보미');
   console.log(`person.introduce: ${person.introduce()}`);
-}
+
 console.groupEnd('생성자 (Constructor)');
+
+console.group('정적 메소드(Static Method)');
+// 정적 메소드(static method) - 생성자의 속성에 직접 지정된 메소드
+// Number.isNaN, Object.getPrototypeOf 등의 함수들은 모두 정적 메소드이다.
+// 정적 메소드는 특정 인스턴스에 대한 작업이 아니라, 해당 생성자와 관련된 일반적인 작업을 정의하고 싶을 때 사용 된다.
+
+// 생성자의 속성에 함수를 직접 할당한다.
+
+  Person.compareAge = function(person1, person2) {
+    if (person1.age < person2.age) {
+      return '첫 번째 사람의 나이가 더 많습니다.';
+    } else if (person1.age === person2.age) {
+      return '두 사람의 나이가 같습니다.';
+    } else {
+      return '두 번째 사람의 나이가 더 많습니다.';
+    }
+  }
+  console.log(Person);
+}
+console.groupEnd('정적 메소드(Static Method)');
