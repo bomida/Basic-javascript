@@ -318,6 +318,5 @@ console.group('정적 메소드(Static Method)');
       return '두 번째 사람의 나이가 더 많습니다.';
     }
   }
-  console.log(Person);
 }
 console.groupEnd('정적 메소드(Static Method)');
