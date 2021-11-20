@@ -174,3 +174,21 @@
   obj1 === obj2; // true
 }
 // 하지만 두 참조가 정말로 같은 객체를 가리키고 있다면 등호 연산자는 true를 반환한다.
+
+// 객체에 대한 비교를 하는 코드를 짠다면, 객체의 내용을 비교하려고 하는 것인지, 또는 객체의 참조를 비교하려고 하는 것인지 꼭 생각해보자.
+// 객체의 내용을 통해 비교하고 싶다면, 깊은 비교 기능을 지원하는 라이브러리를 이용하거나, 정확히 어떤 내용을 비교하고 싶은지를 가지고 함수 혹은 메소드를 작성 후 이용하자.
+{
+  // 계정 관리 시스템에서는, 사용자의 `아이디`가 같아면 같은 사용자라고 볼 수 있다.
+  function User(id) {
+    this.id = id;
+  }
+  User.prototype.isEqual = function(other) {
+    return this.id === other.id;
+  }
+
+  const john1 = new User('john');
+  const john2 = new User('john');
+
+  console.log('john1 === john2', john1 === john2); 
+  console.log('john1.isEqual(john2)', john1.isEqual(john2)); 
+}
