@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // let, const 변수와 블록 스코프
 
@@ -191,4 +191,104 @@
 
   console.log('john1 === john2', john1 === john2); 
   console.log('john1.isEqual(john2)', john1.isEqual(john2)); 
+}
+
+
+// 불변성(Immutability)
+// 원시 타입의 값 자체 내용을 변경할 수 있는 방법은 없다. -> 이런 성질을 불변셩(Immutability)라고하며, 'JS의 원시 값은 불변(immutable)이다'라고 한다.
+
+{
+  // ex. 문자열을 변형하는 메소드는 모두 기존 문자열의 내용을 바꾸는 것이 아니라 새 문자열을 반환한다. (다른 원시 메소드들도 마찬가지!)
+  const str = 'Javascript string is immutable!';
+
+  console.log(`str.replace('!', '?'):\n${str.replace('!', '?')}`);
+  console.log(`str.slice(0, 10):\n${str.slice(0, 10)}`);
+  console.log(`str.toUpperCase():\n${str.toUpperCase()}`);
+  console.log(`str:\n${str}`);
+}
+
+// 변수에 저장된 원시 타입의 값을 바꾸려면, 오직 변수에 다른 값을 대입하는 방법밖에 없다.
+// 원시 타입을 인수로 해서 함수를 호출할 때에는, 원본이 변경될지도 모른다는 걱정을 할 필요가 없다.
+{
+  let str = 'Javascript string is immutable!';
+
+  function func(s) {
+    // 여기서 무슨 짓을 해도, `str`에 새 값을 대입하디 않는 한 원본을 변경할 수 없다.
+  }
+  func(str);
+}
+
+// 객체의 경우, 객체 자체의 내용을 변경할 수 있는 방법은 많다. -> 객체는 가변(mutabele)이다.
+// 객체의 가변성 때문에 어려움을 겪고 있다면, 두 가지 해결책을 시도해볼 수 있다.
+
+// Object.freeze - 객체를 얼려서 속서으이 추가/변경/삭제를 막는다.
+// 다만 Object.freeze를 호출한다고 해서 객체 안에 있는 개체까지 얼려버리지 않으므로, 중첩된 객체에는 Object.freeze를 사용하기가 조금 까다롭다. - 대체로 편의 성이 떨어짐
+{
+  const obj = {prop: 1};
+
+  Object.freeze(obj);
+
+  // 모두 무시됩니다.
+  obj.prop = 2;
+  obj.newProp = 3;
+  delete obj.prop;
+
+  console.log(obj);
+}
+
+// Immutable.js같은 라이브러리 사용
+// Object.freeze처럼 객체를 정말로 얼려버리지 않지만, 객체를 마치 불변인 것처럼 다룰 수 있는 방법을 제공한다.
+// 메소드를 통해 조금이라도 변경되면 아예 새로운 객체를 반환 -> 내용이 변경되었는지 확인해주는 작업을 해줌.
+{
+  // 특히 React 생태계에서는 Immutable.js가 널리 사용된다.
+  // Immutable.js에서 제공하는 List를 활용한 예제이다.
+  // import {List} from 'immutable';
+
+  //Immutable.js에서 제공하는 `List`는 배열과 유사하지만, 불변인 것처럼 다룰 수 있는 자료구조이다.
+  // const list = List.of(1, 2, 3);
+  // const newList = list.push(4); // 새 List 인스턴스를 반환
+
+  // 내용이 달라지면, 참조도 달라진다.
+  // console.log('list === newList', list === newList); 
+}
+
+// const와 불변성을 잘 구분해야한다. const는 '한 번 초기화된 변수에 다른 값을 대입할 수 없다'는 제약을 걸어주는 것이고, 불변성은 '값 자체가 변하지 않는다'는 것이다.
+{
+  const obj = {};
+  obj.a = 1; // 객체는 가변이므로 내용을 바꿀 수 있다.
+  // obj = 1; // 에러! `obj`는 `const`로 선언되었으므로 다른 값을 대입할 수 없다.
+}
+
+
+// 래퍼 객체 (Wrapper Object)
+// 원시 타입의 값은 객체가 아님에도 불구하고, 원시 타입에 점 표기법을 써서 메소드를 호출하거나 속성을 읽어 올 수 있는데, 이는 JS가 래퍼 객체(Wrapper Object)라는 기능을 제공하기 때문
+// 원시 타입의 값에 대해 속성을 읽으려 시도하면, 그 값은 그 순간에만 객체로 변환되어 마치 객체인 것처럼 동작한다.
+{
+  const s = 'hello';
+  console.log('s.toUpperCase():f', s.toUpperCase());
+  console.log('s.length:', s.length);
+
+  const n = 1.2345;
+  console.log('n.toFixed(2):', n.toFixed(2));
+
+  const b = true;
+  console.log('b.toString():', b.toString());
+}
+
+// 아래는 래퍼 객체를 생성시키기 위해 사용되는 생성자들의 목록이다.
+// - String
+// - Number
+// - Boolean
+// - Symbol
+// 위 생성자들을 애용해 직접 객체를 생성할 수도 있지만 직접해주지 않아도 원시 타입의 값에 대해 메소드를 호출하거나 속성을 읽을 수 있기 때문에 그런 경우는 잘 없다.
+
+{
+  const stringObj = new String('hello');
+  // 생성자의 인수로 원시 타입의 값을 넘겨주면 된다.
+
+  console.log('stringObj.toUpperCase():', stringObj.toUpperCase());
+  console.log('stringObj.length:', stringObj.length);
+
+  const string = stringObj.valueOf();
+  //다시 원시타입의 값으로 되돌리기 위해 `valueOf` 메소드를 호출한다.
 }
