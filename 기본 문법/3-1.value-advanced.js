@@ -116,3 +116,61 @@
 
 // 전역 객체(Global Object)
 // JS 구동 환경은 모두 전역 객체(Global Object)라는 특별한 객체를 갖고 있다.
+// 전역 변수가 선언되면, 이 변수는 또한 전역 객체의 속성이 되어 전역 객체를 통해서 접근할 수 있게된다.
+{
+  let foo = 1;
+  window.foo;
+  console.log(window.foo);
+}
+
+// 전역 객체의 이름은 JavaScript 구동 환경마다 다르다.
+// 구동환경 | 전역 객체 이름
+// 웹 브라우저 | window
+// 웹 워커 | self
+// Node.js | global
+
+
+// 참조 (Reference)
+// JS에는 모두 일곱 가지의 타입이 존재한다.
+// - boolean
+// - Null
+// - Undefined
+// - Number
+// - String
+// - Symbol
+// - Object
+
+// Object타입 또는 객체를 제외하고는 모두 원시 타입(Primitive type)으로 불린다.
+// 객체는 참조 타입(reference type)으로 불린다.
+// 참조(Reference)란, 객체가 컴퓨터 메모리 상에서 어디에 저장되었는지를 가리키는 값이다.
+
+{
+  const obj = {prop: 1};
+  obj.prop; // `obj`를 통해 역참조된 객체의 속성을 읽어왔다.
+}
+
+// 함수 호출
+// 참조를 이용해 원본 객체의 내용을 변경할 수 있다. 원본이나, 복사된 참조나 같은 객체를 가리키기 때문이다.
+{
+  const obj = {};
+  function addProp(o) {
+    o.prop = 1;
+  }
+  // 변수 `obj`에 저장되어 있는 참조가 매개변수 `o`에 복사된다.
+  addProp(obj);
+  console.log(obj.prop);
+}
+
+// 객체의 같음(Equality)
+{
+  // {prop: 1} === {prop: 1}; // false
+  [1, 2, 3] === [1, 2, 3]; // false
+}
+// 객체의 내용을 비교하는 것이 아니라 객체의 참조를 비교한다.
+// 생성자난 리터럴을 이용해 객체를 생성하면, 객체는 매 번 새로 생성되어 각각 메모리의 다른 위치에 저장된다. 그래서 내용이 같아 보이는 객체일지라도 그에 대란 참조는 다르다.
+{
+  const obj1 = {};
+  const obj2 = obj1;
+  obj1 === obj2; // true
+}
+// 하지만 두 참조가 정말로 같은 객체를 가리키고 있다면 등호 연산자는 true를 반환한다.
