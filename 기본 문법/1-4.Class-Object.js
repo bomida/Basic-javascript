@@ -100,7 +100,7 @@ class Shape {
 
 class Rectangle extends Shape {}
 const rectangle = new Rectangle(20, 20, '🔵');
-console.log(`rectangle.draw(): ${rectangle.draw()}`);
+rectangle.draw();
 console.log(`rectangle.getArea(): ${rectangle.getArea()}`);
 
 class Triangle extends Shape {
@@ -113,7 +113,7 @@ class Triangle extends Shape {
   }
 
   toString() {
-    return `Triangle: color: ${this.color}`;
+    return `Triangle color: ${this.color}`;
   }
 }
 const triangle = new Triangle(20, 20, '🔴');
@@ -127,4 +127,4 @@ console.log(triangle instanceof Rectangle); // f
 console.log(triangle instanceof Triangle); // t
 console.log(triangle instanceof Shape); // t
 console.log(triangle instanceof Object); // t
-console.log(triangle.toString());
+console.log(triangle.toString()); // Triangle color: 🔴
