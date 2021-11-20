@@ -5,7 +5,7 @@
 
 // 1. Object to JSON
 // stringfy(obj) : 문자화
-{ console.group('Object to JSON - stringify');
+console.group('1. Object to JSON - stringify');
 
   let json = JSON.stringify(true);
   console.log(json);
@@ -39,8 +39,21 @@
   });
   console.log(json);
 
-console.groupEnd('Object to JSON - stringify'); }
+console.groupEnd('Object to JSON - stringify');
 
 
 // 2. JSON to Object
 // parse(json)
+console.group('2. JSON to Object - parse');
+
+  json = JSON.stringify(rabbit);
+  const obj = JSON.parse(json);
+  console.log(obj);
+  rabbit.jump();
+  // obj.jump(); 
+  // Object를 JSON으로 변환할 때, 함수는 데이터로 포함되지 않았는데 다시 JSON에서 Object로 변환 했으니 데이터가 나오지 않는 것
+  
+  console.log(rabbit.birthDate.getDate());
+  console.log(obj.birthDate);
+
+console.groupEnd('2. JSON to Object - parse');
