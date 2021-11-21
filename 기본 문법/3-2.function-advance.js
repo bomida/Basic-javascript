@@ -188,6 +188,7 @@
 // - 화살표 함수 내부에서 yield 키워드를 사용할 수 없다. 즉, 제너레이터로 사용될 수 없다.
 // 이때, 스스로 this를 가지지 않는다는 말은 함수 내부에서 this를 사용할 수 없다는 말이 아니라 화살표 함수 내부에서 this를 사용하면, 그 this는 함수가 정의된 스코프에 존재하는 this를 가리킨다. (new.target, arguments, super 모두 마찬가지)
 
+// 이런 성질 때문에, 화살표 함수 내부에 잇는 this는 엄격 모드의 영향을 받지 않는다.
 {
   function Person(name) {
     this.name = name;
@@ -196,3 +197,62 @@
   const mary = new Person('mary');
   console.log(mary.getName());
 }
+
+// 주의!
+// 화살표 함수는 생성자로 사용될 수 없지만, 위 '엄격 모드' 파트에 있는 예제와 비슷하게 보이기 위해서 함수의 이름을 대문자로 시작하도록 했다.
+{
+  const Person = (name) => {
+    'use strict';
+    this.name = name;
+  }
+  Person('mary');
+  console.log('window.name:', window.name);
+}
+
+// 화살표 함수는 스스로의 this를 갖지 않는다고 했는데, 이 때문에 화살표 함수에 대해 bind, call, apply 메소드를 호출해도 아무런 효과가 없다.
+{
+  function Person(name) {
+    this.name = name;
+    this.getName = () => {
+      // 여기에서 사용된 `this`는 `함수가 정의된 스코프`,
+      // 즉 `Person 함수 스코프`에 존재하는 `this`를 가리키게 된다.
+      return this.name;
+    }
+  }
+  const mary = new Person('mary');
+
+  // `this`를 바꿔보려고 해도, 아무런 효과가 없다.
+  console.log(mary.getName.call({name: 'john'}));
+}
+
+{
+  const mary = {
+    name: 'mary',
+    getName: () => {
+      return this.name;
+    }
+  };
+  // 위의 화살표 함수는 전역 스코프에서 정의되었기 때문에, `this`는 전역 객체를 가리킨다.
+  // `mary`의 메소드로 사용된다고 해도, 이 사실이 변하지 않는다.
+  // 브라우저 환경의 전역 객체인 `window`는 `name`이라는 속성에 빈 문자열을 갖고 있기 때문에, 이 값이 대신 반환된다.
+  console.log(mary.getName());
+}
+
+{
+  function Person(name) {
+    this.name =  name;
+    this.getName = () => {
+      return 'printResult: ' + this.name;
+    }
+  }
+
+  const mary = new Person('mary');
+  function printResult(func) {
+    console.log(func());
+  }
+  printResult(mary.getName);
+}
+
+// NOTE!!
+// function 구문으로 생성되는 함수가 단순한 함수 이외에 생성자가 제너레이터등의 여러 기능까지 떠맡고 있는 반면에, 화살표 함수는 오직 함수 혹은 메소드로 사용되도록 만들어졌다.
+// 함수의 값으로 다루어야 하는 경우(특히 함수를 다른 함수의 인수로 넘겨야하는 경우) 사용한다.
