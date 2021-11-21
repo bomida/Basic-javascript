@@ -138,3 +138,46 @@
     func();
   }
 }
+
+// 루프와 재귀 함수
+// 대부분의 루프는 재귀 함수를 통해 다시 구현될 수 있다.
+{
+  // 루프로 구현된 팩토리얼
+  function factorialLoop(n) {
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+      result *= i;
+    }
+    return result;
+  }
+  console.log('factorialLoop:', factorialLoop(6));
+
+  // 재귀 함수로 구현된 팩토리얼
+  function factorialRec(n) {
+    return n <= 1 ? 1 : n * factorialRec(n - 1);
+  }
+  console.log('factorialRec:', factorialRec(6));
+}
+
+{
+  // 루프로 구현된 피보나치 수
+  function fiboLoop(n) {
+    let x = 0;
+    let y = 1;
+    for (let i = 0; i < n; i++) {
+      [x, y] = [y, x + y];
+    }
+    return x;
+  }
+  console.log('fiboLoop:', fiboLoop(4));
+
+  // 재귀 함수로 구현된 피보나치 수
+  function fiboRec(n) {
+    return (
+      n < 1 ? 0 :
+      n === 1 ? 1 :
+      fiboRec(n - 1) + fiboRec(n - 2)
+    );
+  }
+  console.log('fiboRec:', fiboRec(4));
+}
