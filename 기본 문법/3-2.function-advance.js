@@ -104,3 +104,28 @@
   printGrade.call(student, 100);
   printGrade.apply(student, [100]);
 }
+
+
+// arguments와 나머지 매개변수 (Rest Parameters)
+// function 구문을 통해 생성된 함수가 호출될 때는, arguments라는 변수가 함수 내부에 자동으로 생성된다.
+// arguments는 유사 배열 객체(array-like object)이자 반복 가능한 객체(iterable object)로, 함수가 주어진 인수가 순서대로 저장되기 때문에 인덱스를 가지고 인수를 읽어오거나 for...of를 통해 순회할 수 있다.
+{
+  function add(x, y) {
+    // `arguments[0]`에는 `x`와 같은 값이, `arguments[1]`에는 `y`와 같은 값이 저장된다.
+    console.log(arguments[0], arguments[1]);
+    return x + y;
+  }
+  add(1, 2);
+}
+
+// arguments는 ES2015 이전까지 인수의 개수에 제한이 없는 함수를 정의하는 데에 사용되고는 했다.
+{
+  function sum() {
+    let result = 0;
+    for(let item of arguments) {
+      result += item;
+    }
+    return result;
+  }
+  console.log(sum(1, 2, 3, 4));
+}
