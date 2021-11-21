@@ -160,3 +160,39 @@
   // }
   // SyntaxError: Rest parameter must be last formal parameter
 }
+
+
+// 화살표 함수 (Arrow Function)
+// 화살표 함수(arrow function)는 ES2015에서 도입된 새로운 유형의 함수이다. 화살표 함수는 (매개변수 목록) => {함수내용}과 같은 문법을 통해 정의할 수 있다.
+// 다만, 특정 조건을 만족하는 화살표 함수는 조금 더 간결한 문법으로 정의할 수도 있다.
+// - 만약 화살표 함수의 매개변수가 하나라면, 괄호를 생략할 수 있다.
+// - 만약 화살표 함수의 내부가 하나의 구문으로 이루어졌다면, 중괄호를 생략할 수 있다. 이때, 이 구문의 결과값이 곧 함수의 반환값이 된다.
+{
+  const add = (x, y) => {
+    return x + y;
+  }
+  const negate = (x) => {
+    return !x;
+  }
+}
+
+// 위 코드를 더 짧게 작성할 수 있다.
+{
+  const add = (x, y) => x + y;
+  const negate = x => !x;
+}
+
+// function 구문으로 정의되는 함수와 비교했을 때, 화살표 함수는 문법 측면에서만 다른 것이 아니라 특별한 성질을 갖고 있다.
+// - 화살표 함수는 생성자로 사용될 수 없다. 따라서 prototype 속성을 갖고 있지 않다.
+// - 화살표 함수는 스스로의 this, arguments, super를 가지지 않는다.
+// - 화살표 함수 내부에서 yield 키워드를 사용할 수 없다. 즉, 제너레이터로 사용될 수 없다.
+// 이때, 스스로 this를 가지지 않는다는 말은 함수 내부에서 this를 사용할 수 없다는 말이 아니라 화살표 함수 내부에서 this를 사용하면, 그 this는 함수가 정의된 스코프에 존재하는 this를 가리킨다. (new.target, arguments, super 모두 마찬가지)
+
+{
+  function Person(name) {
+    this.name = name;
+    this.getName = () => this.name;
+  }
+  const mary = new Person('mary');
+  console.log(mary.getName());
+}
