@@ -129,3 +129,12 @@
   console.log('counter:', counter());
   console.log('counter:', counter());
 }
+
+
+// 재귀 함수(Recursive Function)
+// 함수 내부에서 자기 자신을 호출하는 함수를 재귀 함수(recursive function)라 부른다.
+{
+  function func() {
+    func();
+  }
+}
