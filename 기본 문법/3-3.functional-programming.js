@@ -24,6 +24,54 @@
   function func1(x) {
     return x;
   }
-  console.log(func1(1));
+  console.log('func1():', func1(1));
   // 더 이상 변수 `x`에 접근할 수 있는 방법이 없다
+}
+{
+  for (let i = 0; i < 10; i++) {
+    console.log(i);
+  }
+  // 더 이상 변수 `i`에 접근할 수 있는 방법이 없다.
+}
+
+// 바깥 스코프에 해당하는 코드의 실행이 끝난 뒤라도 안쪽 스코프에서 만들어진 함수에서 바깥 스코프의 변수를 사용하고 있다면 함수를 통해서 변수를 계속 사용할 수 있다.
+{
+  function func1(x) {
+    // 여기서 반환되는 함수는 바깥 스코프에 있는 변수 `x`를 사용하고 있다.
+    return function() {
+      return x;
+    }
+  }
+  const func2 = func1(1);
+  // `func1`의 실행은 끝났지만, `func2`를 통해서 `x`를 사용할 수 있다.
+  console.log('func2():', func2());
+}
+
+// 바깥 스코프에 있는 변수를 가져다 사용하는 함수와, 변수가 저장되는 저장소를 클로저(closure)라고 부른다.
+{
+  const arr = [];
+
+  for (let i = 0; i < 10; i++) {
+    // 여기서 만들어진 함수는 바깥 스코프에 있는 변수 `i`를 사용하고 있다.
+    arr.push(function() {
+      return i;
+    });
+  }
+
+  // for 루프의 실행은 끝났지만, 루프 안에서 만들어진 함수가 배열에 저장되어 있다.
+  // 배열 안에 들어있는 함수를 통해, 해당 함수가 만들어진 시점의 변수 `i`를 사용할 수 있다.
+  console.log('arr[2]:', arr[2]());
+  console.log('arr[5]', arr[5]());
+}
+
+{
+  // 고차 함수의 인수로 함수를 넘길 때, 해당 함수에서 바깥 스코프에 있는 변수를 사용할 수 있다.
+  const people = [
+    {name: '윤아준', age: 19},
+    {name: '신하경', age: 20}
+  ]
+  function peopleOlderThan(people, threshold) {
+    return people.filter(person => person.age > threshold);
+  }
+  console.log(peopleOlderThan(people, 19));
 }
