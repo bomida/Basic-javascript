@@ -256,3 +256,43 @@
 // NOTE!!
 // function 구문으로 생성되는 함수가 단순한 함수 이외에 생성자가 제너레이터등의 여러 기능까지 떠맡고 있는 반면에, 화살표 함수는 오직 함수 혹은 메소드로 사용되도록 만들어졌다.
 // 함수의 값으로 다루어야 하는 경우(특히 함수를 다른 함수의 인수로 넘겨야하는 경우) 사용한다.
+
+// 매개변수의 기본값(Default Parameter)
+
+// Array.prototype.slice 메소드는 인수를 주었을 때나 주지 않았을 때나 모두 잘 동작한다.
+{
+  const arr = [1, 2, 3, 4, 5];
+  console.log('slice:', arr.slice());
+  console.log('slice:', arr.slice(2));
+  console.log('slice:', arr.slice(2, 3));
+}
+
+{
+  // 인수를 그대로 반환하는 함수(identity function)이다.
+  const ident = x => x;
+  console.log(ident());
+}
+
+{
+  function hello(name) {
+    // 매개변수는 `var` 변수와 같은 성질을 갖기 때문에, 재대입을 할 수 있다.
+    if(name === undefined) {
+      name = 'Mary';
+    }
+    console.log(`Hello, ${name}!`);
+  }
+  hello('john');
+  hello();
+  hello(undefined);
+}
+
+{
+  // `Mary`가 `name` 매개변수의 기본값이 된다.
+  function bye(name = 'Mary') {
+    // 코드가 훨씬 더 깔끔해졌다.
+    console.log(`bye, ${name}!`);
+  }
+  bye('john');
+  bye();
+  bye(undefined);
+}
