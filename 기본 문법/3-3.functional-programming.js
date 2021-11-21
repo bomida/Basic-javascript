@@ -75,3 +75,57 @@
   }
   console.log(peopleOlderThan(people, 19));
 }
+
+{
+  // 특정한 방식으로 동작하는 함수를 만들어내는 고차 함수를 작성할 수 있다.
+  function makeAdder(x) {
+    return function(y) {
+      return x + y;
+    }
+  }
+  console.log([1, 2, 3].map(makeAdder(2)));
+}
+
+// 데이터를 숨기고 정해진 방법을 통해서만 데이터에 접근할 수 있도록 제한을 두는데 활용되기도 한다.
+{
+  function makeCounter(x = 1) {
+    return function() {
+      return x++;
+    }
+  }
+  
+  // `x`를 직접 변경할 수 있는 방법이 없다.
+  const counter = makeCounter();
+  console.log('counter:', counter());
+  console.log('counter:', counter());
+}
+
+{
+  function personFactory(inintialAge) {
+    let age = inintialAge;
+    return {
+      getOlder() {
+        age++;
+      },
+      getAge() {
+        return age;
+      }
+    };
+  }
+  // `age`를 직접 변경할 수 있는 방법이 없다.
+}
+
+
+// 화살표 함수와 고차 함수
+// 화살표 함수 문법을 이용하면, 적은 양의 코드만 사용해서 고차 함수를 만들 수 있다.
+{
+  const makeAdder = x => y => x + y;
+  const add2 = makeAdder(2);
+  add2(3);
+}
+{
+  const makeCounter = (x = 1) => () => x++;
+  const counter = makeCounter();
+  console.log('counter:', counter());
+  console.log('counter:', counter());
+}
