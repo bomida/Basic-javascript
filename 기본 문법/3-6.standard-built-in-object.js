@@ -103,3 +103,47 @@
   console.log(obj);
 }
 
+// 내장 심볼(well-known symbol)을 객체의 속성 키로 사용하면, 특정 상황에서의 객체의 동작 방식을 마음대로 바꿀 수 있다.
+// - Symbol.isConcatSpreadable : 객체가 Array.prototype.concat 메소드의 인수로 넘겨질 때의 동작을 바꿉니다.
+// - Symbol.iterator : 객체가 for...of 구문을 통해 사용될 때의 동작 방식을 바꿉니다.
+// - Symbol.match : 객체가 String.prototype.match 메소드의 인수로 넘겨질 때의 동작을 바꿉니다.
+// - Symbol.replace : 객체가 String.prototype.replace 메소드의 인수로 넘겨질 때의 동작을 바꿉니다.
+// - Symbol.search : 객체가 String.prototype.search 메소드의 인수로 넘겨질 때의 동작을 바꿉니다.
+// - Symbol.species : Array.prototype을 상속받은 객체에 대해 Array.prototype.map 등의 메소드를 호출할 때, 반환되는 객체의 생성자를 지정합니다.
+// - Symbol.split : 객체가 String.prototype.split 메소드의 인수로 넘겨질 때의 동작을 바꿉니다.
+// - Symbol.toPrimitive : 객체가 원시 타입의 값으로 변환되어야 할 때, 정확이 어떤 값으로 변환되어야 하는 지를 지정합니다.
+// - Symbol.toStringTag : Object.prototype.toString() 메소드를 객체에 대해 직접 호출할 때의 동작을 바꿉니다.
+// - Symbol.unscopable : with 블록 안에서 어떤 속성을 참조할 수 있는 지를 지정합니다.
+
+
+// Map
+// Map 생성자는 객체와 유사하게 키-값 쌍(key-value pair)을 저장할 수 있는 새로운 자료구조를 제공한다.
+{
+  const m = new Map();
+  
+  m.set('hello', 'world');
+  console.log('m.get("hello"):', m.get('hello'));
+  console.log('m.has("hello")', m.has("hello"));
+
+  m.delete('hello');
+  console.log('m.get("hello"):', m.get('hello'));
+  console.log('m.has("hello")', m.has("hello"));
+}
+// Map으로 생성된 객체는, 일반적인 객체와 비교했을 때 아래와 같은 차이점을 갖는다.
+// Map객체는 데이터의 추가/삭제가 빈번하게 일어나는 경우 일반적인 객체보다 훨시 빠르게 동작한다는 장점이 있는 반면, JSON등으로 직렬화 하기 어렵다는 특징이 있다.
+// - 객체는 속성 접근자(property accessor)문법을 통해서, Map은 메소드를 통해서 내부의 데이터를 조작한다
+// - 문자열과 심볼만이 객체의 속성 키가 될 수 있는 반면, 어떤 값이라도 Map 객체의 키로 사용될 수 있다.
+// - 객체의 속성을 확인할 때는 프로토타입 체인을 확인하는 과정이 필요하지만, Map객체 안에 들어있는 데이터는 프로토타입의 영향을 받지 않는다.
+// - Map객체의 size속성을 통해 내부에 들어있는 데이터의 개수를 쉽게 알 수 있다.
+
+
+// Set
+// Set생성자는 집합 형태의 자료구조를 제공한다. Set객체 내부에 이미 존재하는 데이터를 추가하려고 하면, 이는 무시된다.
+// 배열과 유사한 형태의 자료구조가 필요하지만 순서가 중요하지 않거나 중복된 데이터의 저장을 허용하지 않아야할 경우 Set을 사용한다.
+{
+  const s = new Set();
+  s.add(1);
+  s.add(1);
+  s.add(2);
+  console.log(s);
+}
