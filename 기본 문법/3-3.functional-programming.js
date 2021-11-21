@@ -225,14 +225,15 @@
   // factorialRec(20000);
   // RangeError: Maximum call stack size exceeded
 }
+
 {
   const fiboRecMemoized = (() => {
-    // 계산 결과를 저장하는 저장소를 만듭니다.
+    // 계산 결과를 저장하는 저장소를 만든다.
     const memo = new Map();
   
     const fiboRec = n => {
       // 만약에 이전에 같은 인수로 계산한 적이 있다면
-      // 해당 결과를 바로 반환합니다.
+      // 해당 결과를 바로 반환한다.
       let result = memo.get(n);
       if (result != undefined) return result;
   
@@ -242,7 +243,7 @@
         fiboRec(n - 1) + fiboRec(n - 2)
       );
   
-      // 계산 결과를 저장소에 저장한 후 반환합니다.
+      // 계산 결과를 저장소에 저장한 후 반환한다.
       memo.set(n, result);
       return result;
     }
