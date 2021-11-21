@@ -119,6 +119,7 @@
 }
 
 // arguments는 ES2015 이전까지 인수의 개수에 제한이 없는 함수를 정의하는 데에 사용되고는 했다.
+// ES2015에서 도입된 나머지 매개변수(rest parameters)문법을 통해 똑같은 기능을 더 깔끔한 문법으로 구현할 수 있기 때문에 arguments는 더 이상 사용되지않는다.
 {
   function sum() {
     let result = 0;
@@ -126,6 +127,36 @@
       result += item;
     }
     return result;
+
   }
   console.log(sum(1, 2, 3, 4));
+}
+
+// 매개변수 앞에 ... 을 붙여주면, 해당 매개변수에 모든 인수가 저장된다.
+// arguments와는 달리 나머지 매개변수는 실제 배열이기 때문에, 배열의 메소드를 활용할 수 있다.
+{
+  function sum(...ns) {
+    let result = 0;
+    for(let item of ns) {
+      result += item;
+    }
+  }
+  console.log(sum(1, 2, 3, 4));
+}
+
+// 단, ...문법은 마지막 매개변수에만 사용할 수 있다.
+{
+  function printGrade(name, ...grades) {
+    console.log(`${name} 학생의 점수는 ${grades.join(', ')} 입니다.`);
+  }
+  printGrade('Mary', 96, 78, 68);
+}
+
+// 마지막 매개변수가 아닌 매개변수에 ...문법을 사용하려고하면 에러가 난다.
+// arguments 객체는 더 많은 기능을 포함하고 있지만, 여기에서 소개하지 않은 기능은 '주인 없는 this'와 함께 예전 버전 JS의 좋지않은 부분 중 하나이므로 사용하지 않는 것이 좋다.
+{
+  // function printGrades(...grades, name) {
+  //   console.log(`${name} 학생의 점수는 ${grades.join(',')} 입니다.`);
+  // }
+  // SyntaxError: Rest parameter must be last formal parameter
 }
