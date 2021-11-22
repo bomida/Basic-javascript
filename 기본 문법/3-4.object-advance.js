@@ -202,3 +202,106 @@
 // - set: setter함수
 // - enumerable: 열거 가능한 속성인지를 나타낸다.
 // - configurable: 부수속성을 변경하거나 속성을 삭제할 수 있는지를 나타낸다.
+
+{
+  // 접근자 속성을 통해 Money 생성자 예제를 다시 작성해보자.
+  function Moeny(won) {
+    this._won = won;
+  }
+
+  // `Object.defineProperties` 정적 메소드를 사용해서 속성 기술자를 통해 특정 객체의 여러 속성을 한꺼번에 정의할 수 있다.
+  Object.defineProperties(Money.prototype, {
+  // `Money.prototype` 객체에 `won` 이라는 속성을 정의한다.
+    won: {
+      get: function() {
+        return this._won;
+      },
+      set: function(arg) {
+        this._won = arg;
+      }
+    },
+    // `Money.prototype` 객체에 `dollar` 라는 속성을 정의한다.
+    dollar: {
+      get: function() {
+        return this._won / 1086;
+      },
+      set: function(arg) {
+        this._won = arg * 1086;
+      }
+    }
+});
+
+  const w = new Money(1086);
+  
+  w.won += 1086;
+  console.log(w.dollar);
+
+  w.dollar += 1;
+  console.log(w.won);
+}
+// Money 생성자를 사용하는 쪽의 코드가 훨씬 더 알아보기 쉬워졌고, 덧셈 할당 연산자(+=)을 사용할 수도 있게 되었다.
+
+
+// 객체의 속성 열거하기
+// 앞에서 속서의 부수속성 중에 enumerable은 객체의 속성을 열거할 때에 그 결과에 영향을 미친다.
+
+// - Object.keys: 객체 자신의 속성 중 열거 가능한(enumerable)속성의 이름을 배열로 반환한다.
+// - Object.value: 객체 자신의 속성 중 열거 가능한(enumerable)속성의 속성 값을 배열로 반환한다.
+// - Object.entries: 객체 자신의 속성 중 열거 가능한(enumerable)속성의 이름과 값을 배열로 반환한다.
+// - Object.getOwnPropertyNames: 객체 자신의 모든 속성의 이름을 배열로 반환한다. (열거 불가능한 속성도 포함)
+// - for...in 구문: 객체 자신의 속성 및 상속받은 속성 중 열거 가능한(enumerable)속성의 이름을 배열로 반환한다.
+
+// 대개의 경우 Object.keys를 사용하면 되지만, 상속받은 속성까지 열거하고 싶을 때는 for...in을, 열거 불가능한 속성도 열거하고 싶을 때는 Object.getOwnPropertyNames를 사용하자.
+{
+  const obj = {
+    a: 1,
+    b: 2
+  };
+  console.log(Object.keys(obj));
+}
+
+
+// 얕은 복사(Shallow Copy) & 깊은 복사(Deep Copy)
+// Object.assign 정적 메소드는 인수로 받은 객체들의 모든 열거 가능한 속성을 대상 객체에 복사한다.
+{
+  const obj = {};
+  Object.assign(obj, {a: 1}, {b: 2});
+  console.log(obj);
+}
+
+// Object.assign은 객체를 복제하는 수단으로도 사용된다.
+{
+  const obj = {
+    a: 1,
+    b: 2
+  };
+
+  // 빈 객체를 대상으로 `Object.assign`을 사용하면, 객체를 간단히 복제할 수 있다.
+  const obj2 = Object.assign({}, obj);
+  console.log(obj2);
+
+  const client = {
+    name1: 'bomi',
+    name2: 'yumi'
+  }
+  const helloTo = Object.assign([], client);
+  console.log(helloTo);
+}
+
+// 주의해야 할 점은 객체가 중접되어 있다면, 내부에 있는 객체는 복제되지 않는다.
+// Object.assign을 통해 속성 값이 복사될 때, 실제로 복사되는 것은 중첩된 객체가 아니라 그에 대한 참조(Reference)이기 때문이다.
+{
+  const obj = {
+    innerObj: {
+      a: 1,
+      b: 2
+    }
+  };
+
+  const obj2 = Object.assign({}, obj);
+
+  // `innerObj`는 복제되지 않는다.
+  console.log(obj.innerObj === obj2.innerObj);
+  console.log(obj.innerObj.a = 3);
+  console.log(obj2.innerObj.a);
+}
