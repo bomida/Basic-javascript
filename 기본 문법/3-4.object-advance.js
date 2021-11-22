@@ -117,3 +117,88 @@
     configurable: false
   });
 }
+
+
+// 접근자 속성(Accessor Property)와 그 부수속성
+{
+  // 접근자 속성의 필요성을 설명하기 위해, 화폐를 다루면서 환전 기능이 있는 프로그램을 짜야한다고 가정하고, won 단위와 dollar 단위를 저장하는 객체를 만들 수 있을 것이다.
+  const money = {
+    won: 1086,
+    dollar: 1
+  }
+  
+  // 하지만 위의 코드에는 문제가 있다. won 속성이 변경되었을 때 dollar 속성까지 자동으로 변경되지 않으므로, 둘 사이의 동기화가 깨지게 된다.
+  console.log(money.won += 1086);
+  // 2172원이 되었지만 dollar의 값은 2달러로 변경되지 않았다.
+  console.log(money.dollar);
+
+  // 이를 해결하기 위해, 객체에는 _won 속성을 저장하고 달러 단위가 필요할 때는 원 단위로 부터 계산해내도록 일일이 메소드를 두는 방법을 사용하고 있다.
+  function Money(won = 0) {
+    Object.defineProperty(this, '_won', {
+      value: won,
+      writable: true
+    }); // enumerable: false, configurable: false
+  }
+  
+  // 원 단위 값을 가져오는 메소드
+  Money.prototype.getWon = function() {
+    return this._won;
+  };
+  
+  // 원 단위 값을 저장하는 메소드
+  Money.prototype.setWon = function(amount) {
+    this._won = amount;
+  };
+  
+  // 달러 단위 값을 가져오는 메소드
+  Money.prototype.getDollar = function() {
+    return this._won / 1086;
+  };
+  
+  // 달러 단위 값을 저장하는 메소드
+  Money.prototype.setDollar = function(amount) {
+    this._won = amount * 1086;
+  };
+  
+  const m = new Money();  
+
+  m.setWon(1086);
+  console.log(`won to dollar:`, m.getDollar());
+  m.setDollar(2);
+  console.log(`dollar to won:`, m.getWon());
+
+  // 두 단위 사이의 동기화가 잘 유지되지만, 코드가 길어졌다. 특히, 속성을 사용하기 위해 매번 메소드를 호출해야하는 것이 불편하다.
+}
+{
+    // Getter와 Setter 기능을 사용해, 더 깔끔하게 작성할 수 있다.
+
+    const obj = {
+
+      // 메소드 이름 앞에 `get`을 써주면, 이 메소드는 getter메소드가 된다.
+      get prop() {
+        console.log(`getter가 호출되었다.`);
+        return this._hidden;
+      },
+
+      // 메소드 이름 앞에 `set`을 써주면, 이 메소드는 setter 메소드가 된다.
+      set prop(arg) {
+        console.log(`setter가 호출되었다.`);
+        this._hidden = arg;
+      }
+    }
+
+    // `set prop` 메소드가 `1`을 인수로 해서 호출된다.
+    obj.prop = 1;
+
+    // `get prop` 메소드가 호출되고 해당 메소드의 반환값을 읽어온다.
+    obj.prop;
+
+    Object.getOwnPropertyDescriptors(obj);
+}
+// obj 객체 리터럴 안에서 함수 앞에 get과 set 키워드를 사용했다. 이 두 함수는 각각 prop이라는 속성의 getter와 setter가 된다. getter는 속성을 읽어올 때, setter는 속성을 변경할 때 호출된다.
+
+// getter와 setter가 정의 된 속성을 접근자 속성(accessor property)이라고 한다. 접근자 속성에 대한 속성 기술자는 네 가지 속성을 갖는다.
+// - get: getter함수
+// - set: setter함수
+// - enumerable: 열거 가능한 속성인지를 나타낸다.
+// - configurable: 부수속성을 변경하거나 속성을 삭제할 수 있는지를 나타낸다.
