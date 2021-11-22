@@ -167,6 +167,7 @@
   m.setDollar(2);
   console.log(`dollar to won:`, m.getWon());
 
+  // 코드 예제에서 볼 수 있는 것처럼, 숨기고 싶은 속성의 이름을 언더스코어(_)로 시작하도록 짓는 관례가 널리 사용된다.
   // 두 단위 사이의 동기화가 잘 유지되지만, 코드가 길어졌다. 특히, 속성을 사용하기 위해 매번 메소드를 호출해야하는 것이 불편하다.
 }
 {
@@ -305,3 +306,37 @@
   console.log(obj.innerObj.a = 3);
   console.log(obj2.innerObj.a);
 }
+
+// 중첩된 자료구조까지 모두 복사하는 것을 가지고 깊은 복사(deep copy)라고 하며, JS에는 깊은 복사를 위한 기능이 내장되어 있지 않기 때문에, 직접 구현을 해서 사용해야 한다. 하지만 깊은 복사를 할 때 고려해야 할 것들이 많아서(순환참조, 프로토타입, 열거 불가능한 속성, getter/setter 등) 직접 구현이 어렵고, 관련 라이브러리를 사용하는 것이 좋다.
+
+// 비슷한 객체의 복제가 빈번하게 이루어져야하는 경우에는 Immutavle.js와 같은 라이브러리를 사용해도 좋다.
+
+
+// Object.preventExtensions
+// JS는 특정 객체에 더 이상 속성을 추가하지 못하도록 막아버리는 기능을 제공한다.
+{
+  const obj = {};
+
+  // 객체에 속성이 추가되는 것을 막았다.
+  Object.preventExtensions(obj);
+
+  function func() {
+    'use strict';
+    obj.a = 1;
+  }
+  // console.log(func());
+  // TypeError: Cannot add property a, object is not extensible
+}
+// JS의 모든 객체에는 [[Extensible]]이라는 숨겨진 속성이 있다. 이 속성의 기본값은 true인데, 이 값이 false가 되면 해당 객체에 속성을 추가하는 것이 불가능해진다. Object.preventExtensions 정적 메소드는 [[Extensible]] 속성을 false로 바꿔주는 역할을 한다. 즉, 객체에 속성을 추가하는 것이 불가능해진다.
+
+// 객체의 [[Extensible]] 속성 값은 Object.isExtensible 정적 메소드를 통해 알아볼 수 있다.
+{
+  const obj = {};
+  console.log('isExtensible:', Object.isExtensible(obj));
+  console.log('preventExtensions:', Object.preventExtensions(obj));
+  console.log('isExtensible', Object.isExtensible(obj));
+}
+
+// Object 생성자의 정적 메소드 중에 [[Extensible]] 속성을 바꿔버리는 메소드가 두개 더 있다.
+// - Object.seal: 인수로 들어온 객체의 [[Extensible]] 속성을 false로 바꾸고, 객체 자신의 속성을 모두 configurable: false 상태로 바꾼다. 즉, 객체에 속성을 추가하거나, 이미 존재하는 속성을 삭제하는 것이 불가능해진다.
+// - Object.freeze: 인수로 들어온 객체의 [[Extensible]] 속성을 false로 바꾸고, 객체 자신의 속성을 모두 configurable: false, writable: false 상태로 바꾼다. 즉, 객체에 속성을 추가하거나, 이미 존재하는 속성을 변경/삭제하는 것이 불가능해진다.
