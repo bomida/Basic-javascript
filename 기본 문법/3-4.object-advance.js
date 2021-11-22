@@ -81,3 +81,39 @@
   func1(); // 에러가 나지 않는다.
   // func2(); // TypeError: Cannot delete property 'PI' of #<Object>
 }
+
+// 속성 기술자를 통해 객체의 속성 정의하기
+// 속성 기술자는 우리가 직접 속성 기술자를 가지고 석성을 정의할 수도 있다. 프로토타입 상속을 위해 사용했던 Object.create 정적 메소드는, 사실 두 번째 인수로 속성 기술자 객체를 받는다.
+{
+  const obj = Object.create(Object.prototype, {
+    prop: {
+      value: 1,
+      writable: false,
+      enumerable: true,
+      configurable: false
+    },
+    another: {
+      value: 2
+    }
+  });
+
+  console.log(obj);
+
+  obj.prop = 2;
+  console.log(obj.prop);
+
+  delete obj.prop;
+  console.log(obj.prop);
+}
+// 속성 기술자에 writable, enumerable, configurable 속성을 주지 않으면, 해당 부수속성은 모두 false로 취급된다.
+
+// Object.create 외에, Object.defineProperty 혹은 Object.defineProperties 정적 메소드를 사용해서 이미 만들어진 객체에 대한 속성을 정의할 수도 있다.
+{
+  const obj = {};
+  Object.defineProperty(obj, 'prop', {
+    vlaue: 1,
+    writable: false,
+    enumertable: true,
+    configurable: false
+  });
+}
