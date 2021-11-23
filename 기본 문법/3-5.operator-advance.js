@@ -164,3 +164,88 @@
   const address2 = person.company?.office?.address ?? '주소 없음';
   console.log(`address2:`, address2);
 }
+
+
+// 삼항 연산자(Ternary Operator)
+// a ? b : c 와 같이 쓰이는 삼항 연산자(ternary operator)는 조건부 연산자(conditional operator)라고도 불립니다. 앞의 표현식에서, a가 truthy이면 b가, falsy이면 c가 반환된다.
+{
+  console.log(true ? 1 : 2);
+  console.log(false ? 1 : 2);
+}
+
+// 삼항 연산자 역시 평가할 필요가 없는 부분은 평가하지 않는다.
+{
+  true ? console.log('left') : console.log('right');
+  false ? console.log('left') : console.log('right');
+}
+
+// 삼항 연산자 역시 if...else를 대신하는 용도로 자주 사용된다.
+{
+  // `func1`과 `func2`는 동일하게 동작한다.
+  function func1(cond) {
+    if(cond) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function func2(cond) {
+    return cond ? true : false;
+  }
+}
+
+
+// 증가/감소 연산자(Increment/Decrement Operator)
+// JS에는 1단위로 정수의 증가/감소 연산을 할 수 있는 ++, -- 연산자가 있다.
+{
+  let num = 10;
+
+  num++;
+  console.log(num);
+
+  num--;
+  console.log(num);
+}
+
+// 여기서 num++ 역시 표현식이다. 즉, 값으로 변환된다는 말이다.
+{
+  let num = 10;
+  console.log(`num++:`, num++);
+  console.log(`num--:`, num--);
+}
+
+// 분명 num++ 표현식이 평가된 이후에 num의 값이 증가하기는 했다. 그런데 num++ 표현식 자체는 증가시키기 전의 값을 반환한다.
+// ++ 연산자는 피연산자의 값을 1 증가시킨다. 단,
+//  - ++ 연산자를 피연산자 앞의 쓰면, 그 표현식은 값을 증가시키고 뒤의 결과값을 반환한다.
+//  - ++ 연산자를 피연산자 뒤에 쓰면, 그 표현식은 값을 증가시키기 전의 피연산자를 그대로 반환한다.
+// 이 동작 방식은 감소 연산자(--)에도 적용된다.
+
+{
+  // 아래 코드 예제의 위에 있는 루프는 3번 실행되지만, 아래 있는 루프는 2번 밖에 실행되지 않는다.
+  let i = 3;
+  while (i--) {
+    console.log('감소 연산자를 뒤에 쓰면 어떻게 될까요?');
+  }
+
+  let j = 3;
+  while (--j) {
+    console.log('감소 연산자를 앞에 쓰면 어떻게 될까요?');
+  }
+
+  // 증감 연산자의 성질을 활용하면, 코드를 조금 더 짧게 작성할 수 있다.
+  function Counter(initial = 0) {
+    this._count = initial;
+  }
+
+  // `this._count`를 1 증가시키면서도 증가시키기 전 값을 반환하는 코드를,
+  Counter.prototype.lonInc = function() {
+    const result = this._count;
+    this._count += 1;
+    return result;
+  }
+  // 아래와 같이 짧게 쓸 수 있다.
+  Counter.prototype.inc = function() {
+    return this._count++;
+  }
+}
