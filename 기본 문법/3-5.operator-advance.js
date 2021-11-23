@@ -122,3 +122,45 @@
 // 이렇게 논리 연산자를 사용하여 작성하면 if문을 중첩하여 작성하는 것 보다는 간결하지만 다음과 같은 단점을 가진다.
 // - 객체가 많이 중첩될수록 코드의 길이가 길어진다.
 // - 값이 null 과 undefined가 아닌 falsy 값인 경우도 고려해야 한다.
+
+{
+  // 많은 중첩
+  // const sixth = first && first.second && first.second.third && first.second.third.fourth && first.second.third.fourth.fifth && first.second.third.fourth.fifth.sixth;
+
+  // // 값이 null과 undefined가 아닌 falsy 값인 경우
+  // const person = {
+  //   name: '준하',
+  //   age: 28,
+  //   company: {
+  //     name: '',
+  //   }
+  // };
+
+  // // companyNameLength에 숫자 대신 빈 문자열이 할당됩니다.
+  // const companyNameLength = person.company && person.company.name && person.company.name.length && 0; // ''
+
+  // // 이를 고려하여 아래처럼 해주어야합니다.
+  // const companyNameLength = person.company && typeof person.company.name === 'string' && person.company.name.length; // 0
+}
+{
+  // ES2020에 포함된 Optional chaining 문법을 사용하면 이러한 번거로움을 해소할 수 있다.
+
+  const person = {
+      name: '준하',
+    age: 28,
+    company: {
+      name: '',
+    }
+  };
+
+  const address = person.company?.office?.address;
+  console.log(`address:`, address);
+  const companyNameLength = person.company?.name?.length;
+  console.log(`companyNameLength:`, companyNameLength);
+  
+  // 여기서 .? 연산자를 Optional chaining 연산자라고 부릅니다. 이 연산자는 속성 접근자와 비슷한 기능을 하지만, Obj?prop에서, obj가 null 혹은 nudefined이면 obj가 바로 반환되고, 아니면 obj.prop이 반환된다. 덕분에 접근하는 대상이 null 혹은 undefined인 경우에 에러가 날까봐 걱정할 필요가 없다.
+
+  // 만약 아래 예시처럼 입력된 주소가 없는(null, undefined)경우 '주소 없음'을 표시하고 싶다면 ?? 연산자와 함께 활용할 수도 있다.
+  const address2 = person.company?.office?.address ?? '주소 없음';
+  console.log(`address2:`, address2);
+}
