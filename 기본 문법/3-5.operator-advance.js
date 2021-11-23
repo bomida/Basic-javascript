@@ -372,3 +372,68 @@
   console.log('undefined == false', undefined == false);
   console.log(`undefined == NaN`, undefined == NaN);
 }
+
+
+// 엄격한 동일성(Strict Equality)
+// ===, !== 연산자는 두 피연산자의 타입이 다른 경우 무조건 false를 반환한다. 따라서 ==, != 연산자와는 달리, 서로 다른 타입의 피연산자에 대해서도 안심하고 사용할 수 있다.
+{
+  console.log(`'1' === 1`, '1' === 1);
+  console.log(`true === 1`, true === 1);
+  console.log(`false === 0`, false === 0);
+}
+
+// 다만, number 타입에 대한 비교를 할 때에는 다음과 같이 특이한 동작을 한다.
+{
+  // `===` 연산에서, `NaN`은 number 타입의 **모든** 값과 다르다. 이는 자기 자신에 대해서도 마찬가지이다.
+  console.log(`NaN === NaN:`, NaN === NaN);
+
+  // `0`과 `-0`은 서로 다른 값이지만, `===` 연산은 이 둘을 같은 것으로 취급한다.
+  console.log(`0 === -0:`, 0 === -0);
+}
+
+
+// Object.is
+// Object.is 정적 메소드는 두 인수가 정말로 같은 값인지를 검사합니다. 아래의 두 예외를 제외하고는 === 연산자와 같은 방식으로 동작한다.
+{
+  console.log(Object.is(NaN, NaN));
+  console.log(Object.is(0, -0));
+}
+
+// 무엇을 써야 하나요?
+// 특별한 경우를 제외하고는 === 혹은 !== 연산자를 사용해서 비교를 하면 됩니다. 다만 null check를 할 때 만큼은 == 혹시 != 연산자를 사용하는 것이 편하다.
+
+
+// Spread Syntax
+// Spread 문법을 사용하면 배열(혹은 객체)을 다른 배열(혹은 객체)에 쉽게 삽입할 수 있다. 나머지 매개변수(rest parameters) 문법과 같은 기호인 ...가 사용되지만, 그 의미는 다르다.
+
+// 배열
+// Spread 문법을 통해 배열 리터럴의 중간에 다른 배열을 이어붙일 수 있다. 이 때, arr1 안에 있는 요소들이 arr2 안으로 복사됩니다.
+{
+  const arr1 = [1, 2, 3];
+  const arr2 = [...arr1];
+
+  // 이전에는 같은 작업을 하기 위해 `Arrary.prototype.slice` 메소드를 사용했다.
+  arr1.slice();
+}
+
+// Spread 문법은 함수 호출 시에도 사용할 수 있다. 이 때 배열의 모든 요소를 함수의 인수로 넘긴다.
+{
+  const arr = [1, 2, 3, 4, 5];
+
+  // 아래 코드는 `Math.max(1, 2, 3, 4, 5)`와 동일하다.
+  console.log(`Math.max(...arr)`, Math.max(...arr));
+
+  // 이전에는 같은 직업을 하기 위해 `Function.prototype.apply` 메소드를 사용했다.
+  console.log(`Math.max.apply(null, arr)`, Math.max.apply(null, arr));
+}
+
+// 객체
+// 객체에 대해서도 spread 문법을 사용할 수 있다. 이 때 자기 자신의 (own) 열거 가능한(enumerable) 속성만을 복사합니다.
+// 아직 몇몇 브라우저에 이 문법이 구현되어 있지 않기 때문에, 이 문법을 사용하려면 Babel 플러그인 혹은 TypeScript 등의 트랜스파일러를 사용해야 합니다.
+{
+  const obj1 = {prop: 1};
+  const obj2 = {...obj1};
+
+  // 이전에는 같은 작업을 하기 위해 `Object.assign` 정적 메소드를 사용했다.
+  Object.assign({}, obj1);
+}
