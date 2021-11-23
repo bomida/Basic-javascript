@@ -249,3 +249,32 @@
     return this._count++;
   }
 }
+
+
+// 할당 연산자 (Assignment Operator)
+// = 연산자를 비롯해, 연산 후 할당을 하는 +=, -= 등등의 연산자 역시 모두 피연산자와 함께 표현식을 이룹니다.
+{
+  let x;
+  console.log(`x = 5:`, x = 5);
+}
+
+// 할당 연산자에 대한 표현식의 결과값은 왼쪽 피연산자에 실제로 할당된 값이 된다.
+{
+  let x = 5;
+  console.log(`x += 5:`, x += 5);
+
+  let y = 6;
+  console.log(`x -= 3:`, x -= 3);
+}
+
+
+// 연산자 우선 순위 (Operator Precedence)
+// 연산자 여러 개가 연이어 사용된 표현식에서는, 연산자 우선 순위(operator precedence)에 따라 어떤 연산자를 먼저 계산할지가 결정된다.
+{
+  // `+` 연산자가 왼쪽에 있지만, `*` 연산자의 우선 순위가 더 높으므로 먼저 계산된다.
+  console.log(`2 + 3 * 4 =`, 2 + 3 * 4);
+}
+{
+  // 결과 값이 무엇일지 맞춰보세요.
+  console.log(`typeof 'helloworld' === 'hello' + 'world':`, typeof 'helloworld' === 'hello' + 'world');
+}
