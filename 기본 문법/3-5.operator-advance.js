@@ -44,3 +44,81 @@
 // - ||: 왼쪽 피연산자를 평가해서 truthy이면 이 값을 바로 반환한다. 아니라면 오른쪽 피연산자를 평가한 결과값을 반환한다.
 // - ??: 왼쪽 피연산자를 평가해서 null이나 undefined가 아니면이 값을 바로 반환합니다. 아니라면 오른쪽 피연산자를 평가한 결과값을 반환합니다.
 
+// 위 성질들을 이용해 if 구문을 흉내낼 수 있다.
+{
+  // `func1`과 `func2`는 동일하게 동작한다.
+  function func1(cond) {
+    if(cond) {
+      console.log('조건을 만족합니다.');
+    }
+  }
+  function func2(cond) {
+    cond && console.log('조건을 만족합니다.');
+  }
+}
+{
+  // `func1`과 `func2`는 동이랗게 동작합니다.
+  function func1(arg) {
+    if(!arg) {
+      arg = 'hello';
+    }
+    console.log(arg);
+  }
+  function func2(arg) {
+    arg = arg || 'hello';
+    console.log(arg);
+  }
+}
+
+// 특히 || 연산자는 '기본 매개변수'(ES2015)문법이 생기기 전까지 매개변수의 기본값을 지정하는 용도로 많이 사용됐다. ?? 연산자는 ES2020에 도입되었다.
+// short-circuit evalutation을 사용하면 코드의 길이가 줄어드는 효과가 있지만, 코드의 의미가 불명확해질 수 있고 논리적으로 놓치는 부분이 생길 수 있으니 주의하자.
+
+
+// Optional chaining
+// 여러번 중첩된 객체의 속성에 접근할 때, 특정 깊이에 중첩된 객체가 없을 수도 있다면 이를 고려해서 코드를 짜야한다. 
+{
+  const person = {
+    name: '준하',
+    age: 28,
+    company: {
+      name: 'Hello World JS',
+      office: {
+        name: '판교 오피스',
+        address: '경기도 성남시 분당구 판교동',
+      }
+    }
+  };
+
+  // 이때, 준하 회사의 주소에 접근하기 위해서는 다음과 같은 표현식을 작성할 수 있다.
+  const address = person.company.office.address;
+}
+
+// 만약 준하가 아직 학생이어서 취업을 하지 않은 경우, 혹은 회사 주소를 입력하지 않은 경우, 다음과 같이 회사의 주소 정보를 가지지 않을 수 있다.
+{
+  // 회사 정보가 없음
+  const person = {
+    name: '준하',
+    age: 28,
+  };
+}
+{
+  // 회사 오피스 정보를 입력하지 않음
+  const person = {
+    name: '준하',
+    age: 28,
+    company: {
+      name: 'Hello World JS',
+    }
+  };
+
+  // 이 때, 그냥 person.company.office.address에 접근하면 에러가 난다.
+  // const address = person.company.office.address;
+  // TypeError: Cannot read properties of undefined (reading 'address')
+  
+  // 이 경우 회사의 주소에 접근하기 위해 중접된 객체마다 속성에 데이터가 있는지 확인해야 한다. 하나하나 if문으로 null check를 할 수도 있지만, 앞서 언급한 && 연산자를 사용하여 다음과 같이 작성할 수 있다.
+  const address = person.company && person.company.office && person.company.office.address;
+}
+
+// 이렇게 논리 연산자를 사용하여 작성하면 if문을 중첩하여 작성하는 것 보다는 간결하지만 다음과 같은 단점을 가진다.
+// - 객체가 많이 중첩될수록 코드의 길이가 길어진다.
+// - 값이 null 과 undefined가 아닌 falsy 값인 경우도 고려해야 한다.
