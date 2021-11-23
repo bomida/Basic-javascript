@@ -300,3 +300,75 @@
   // console.log(a || b || c || d);
   // console.log(((a || b) || c) || d);
 }
+
+// 연산자의 결합성 때문에, 수학에서 쓰이는 식을 JS에서는 그대로 쓸 수 없는 경우가 있다.
+{
+  // 위아래 식은 완전히 같은 방식으로 동작한다.
+  // 결과적으로 'true > 1`이 되어 결과값이 `false`가 된다.
+  3 > 2 > 1;
+  (3 > 2) > 1;
+  true > 1;
+
+  // 세 개의 수에 대한 비교를 하고 싶다면 아래와 같이 해야 한다.
+  console.log(3 > 2 && 2 > 1);
+}
+
+// 어떤 연산자는 오른쪽부터 결합되어 계산된다.
+{
+  // 위아래 식은 완전히 같은 방식으로 동작한다.
+  console.log(`2 ** 2 ** 3:`, 2 ** 2 ** 3);
+  console.log(`2 ** (2 ** 3):`, 2 ** (2 ** 3));
+
+  // 위아래 식은 완전히 같은 방식으로 동작한다.
+  let x, y, z;
+  console.log(`z = y = x = 1:`, z = y = x = 1);
+  console.log(`z = (y = (x = 1)):`, z = (y = (x = 1)));
+
+  // 위아래 식은 완전히 같은 방식으로 동작한다.
+  // console.log(`a ? b : c ? d : e ? f : g:`, a ? b : c ? d : e ? f : g);
+  // console.log(`a ? b : (c ? d : (e ? f : g)):`, a ? b : (c ? d : (e ? f : g)));
+}
+
+
+// 값을 비교하는 여러가지 방법
+// JS에서는 두 값이 같은지를 비교하기 위해 아래 세 가지 방법을 사용할 수 있다.
+// - ==, !=
+// - ===, !==
+// - Object.is
+// 여기서 a != b는 !(a == b)와 항상 같다. a !== b 또한 !(a === b)와 항상 같다.
+
+// 추상적 동일성(Abstract Equality)
+// == 연산자는 두 피연산자의 타입이 다를 때는 타입을 변환한 후 비교한다. 두 피연산자의 타입이 같다면 === 연산자와 같은 방식으로 동작한다.
+{
+  console.log(`'1' == 1`, '1' == 1);
+  console.log(`true == 1`, true == 1);
+  console.log(`false == 0`, false == 0);
+  console.log(`'' === false`, '' === false);
+}
+//  여기서 a != b는 !(a == b)와 항상 같다. a !== b 또한 !(a === b)와 항상 같다.
+
+
+// 추상적 동일성(Abstract Equality)
+// == 연산자는 두 피연산자의 타입이 다를 때는 타입을 변환한 후 비교합니다. 두 피연산자의 타입이 같다면 === 연산자와 같은 방식으로 동작한다.
+{
+  console.log(`'1' == 1`, '1' == 1);
+  console.log(`true == 1`, true == 1);
+  console.log(`false == 0`, false == 0);
+  console.log(`'' == false`, '' == false);
+}
+
+// 타입을 변환하는 과정에서 의도치 않은 방식으로 동작할 수 있기 때문에, 주의해서 사용해야 한다.
+{
+  console.log(`' \n\t ' == 0`, ' \n\t ' == 0);
+}
+
+// null check를 할 때 만큼은 == 연산자가 유용하게 사용된다. == 연산자는 아래와 같은 성질을 갖고 있습니다.
+// - null과 undefined 두 값을 동일한 것으로 취급한다. 즉, 결과값이 true가 된다.
+// - null과 undefined를 이 두 값을 제외한 다른 값과 비교했을 때는 항상 결과값이 false가 된다.
+{
+  console.log(`null == undefined`, null == undefined);
+  console.log(`null == 0`, null == 0);
+  console.log(`null == ''`, null == '');
+  console.log('undefined == false', undefined == false);
+  console.log(`undefined == NaN`, undefined == NaN);
+}
