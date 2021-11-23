@@ -278,3 +278,25 @@
   // 결과 값이 무엇일지 맞춰보세요.
   console.log(`typeof 'helloworld' === 'hello' + 'world':`, typeof 'helloworld' === 'hello' + 'world');
 }
+{
+  // 연산 순서가 명확해졌습니다.
+  console.log(`typeof ('helloworld' === ('hello' + 'world')):`, typeof ('helloworld' === ('hello' + 'world')));
+}
+
+
+// 연산자 결합 순서(Operator Associativity)
+// 이번에는 같은 연산자를 연이어 쓴 경우에 주의해야 할 점에 대해 알아보자.
+// 어떤 연산자는 같은 연산자를 연이어 쓴 경우에 왼쪽부터 결합되어 계산된다.
+{
+  // 위아래 식은 완전히 같은 방식으로 동작한다.
+  console.log(`1 + 2 + 3 + 4 + 5:`, 1 + 2 + 3 + 4 + 5);
+  console.log(`(((1 + 2) + 3) + 4) + 5:`, (((1 + 2) + 3) + 4) + 5);
+
+  // 왼쪽부터 결합되어, 처음으로 등장하는 falsy 값이 표현식의 결과값이 된다. 나머지는 평가되지 않는다.
+  // console.log(`a && b && c && d`, a && b && c && d);
+  // console.log(`((a && b) && c) && d`, ((a && b) && c) && d);
+
+  // 왼쪽부터 결합되어, 처음으로 등장하는 truthy 갑이 표현식의 결과값이 된다. 나머지는 평가되지 않는다.
+  // console.log(a || b || c || d);
+  // console.log(((a || b) || c) || d);
+}
