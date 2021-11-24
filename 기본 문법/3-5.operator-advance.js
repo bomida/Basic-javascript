@@ -520,3 +520,37 @@
   };
   console.log(`a, b, c:`, a, b, c);
 }
+
+// 객체의 나머지 속성(Object Rest Properties)
+// 만약 분해대입 시 무시된 속성들을 가지고 새로운 객체를 만들고 싶다면, ...을 붙여주면 된다. 나머지 매개변수(rest parameter)에서와 같이, ...은 맨 마지막에만 붙을 수 있다.
+{
+  const {a, b, ...rest} = {a: 1, b: 2, c: 3, d: 4};
+  console.log(`rest:`, rest);
+}
+// 아직 몇몇 브라우저에 이 문법이 구현되어 있지 않기 때문에, 이 문법을 사용하려면 Babel 플러그인 혹은 TypeScript 등의 트랜스파일러를 사용해야 한다.
+
+// 분해대입의 기본값
+// 분해대입 시, 만약 좌측 변수의 위치에 해당하는 값이 우측의 배열 혹은 객체에 존재하지 않으면 거기에는 대입이 일어나지 않는다.
+{
+  let a, b, c;
+  [a, b, c] = [1, 2];
+  console.log(`c:`, c);
+}
+
+// 이 동작은 객체에 대한 분해대입에서도 적용된다.
+{
+  let {a, b, c = 3} = {a: 1, b: 2};
+  console.log(`c:`, c);
+}
+
+// 매개변수에서의 분해대입
+// 함수의 매개변수에도 분해대입을 할 수 있다.
+{
+  function func({prop, array: [item1, item2, item3 = 4]}) {
+    console.log(prop);
+    console.log(item1);
+    console.log(item2);
+    console.log(item3);
+  }
+  func({prop: 1, array: [2, 3]});
+}
