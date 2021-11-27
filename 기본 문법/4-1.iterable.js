@@ -2,13 +2,13 @@
 
 // Iterable
 // 반복 가능한 객채(iterable object)는 for...of 구문과 함께 ES2015에서 도입되었다.
-// 반복 가능한 객체를 다른 객체와 구분짓는 특징은, 객체의 Symbol.iterable 속성에 특별한 형태의 함수가 들었는 것이다.
+// 반복 가능한 객체를 다른 객체와 구분짓는 특징은, 객체의 Symbol.iterable 속성에 특별한 형태의 함수가 들어있다는 것이다.
 {
   const str = 'hello';
   console.log(str[Symbol.iterator]);
 }
 
-// 객체의 Symbol.iterator 속성에 특정 형태의 함수가 들어있다면, 이를 반복 가능한 객체(iterator object) 혹은 줄여서 iterable이라 부르고, 해당 객체는 iterable protocol을 만족한다고 말한다. 이런 객체들에 대해서는 ES2015에서 추가된 다양한 기능들을 사용할 수 있다.
+// 객체의 Symbol.iterator 속성에 특정 형태의 함수가 들어있다면, 이를 반복 가능한 객체(iterable object) 혹은 줄여서 iterable이라 부르고, 해당 객체는 iterable protocol을 만족한다고 말한다.
 
 // 내장된 생성자 중 iterable 객체를 만들어내는 생성자에는 아래와 같은 것들이 있다.
 // - String
@@ -359,3 +359,21 @@
 }
 
 // 위 generator 함수들이 어떻게 구현되었는지 파악해보자. 그리고 위 generator 함수들을 이용해 iterable이 제공하는 여러 기능들을 사용해보자.
+
+{
+  function* fn() {
+    const num1 = yield '첫번째 숫자를 입력해주세요.';
+    console.log(num1);
+
+    const num2 = yield '두번째 숫자를 입력해주세요.';
+    console.log(num2);
+
+    return num1 + num2
+  }
+  const a = fn();
+
+  console.log(a.next());
+  console.log(a.next(3));
+  console.log(a.next(5));
+  console.log(a.next());
+}
