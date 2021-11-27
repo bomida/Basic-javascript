@@ -44,3 +44,56 @@
   // `Array.from`은 iterable 혹은 array-like 객체를 인수로 받는다.
   console.log(Array.from('hello world'));
 }
+
+
+// Generator 함수
+// iterable protocol을 구현하기만 하면 어떤 객체든 iterable이 될 수 있다.
+// Iterable을 구현하는 가장 쉬운 방법은 ES2015에 도입된 generator 함수를 사용하는 것이다.
+// Generator 함수는 iterable 객체를 반환하는 특별한 형태의 함수이다.
+{
+  // generator 함수 선언하기
+  function* gen1() {
+    // ...
+  }
+
+  // 표현식으로 사용하기
+  const gen2 = function* () {
+    // ...
+  }
+
+  // 메소드 문법으로 사용하기
+  const obj = {
+    * gen3() {
+      // ...
+    }
+  }
+}
+
+// Generator 함수를 호출하면 객체가 생성되는데, 이 객체는 iterable protocol을 만족한다.
+// 즉, Symbol.iterator 속성을 갖고 있다.
+{
+  function* gen1() {
+    // ...
+  }
+
+  // `gen1`를 호출하면 iterable이 반환된다.
+  const iterable = gen1();
+
+  console.log(iterable[Symbol.iterator]);
+}
+
+// Generator함수 안에서는 yield라는 특별한 키워드를 사용할 수 있다.
+// Generator함수 안에서 yield 키워드는 return과 유사한 역할을 하며,
+// iterable의 기능을 사용할 때 yield 키워드 뒤에 있는 값들을 순서대로 넘겨준다.
+{
+  function* numberGen() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+
+  // 1, 2, 3이 순서대로 출력된다.
+  for(let n of numberGen()) {
+    console.log(n);
+  }
+}
