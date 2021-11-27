@@ -68,6 +68,13 @@
   }
 }
 
+{
+  // 이때 두 가지 표기 모두 가능!!
+  // function* f(...)
+  // function *f(...)
+  // 하지만 *는 함수를 나타내므로 첫번째 문법이 선호된다.
+}
+
 // Generator 함수를 호출하면 객체가 생성되는데, 이 객체는 iterable protocol을 만족한다.
 // 즉, Symbol.iterator 속성을 갖고 있다.
 {
@@ -96,6 +103,23 @@
   for(let n of numberGen()) {
     console.log(`numberGen: ${n}`);
   }
+}
+{
+  function* weekdays() {
+    yield 'mon';
+    yield 'tue';
+    yield 'weds';
+    yield 'thur';
+    yield 'fri';
+    return 'finally'
+  }
+  let print = weekdays();
+  for(let w of print) {
+    console.log(w);
+  }
+  // 여기서 주의 할 점은 return값은 출력되지않는다.
+  // 이유는 for...of 이터레이션이 done:true일 때 마지막 value를 무시하기 때문!
+  // 그렇기때문에 모든 값이 출력되길 원한다면 yield로 값을 반환해야한다.
 }
 
 // yield* 표현식을 사용하면, 다른 generator 함수에서 넘겨준 값을 대신 넘겨줄 수도 있다.
@@ -126,7 +150,7 @@
       yield i;
     }
   }
-  
+
   // 피보나치 수열 생성하기
   function* fibonacci(count = Infinity) {
     let x = 1;
@@ -223,36 +247,52 @@
 }
 
 // Iterable protocol과 iterator protocol을 모두 이해하셨다면, 이제 직접 iterable을 만들 수 있다.
-// 앞의 예제에 있엇던 range 함수를 generator 함수를 사용하지 않고 똑같이 구현해보겠다.
+// Generator 함수를 사용했을 때보다 훨씬 복잡해졌다. 이 때문에 iterator protocol을 직접 구현하는 대신 generator 함수를 사용하는 경우가 많다.
+// 다만, next 메소드를 사용하면 iterable을 세부적으로 제어할 수 있으므로, iterator에 대해서 알아둘 필요는 있다.
 {
-  function range(start = 0, end = Infinity, step = 1) {
-    // `range` 함수는 iterable을 반환한다.
-    return {
-      currentValue: start,
-      [Symbol.iterator]() {
-        // iterable의 `Symbol.iterator` 메소드는 iterator을 반환해야한다.
-        return {
-          next: () => {
-            if (this.currentValue < end) {
-              const value = this.currentValue;
-              this.currentValue += step;
-              return {
-                done: false,
-                value
-              }
-            } else {
-              return {
-                done: true
-              }
-            }
+  let range = {
+    from: 1,
+    to: 5,
+
+    // for...of 최초 호출 시, Symbol.iterator가 호출된다.
+    [Symbol.iterator]() {
+      // Symbol.iterator는 이터레이터 객체를 반환한다.
+      // for...of는 반환된 이터레이터 객체만을 대상으로 동작하는데, 이때 다음 값도 정해진다.
+      return {
+        current: this.from,
+        last: this.to,
+
+        // for...of 반복문에 의해 각 이터레이션마다 next()가 호출된다.
+        next() {
+          // next()는 객체 형태의 값, {done:.., value:...}을 반환해야 한다.
+          if(this.current <= this.last) {
+            return {done: false, value: this.current++};
+          } else {
+            return {done: true};
           }
         }
       }
     }
   }
+
+  console.log([...range]);
 }
-// Generator 함수를 사용했을 때보다 훨씬 복잡해졌다. 이 때문에 iterator protocol을 직접 구현하는 대신 generator 함수를 사용하는 경우가 많다.
-// 다만, next 메소드를 사용하면 iterable을 세부적으로 제어할 수 있으므로, iterator에 대해서 알아둘 필요는 있다.
+
+// Symbol.iterator 대신 제너레이터 함수를 사용하면, 제너레이터 함수로 반복이 가능하다.
+// 같은 range이지만, 좀 더 압축된 range를 살펴보자.
+{
+  let range = {
+    from: 1,
+    to: 5,
+    *[Symbol.iterator]() { // [Symbol.iterator]: function*()를 짧게 줄임
+      for(let value = this.from; value <= this.to; value++) {
+        yield value;
+      }
+    }
+  }
+
+  console.log([...range]);
+}
 
 
 // Generator와 Iterator
@@ -376,4 +416,79 @@
   console.log(a.next(3));
   console.log(a.next(5));
   console.log(a.next());
+}
+
+{
+  function* gen1() {
+    yield 'w';
+    yield 'o';
+    yield 'r';
+    yield 'l';
+    yield 'd';
+  }
+  function* gen2() {
+    yield 'Hello';
+    yield* gen1();
+    yield '!';
+  }
+  console.log(...gen2());
+}
+
+{
+  function* generateSequence() {
+    yield 1;
+    yield 2;
+    return 3;
+  }
+  let generator = generateSequence();
+  let one = generator.next();
+  console.log(JSON.stringify(one));
+}
+
+// 먼저, 연속된 숫자를 생성하는 제너레이터 함수를 만들어보자
+{
+  function* generateSequence(start, end) {
+    for(let i = start; i <= end; i++) yield i;
+  }
+
+  // 위 함수를 기반으로 좀 더 복잡한 값을 연속해서 생성하는 함수를 만들어보자.
+  // - 처음엔 숫자 0부터 9까지 생성한다. (문자 코드 48부터 57까지)
+  // - 이어서 알파벳 대문자 A부터 Z까지를 생성한다. (문자 코드 65부터 90까지)
+  // - 이어서 알파벳 소문자 A부터 Z까지를 생성한다. (문자 코드 97부터 122까지)
+
+  // 제너레이터의 특수 문법 yield*를 사용하면 제너레이터를 다른 제너레이터에 ‘끼워 넣을 수’ 있다.
+  /*
+  function* generatePasswordCodes() {
+    // 0...9
+    yield* generateSequence(48, 57);
+
+    // A...Z
+    yield* generateSequence(65, 90);
+
+    // a...z
+    yield* generateSequence(97, 122);
+  }
+  */
+  /*
+  let str = '';
+  for(let code of generatePasswordCodes()) {
+    str += String.fromCharCode(code);
+  }
+  */
+  function* generateAlphaNum() {
+    // yield* generaSequence(48, 57);
+    for(let i = 48; i <= 57; i++) yield i;
+
+    // yield* generaSequence(65, 90);
+    for(let i = 65; i <= 90; i++) yield i;
+
+    // yield* generaSequence(97, 122);
+    for(let i = 97; i <= 122; i++) yield i;
+  }
+  let str = '';
+  for(let code of generateAlphaNum()) {
+    str += String.fromCharCode(code);
+  }
+
+  console.log(str);
 }
