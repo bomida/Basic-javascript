@@ -196,6 +196,20 @@
 
     Object.getOwnPropertyDescriptors(obj);
 }
+
+{ console.group('Getter(획득자) and Setter(설정자)');
+
+  let user = {
+    name: 'Yearin',
+    firstname: 'Beak',
+
+    get fullName() {
+      return `${this.name} + ${this.firstname}`;
+    }
+  }
+
+console.groupEnd('Getter(획득자) and Setter(설정자)'); }
+
 // obj 객체 리터럴 안에서 함수 앞에 get과 set 키워드를 사용했다. 이 두 함수는 각각 prop이라는 속성의 getter와 setter가 된다. getter는 속성을 읽어올 때, setter는 속성을 변경할 때 호출된다.
 
 // getter와 setter가 정의 된 속성을 접근자 속성(accessor property)이라고 한다. 접근자 속성에 대한 속성 기술자는 네 가지 속성을 갖는다.

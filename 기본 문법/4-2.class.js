@@ -120,3 +120,49 @@ console.groupEnd('class'); }
   account.balance = 1000;
   console.log('account.balance: ' + account.balance);
 }
+
+// static 키워드를 메소드 이름 앞에 붙여주면 해당 메소드는 정적 메소드가 된다.
+{
+  class Person {
+    constructor({name, age}) {
+      this.name = name;
+      this.age = age;
+    }
+    // 이 메소드는 정적 메소드이다.
+    static sumAge(...people) {
+      return people.reduce((acc, person) => acc + person.age, 0);
+    }
+  }
+
+  const person1 = new Person({name: 'yumi', age: 20});
+  const person2 = new Person({name: 'bomi', age: 23});
+
+  console.log(Person.sumAge(person1, person2));
+}
+
+// Generator 메소드를 정의하려면, 메소드 이름 앞에 * 기호를 붙여주면 된다.
+// 아래와 같이 Symbol.iterator 메소를 generator로 정의해주면, 클래스의 인스턴스를 쉽게 iterable로 만들 수 있다.
+{
+  class Gen {
+    *[Symbol.iterator]() {
+      yield 1;
+      yield 2;
+      yield 3;
+    }
+  }
+
+  // 1, 2, 3이 차례로 출력된다.
+  for(let n of new Gen()) {
+    console.log('class Gen():' + n);
+  }
+}
+{
+  function* Gen() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  for(let n of Gen()) {
+    console.log('generator Gen():' + n);
+  }
+}
