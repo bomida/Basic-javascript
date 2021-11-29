@@ -354,4 +354,31 @@ console.groupEnd('16. 로꾸거'); }
     console.log(`if else: NO`);
   }
 
-console.group('17. 놀이기구 키 제한'); }
+console.groupEnd('17. 놀이기구 키 제한'); }
+
+// 18. 평균 점수
+{ console.group('18. 평균 점수');
+
+  // 평균점수를 구하라. 단, 소숫점 자리는 모두 버린다.
+  class Test {
+    constructor(literature, math, english) {
+      this.literature = literature;
+      this.math = math;
+      this.english = english;
+    }
+    Everage() {
+      return (this.literature + this.math + this.english) / 3;
+    }
+  }
+
+  // 만약 생성자가 바뀔 때 Everage 메소드가 유동적으로 바뀔 수 있는 방법?
+
+  const result = new Test();
+  result.literature = 20;
+  result.math = 30;
+  result.english = 40;
+  console.log(result.Everage());
+
+  // new Test에 값 넣는 법 복습!!!
+
+console.groupEnd('18. 평균 점수'); }
