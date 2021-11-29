@@ -327,14 +327,14 @@ console.groupEnd('14. 3의 배수 인가요?'); }
   // const name = prompt('Put your name, please.');
   // console.log(`Hello, I am ${name}.\nNice to meet you`);
 
-console.group('15. 자기소개'); }
+console.groupEnd('15. 자기소개'); }
 
 
 // 16. 로꾸거
 { console.group('16. 로꾸거');
 
-  const rever = ['거꾸로'];
-  console.log(rever.reverse());
+  const str = '거꾸로';
+  console.log(str.split('').reverse().join(''));
 
   // 입력 : 거꾸로
   // 출력 : 로꾸거
@@ -343,3 +343,15 @@ console.groupEnd('16. 로꾸거'); }
 
 
 // 17. 놀이기구 키 제한
+{ console.group('17. 놀이기구 키 제한');
+
+  const height = 160;
+  console.log(height > 150 ? 'ternary operator: YES' : 'ternary operator: NO');
+
+  if(height >= 150){
+    console.log(`if else: YES`);
+  } else {
+    console.log(`if else: NO`);
+  }
+
+console.group('17. 놀이기구 키 제한'); }
