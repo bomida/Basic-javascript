@@ -366,19 +366,29 @@ console.groupEnd('17. 놀이기구 키 제한'); }
       this.math = math;
       this.english = english;
     }
-    Everage() {
+    evg() {
       return (this.literature + this.math + this.english) / 3;
     }
   }
 
-  // 만약 생성자가 바뀔 때 Everage 메소드가 유동적으로 바뀔 수 있는 방법?
-
-  const result = new Test();
-  result.literature = 20;
-  result.math = 30;
-  result.english = 40;
-  console.log(result.Everage());
+  const result = new Test(20, 30, 40);
+  // result.literature = 20;
+  // result.math = 30;
+  // result.english = 40;
+  console.log(Math.floor(result.evg()));
 
   // new Test에 값 넣는 법 복습!!!
+  // - 새로운 오브젝트 괄호 안에 값만 넣는다. 구분은 ,로 한다.
+
+  // 다른 풀이
+
+  const scores = prompt('세 과목의 점수를 입력하시오.').split(' ');
+  let sum = 0;
+
+  for(let i=0; i<3; i++) {
+    sum += parseInt(scores[i], 10);
+    // 십진수 형태의 숫자로 데이터 타입을 변환한다.
+  }
+  console.log(Math.floor(sum/3));
 
 console.groupEnd('18. 평균 점수'); }
