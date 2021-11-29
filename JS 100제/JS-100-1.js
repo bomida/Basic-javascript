@@ -292,13 +292,54 @@ console.groupEnd('13. 몇 번째 행성인가요?'); }
 
   // 수가 3의 배수라면 '짝'이라는 글자를, 3의 배수가 아니라면 n을 그대로 출력해 주세요.
 
+  const random = Math.floor(Math.random()*100);
+
+  if(random % 3 == 0) {
+    console.log('👏 ');
+  } else {
+    console.log(random);
+  }
+
   // 입력 : 3
   // 출력 : 짝
-
   // 입력 : 2
   // 출력 : 2
 
 console.groupEnd('14. 3의 배수 인가요?'); }
+
+
+// 15. 자기소개
+{ console.group('15. 자기소개');
+
+  // class Person {
+  //   constructor(name) {
+  //     this.name = name
+  //   }
+  //   sayHello() {
+  //     alert(`Hello, I am ${this.name}.\nNice to meet you`);
+  //   }
+  // }
+  // const student = new Person();
+  // const putnamed = prompt('Put your name, please.');
+  // student.name = putnamed;
+  // student.sayHello();
+  
+  // const name = prompt('Put your name, please.');
+  // console.log(`Hello, I am ${name}.\nNice to meet you`);
+
+console.group('15. 자기소개'); }
+
+
+// 16. 로꾸거
+{ console.group('16. 로꾸거');
+
+  const rever = ['거꾸로'];
+  console.log(rever.reverse());
+
+  // 입력 : 거꾸로
+  // 출력 : 로꾸거
+
+console.groupEnd('16. 로꾸거'); }
 
 
 // 17. 놀이기구 키 제한
