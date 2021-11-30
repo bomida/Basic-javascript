@@ -543,3 +543,68 @@ console.groupEnd('25. 원의 넓이를 구하세요.'); }
 
 
 console.groupEnd('26. 행성 문제 2'); }
+
+
+// 27. 객체 만들기 *****
+{ console.group('27. 객체 만들기');
+
+  // const keys = prompt('이름을 입력하세요').split(' ');
+  // const values = prompt('점수를 입력하세요').split(' ');
+  // const obj = {};
+
+  // for (let i=0; i<keys.length; i++) {
+  //   mathTest[keys[i]] = parseInt(values[i], 10);
+  // }
+
+  // const mathTest = {
+  //   'Yujin' : 70,
+  //   'Hyewon' : 100
+  // }
+  // console.log(mathTest);
+
+console.groupEnd('27. 객체 만들기'); }
+
+
+// 28. 2-gram  ???
+{ console.group('28. 2-gram');
+
+  // **2-gram**이란 문자열에서 2개의 연속된 요소를 출력하는 방법입니다. 
+  // 예를 들어 'Javascript'를 2-gram으로 반복해 본다면 다음과 같은 결과가 나옵니다.
+
+  const toStr= 'Javascript';
+  for(let i = 0; i < toStr.length-1; i++) {
+    console.log(toStr[i], toStr[i+1]);
+  }
+
+console.groupEnd('28. 2-gram'); }
+
+
+// 29. 대문자만 지나가세요.
+{ console.group('29. 대문자만 지나가세요.');
+
+  const put = 'H';
+  if(put === put.toUpperCase()) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+
+  const str = 'hello';
+  console.log('toUpperCase: ' + str.toUpperCase());
+  console.log('toLocaleUpperCase: ' + str.toLocaleUpperCase());
+
+console.groupEnd('29. 대문자만 지나가세요.'); }
+
+// 30. 문자열 속 문자 찾기
+{ console.group('30. 문자열 속 문자 찾기');
+
+  // const put = 'pineapple is yummy';
+  // const indexOf = put.indexOf('apple');
+  // console.log(indexOf);
+
+  const data = 'pineapple is yummy';
+  const word = 'apple';
+
+  console.log(data.indexOf(word));
+
+console.groupEnd('30. 문자열 속 문자 찾기'); }
