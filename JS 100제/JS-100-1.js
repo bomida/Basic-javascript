@@ -423,6 +423,49 @@ console.groupEnd('20. 몫과 나머지'); }
 // 21. set은 어떻게 만드나요?
 { console.group('21. set은 어떻게 만드나요?');
 
+  // 다음 중 set을 만드는 방법으로 올바른 것을 모두 고르시오.
 
+  // 1)  let x = {1, 2, 3, 5, 6, 7};
+  // 2)  let x = {};
+  // 3)  let x = new Set('javascript'); -> 정답
+  // 4)  let x = new Set(range(5));
+  // 5)  let x = new Set(); -> 정답
+
+  // set객체는 set생성자 함수로 생성한다. 인수를 전달하지 않으면 빈 객체가 생성되고, set생성자 함수는 iterable을 인수로 받아 set객체를 생성한다.
 
 console.groupEnd('21. set은 어떻게 만드나요?'); }
+
+
+// 22. 배수인지 확인하기
+{ console.group('22. 배수인지 확인하기');
+
+  // 다음 중 변수 i가 6의 배수인지 확인하는 방법으로 올바른 것은?
+
+  // 1)  i / 6 == 0
+  // 2)  i % 6 == 0 -> 정답
+  // 3)  i & 6 == 0
+  // 4)  i | 6 == 0
+  // 5)  i // 6 == 0
+
+  // % 는 뺀 나머지 값을 구하는 연산자이다.
+
+console.groupEnd('22. 배수인지 확인하기'); }
+
+
+// 23. OX문제
+{ console.group('23. OX문제');
+
+  console.log(10/3); //의 출력은 3이다
+  // 정답은 X 왜냐면 출력값이 3.333333...이 나오는데 소수점 없이 출력을 하고 싶다면
+  console.log(Math.floor(10/3)); // Math.floor() 함수를 쓰면 된다.
+
+console.groupEnd('23. OX문제'); }
+
+
+// 24. 대문자로 바꿔주세요.
+{ console.group('24. 대문자로 바꿔주세요.');
+
+  const mary = 'mary';
+  console.log(mary.toLocaleUpperCase());
+
+console.groupEnd('24. 대문자로 바꿔주세요.'); }
