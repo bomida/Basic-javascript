@@ -406,3 +406,23 @@ console.groupEnd('18. 평균 점수'); }
   console.log(Math.pow(parseInt(n[0], 10), parseInt(n[1], 10)));
 
 console.groupEnd('19. 제곱을 구하자'); }
+
+
+// 20. 몫과 나머지 *****
+{ console.group('20. 몫과 나머지');
+
+  const num = [10, 2]; //prompt('두 숫자를 입력해주세요.').split(' ');
+
+  const result = Math.floor(parseInt(num[0],10) / parseInt(num[1],10));
+  const left = parseInt(num[1], 10) % parseInt(num[0], 10);
+
+  console.log(result, left);
+
+console.groupEnd('20. 몫과 나머지'); }
+
+// 21. set은 어떻게 만드나요?
+{ console.group('21. set은 어떻게 만드나요?');
+
+
+
+console.groupEnd('21. set은 어떻게 만드나요?'); }
