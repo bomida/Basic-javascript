@@ -469,3 +469,15 @@ console.groupEnd('23. OX문제'); }
   console.log(mary.toLocaleUpperCase());
 
 console.groupEnd('24. 대문자로 바꿔주세요.'); }
+
+
+// 25. 원의 넓이를 구하세요.
+{ console.group('25. 원의 넓이를 구하세요.');
+
+  // 반지름의 길이 x 반지름의 길이 x 3.14
+  const n = 10;
+  const pi = Math.PI;
+  const toFixed = pi.toFixed(2);
+  console.log(n * n * toFixed);
+
+console.groupEnd('25. 원의 넓이를 구하세요.'); }
