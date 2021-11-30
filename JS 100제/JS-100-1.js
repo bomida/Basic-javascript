@@ -475,9 +475,71 @@ console.groupEnd('24. 대문자로 바꿔주세요.'); }
 { console.group('25. 원의 넓이를 구하세요.');
 
   // 반지름의 길이 x 반지름의 길이 x 3.14
-  const n = 10;
+  // const n = prompt('원의 지름을 입력하세요.');
+  // const pi = Math.PI;
+  // const toFixed = pi.toFixed(2);
+  // console.log(n * n * toFixed);
+
   const pi = Math.PI;
   const toFixed = pi.toFixed(2);
-  console.log(n * n * toFixed);
+
+  function circle(n) {
+    const result = n * n * toFixed;
+    return result;
+  }
+  
+  const r = 10 // prompt('원의 지름을 입력하세요.');
+  console.log(circle(r));
 
 console.groupEnd('25. 원의 넓이를 구하세요.'); }
+
+
+// 26. 행성 문제 2
+{ console.group('26. 행성 문제 2');
+
+  // const plants = '수성';
+  // switch(plants) {
+  //   case '수성':
+  //     console.log('Mercury');
+  //     break;
+  //   case '금성':
+  //     console.log('Venus');
+  //     break;
+  //   case '지구':
+  //     console.log('Earth');
+  //     break;
+  //   case '화성':
+  //     console.log('Mars');
+  //     break;
+  //   case '목성':
+  //     console.log('Jupiter');
+  //     break;
+  //   case '토성':
+  //     console.log('Saturn');
+  //     break;
+  //   case '천왕성':
+  //     console.log('Uranus');
+  //     break;
+  //   case '해왕성':
+  //     console.log('Neptune');
+  //     break;
+  //   default:
+  //     console.log('태양계가 아닙니다.');
+  // }
+
+  const plants = {
+    '수성' : 'Mercury',
+    '금성' : 'Venus',
+    '지구' : 'Earth',
+    '화성' : 'Mars',
+    '목성' : 'Jupiter',
+    '토성' : 'Saturn',
+    '천성' : 'Uranus',
+    '해성' : 'Neptune'
+  };
+
+  const name = '수성';
+  console.log(plants[name]);
+
+
+console.groupEnd('26. 행성 문제 2'); }
