@@ -608,3 +608,18 @@ console.groupEnd('29. 대문자만 지나가세요.'); }
   console.log(data.indexOf(word));
 
 console.groupEnd('30. 문자열 속 문자 찾기'); }
+
+// 31. 자바스크립트 자료형의 복잡도
+{ console.group('31. 자바스크립트 자료형의 복잡도');
+
+  // 다음 배열 내장함수의 시간 복잡도가 O(1)이 아닌 것을 모두 고르시오.
+
+  // 1)  arr[i]
+  // 2)  arr.push(5) 
+  // 3)  arr.slice() -> 정답
+  // 4)  arr.pop()
+  // 5)  arr.includes(5) -> 정답
+
+  // slice:  몇번째 인덱스 부터 자를지(포함), 몇번째 인덱스까지 자를지(미포함)
+
+console.groupEnd('31. 자바스크립트 자료형의 복잡도');}
