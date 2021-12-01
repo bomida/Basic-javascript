@@ -623,3 +623,140 @@ console.groupEnd('30. 문자열 속 문자 찾기'); }
   // slice:  몇번째 인덱스 부터 자를지(포함), 몇번째 인덱스까지 자를지(미포함)
 
 console.groupEnd('31. 자바스크립트 자료형의 복잡도');}
+
+
+// 32. 문자열 만들기
+{ console.group('32. 문자열 만들기');
+
+  // 혜림이를 위해 문자열을 입력받으면 단어의 갯수를 출력하는 프로그램을 작성해 주세요.
+  // 입력 : 안녕하세요. 저는 제주대학교 컴퓨터공학전공 혜림입니다.
+  // 출력 : 5
+
+  // const data = '안녕하세요. 저는 제주대학교 컴퓨터공학전공 혜림입니다.';
+  // console.log(data.length);
+
+  // const string = prompt('문자열을 입력하세요.').split(' ');
+  // console.log(string.length);
+
+console.groupEnd('32. 문자열 만들기'); }
+
+
+// 33. 거꾸로 출력하기
+{ console.group('33. 거꾸로 출력하기');
+
+  // 한 줄에 여러개의 숫자가 입력되면, 역순으로 그 숫자들을 하나씩 출력하는 프로그램을 작성하시오.
+
+  // const data = prompt('숫자를 입력하세요.').split(' ').reverse();
+  // const result = '';
+
+  // for (let i = 0; i < data.length; i++){
+  //   result =+ data[i];
+  // }
+  // console.log(result);
+
+console.groupEnd('33. 거꾸로 출력하기'); }
+
+
+// 34. sort 구현하기 *****
+{ console.group('34. sort 구현하기');
+
+  // const unsorted = prompt('키를 입력하세요');
+  // let sorted = "";
+
+  // const sorted = unsorted
+  //   .split(" ")
+  //   .sort(function(a, b) {
+  //     return a - b;
+  //   })
+  //   .join(" ");
+
+  // if (unsorted === sorted) {
+  //   console.log("Yes");
+  // } else {
+  //   console.log("No");
+  // }
+
+console.groupEnd('34. sort 구현하기'); }
+
+
+// 35. Factory 함수 사용하기 *****
+{ console.group('35. Factory 함수 사용하기');
+
+  function one(n){
+    function two(value){
+      const sq = Math.pow(value, n);
+      return sq;
+    }
+    return two;
+  }
+
+  const a = one(2);
+  const b = one(3);
+  const c = one(4);
+
+  console.log(a(10));
+  console.log(b(10));
+  console.log(c(10));
+
+console.groupEnd('35. Factory 함수 사용하기'); }
+
+
+// 36. 구구단 출력하기
+{ console.group('36. 구구단 출력하기');
+
+  // 1~9까지의 숫자 중 하나를 입력하면 그 단의 구구단 결과를 한 줄에 출력하는 프로그램을 작성하세요.
+  // 입력 : 2
+  // 출력 : 2 4 6 8 10 12 14 16 18
+
+  const num = 2 // prompt('숫자를 입력하세요');
+  let result = '';
+
+  for (let i=1; i<=9; i++){
+    result += i*num + ' ';
+  }
+  console.log(result);
+
+console.groupEnd('36. 구구단 출력하기'); }
+
+
+// 37. 반장 선거
+{ console.group('37. 반장 선거');
+  
+  // 학생들이 뽑은 후보들을 입력받으면 뽑힌 학생의 이름과 받은 표 수를 출력하는 프로그램을 작성하기로 하였습니다.
+  // 입력
+  // 원범 원범 혜원 혜원 혜원 혜원 유진 유진
+  // 출력
+  // 혜원(이)가 총 4표로 반장이 되었습니다.
+
+  // const arr = prompt('이름을 입력해주세요.').split(' ');
+  let result = {};
+  let winner = '';
+
+  // console.log(`${winner}(이)가 총 ${}표로 반장이 되었습니다.`);
+
+console.groupEnd('37. 반장 선거'); }
+
+// 38. 호준이의 아르바이트 *****
+{ console.group('38. 호준이의 아르바이트');
+
+  // 학생들의 점수를 공백으로 구분하여 입력을 받고 사탕을 받을 학생의 수를 출력하세요.
+  // 입력 : 97 86 75 66 55 97 85 97 97 95
+  // 출력 : 6
+
+  // const scores = prompt('점수를 입력하세요.')
+  // .split(' ').map((n) => parseInt(n, 10));
+  // scores.sort((x, y) => x - y );
+
+  // let count = 0;
+  // let arr = [];
+
+  // while(arr.length < 3) {
+  //   let n = scores.pop();
+  //   if(!arr.includes(n)) {
+  //     arr.push(n);
+  //   }
+  //   count += 1;
+  // }
+  // console.log(count);
+
+console.groupEnd('38. 호준이의 아르바이트'); }
