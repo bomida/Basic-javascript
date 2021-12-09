@@ -728,9 +728,9 @@ console.groupEnd('36. 구구단 출력하기'); }
   // 출력
   // 혜원(이)가 총 4표로 반장이 되었습니다.
 
-  // const arr = prompt('이름을 입력해주세요.').split(' ');
-  let result = {};
-  let winner = '';
+  // const arr = prompt('뽑은 후보들을 입력하세요.').split(' ');
+  const arr = ['원범', '원범', '혜원', '혜원', '혜원', '혜원', '유진', '유진'];
+  
 
   // console.log(`${winner}(이)가 총 ${}표로 반장이 되었습니다.`);
 
@@ -760,3 +760,10 @@ console.groupEnd('37. 반장 선거'); }
   // console.log(count);
 
 console.groupEnd('38. 호준이의 아르바이트'); }
+
+
+{ console.group('39. 오타 수정하기');
+
+
+
+console.groupEnd('39. 오타 수정하기'); }
