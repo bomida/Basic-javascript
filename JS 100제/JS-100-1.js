@@ -730,7 +730,8 @@ console.groupEnd('36. 구구단 출력하기'); }
 
   // const arr = prompt('뽑은 후보들을 입력하세요.').split(' ');
   const arr = ['원범', '원범', '혜원', '혜원', '혜원', '혜원', '유진', '유진'];
-  
+  // const filter = arr.filter(())
+
 
   // console.log(`${winner}(이)가 총 ${}표로 반장이 되었습니다.`);
 
@@ -767,3 +768,19 @@ console.groupEnd('38. 호준이의 아르바이트'); }
 
 
 console.groupEnd('39. 오타 수정하기'); }
+
+
+{ console.group('40. 놀이동산에 가자');
+
+
+
+console.groupEnd('40. 놀이동산에 가자'); }
+
+
+{ console.group('41. 소수판별');
+
+  const random = Math.floor(Math.random() * 10);
+  console.log(random);
+  console.log( random % 2 !== 0 ? 'YES' : 'NO' );
+
+console.groupEnd('41. 소수판별'); }
