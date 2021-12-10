@@ -113,16 +113,18 @@ console.log(`value: ${test}, type: ${typeof test}`);
 // null
 let nothing = null;
 console.log(`value: ${nothing}, type: ${typeof nothing}`);
+// value: null, type: object
 
 //undefined
 let x;
 // let x = undefined
 console.log(`value: ${x}, type: ${typeof x}`);
+// value: undefined, type: undefined
 
 // symbol, create unique identifiers for objects
 const symbol1 = Symbol('id');
 const symbol2 = Symbol('id');
-console.log(symbol1 === symbol2);
+console.log(symbol1 === symbol2); // false
 const gsymbol1 = Symbol.for('id');
 const gsymbol2 = Symbol.for('id');
 console.log(gsymbol1 === gsymbol2); // true
@@ -130,10 +132,10 @@ console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`);
 
 // 5. Dynamic typing : dynamically typed language
 let text = 'hello';
-console.log(`value: ${text}, type: ${typeof text}`);
+console.log(`value: ${text}, type: ${typeof text}`); // value: hello, type: string
 text = 1;
-console.log(`value: ${text}, type: ${typeof text}`);
+console.log(`value: ${text}, type: ${typeof text}`); // value: 1, type: number
 text = '7' + 5;
-console.log(`value: ${text}, type: ${typeof text}`);
+console.log(`value: ${text}, type: ${typeof text}`); // value: 75, type: string
 text = '8' / 2;
-console.log(`value: ${text}, type: ${typeof text}`);
+console.log(`value: ${text}, type: ${typeof text}`); // vlaue: 4, type: number
