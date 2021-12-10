@@ -8,16 +8,16 @@
 
 // 2. Variable, rw(read/write)
 // let (added in ES6)
-let globalName = 'global name';
+let globalName = 'c';
 {
   let name = 'bomi';
-  console.log(name);
+  console.log(name); // bomi
   name = 'hello';
-  console.log(name);
-  console.log(globalName);
+  console.log(name); // hello
+  console.log(globalName); // c
 }
-console.log(name);
-console.log(globalName);
+console.log(name); // nothing
+console.log(globalName); // c
 
 //let 변수를 대입하는 방법 
 let eight;
@@ -30,15 +30,15 @@ seven = 777;
 // var hoisting (move declaration from bottom to top)
 // 끌어 올려주다. : 어디에 선언 했느냐에 상관없이, 항상 제일 위로 선언을 끌어올려주는 것
 // has no block scope
-console.log(age);
+console.log(age); //  undefined
 age = 4;
-console.log(age);
+console.log(age); // 4
 var age;
 {
   age = 4;
   var age;
 }
-console.log(age);
+console.log(age); // 4
 
 // 3. Constant, r(read only)
 // use const whenever possible.
@@ -60,7 +60,7 @@ const maxNumber = 5;
 // - reduce human mistakes
 
 // let과 const 모두 한 번에 여러 개의 변수를 선언하는 문법을 지원합니다.
-let one = 1, two = 2, nothing;
+let one = 1, two = 2, nothing1;
 const three = 3, four = 4;
 
 // let과 const로 선언한 이름은 다시 선언될 수 없습니다.
@@ -74,16 +74,16 @@ const three = 3, four = 4;
 
 const count =17; // integer
 const size = 17.1;
-console.log(`value: ${count}, type: ${typeof count}`);
-console.log(`value: ${size}, type: ${typeof size}`);
+console.log(`value: ${count}, type: ${typeof count}`); // value 17, type: number
+console.log(`value: ${size}, type: ${typeof size}`); // value: 17.1, type: number
 
 // number - special numeric values: infinity, -infinity, NaN
 const infinity = 1 / 0;
 const negativeInfinity = -1 / 0;
 const nAn = 'not a number' / 2;
-console.log(infinity);
-console.log(negativeInfinity);
-console.log(nAn);
+console.log(infinity); // Infinity
+console.log(negativeInfinity); // -Infinity
+console.log(nAn); // NaN
 
 // bigInt (fairly new, don't use it yet)
 const bigInt = 123456789012345678901234567890123456789012345678901234567890n; // over (-2**53 ~ 2*53)
@@ -95,6 +95,7 @@ const char = 'c';
 const brendan = 'brendan';
 const greeting = 'hello' + brendan;
 console.log(`value: ${greeting}, type: ${typeof greeting}`);
+// value: hellobrendan, type: string
 const helloBob = `h1 ${brendan}!`; // template literals (string)
 console.log(`value: ${helloBob}, type: ${typeof helloBob}`);
 // console.log('value: ' + helloBob + ', type: ' + helloBob);
@@ -103,9 +104,11 @@ console.log(`value: ${helloBob}, type: ${typeof helloBob}`);
 // false: 0, null, undefined, NaN, ''
 // true: any other value
 const canRead = true;
-const test = 3 < 1; //false
+const test = 3 < 1; // false
 console.log(`value: ${canRead}, type: ${typeof canRead}`);
+// value: true, type: boolean
 console.log(`value: ${test}, type: ${typeof test}`);
+// value: false, type: boolean
 
 // null
 let nothing = null;
