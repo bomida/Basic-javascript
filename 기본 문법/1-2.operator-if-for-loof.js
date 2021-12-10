@@ -1,10 +1,10 @@
 'use strict';
 
 // 1. String concatenation
-console.log('my' + 'cat');
-console.log('1' + 2);
-console.log(`string literals: 1 + 2 = ${1 + 2}`);
-console.log('ellie\'s book');
+console.log('my' + 'cat'); // mycat
+console.log('1' + 2); // 12
+console.log(`string literals: 1 + 2 = ${1 + 2}`); // string literals: 1 + 2 = 3
+console.log('ellie\'s book'); // ellie's book
 console.log("ellie's\nbook");
 console.log("ellie's\n\tbook");
 
