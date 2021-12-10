@@ -781,6 +781,29 @@ console.groupEnd('40. 놀이동산에 가자'); }
 
   const random = Math.floor(Math.random() * 10);
   console.log(random);
-  console.log( random % 2 !== 0 ? 'YES' : 'NO' );
+  function check_prim(random) {
+    for(let i = 2; i < random; i++) {
+      const result = random % 1;
+      if(result === 0) {
+        console.log('NO');
+        return false;
+      }
+    }
+
+    if(random === 1) {
+      console.log('NO');
+      return;
+    }
+    console.log('YES');
+  }
+  check_prim(random);
+  
 
 console.groupEnd('41. 소수판별'); }
+
+
+{ console.group('배열 메소드');
+
+
+
+console.groupEnd('배열 메소드'); }
