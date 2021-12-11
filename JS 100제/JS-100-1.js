@@ -712,7 +712,7 @@ console.groupEnd('35. Factory 함수 사용하기'); }
   let result = '';
 
   for (let i=1; i<=9; i++){
-    result += i*num + ' ';
+    result += i * num + '\n';
   }
   console.log(result);
 
@@ -825,3 +825,47 @@ console.groupEnd('42. 2020년'); }
   console.log(intNum);
 
 console.groupEnd('43. 10진수를 2진수로'); }
+
+
+{ console.group('44. 각 자리수의 합');
+
+  let arr = [1, 2]// prompt('숫자를 입력하세요.').toString().split('');
+  let set = 0;
+
+  arr.forEach((item) => {
+    set += item;
+  });
+  console.log(set);
+
+console.groupEnd('44. 각 자리수의 합');}
+
+
+{ console.group('45. getTime()함수 사용하기');
+
+  const currentDate = new Date();
+  let year = currentDate.getTime();
+  year = Math.floor(year/(3600*24*365*1000))+1970
+  console.log(year)
+
+console.groupEnd('45. getTime()함수 사용하기')}
+
+
+{console.group('46. 각 자리수의 합 2');
+
+  let arr = [];
+  let sum = 0;
+
+  for(let i = 0; i < 20; i++) {
+    arr[i] = i + 1;
+  }
+
+  arr.forEach((n) => {
+    while(n !== 0) {
+      sum += (n % 10);
+      n = Math.floor(n/10);
+    }
+  });
+  
+  console.log(sum);
+
+console.groupEnd('64. 각 자리수의 합 2'); }
