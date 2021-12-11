@@ -6,7 +6,7 @@ console.log('1' + 2); // 12
 console.log(`string literals: 1 + 2 = ${1 + 2}`); // string literals: 1 + 2 = 3
 console.log('ellie\'s book'); // ellie's book
 console.log("ellie's\nbook");
-console.log("ellie's\n\tbook");
+console.log("ellie's\n\tbook"); 
 
 // 2. Numeric operators
 console.log(1 + 1); // add
@@ -24,18 +24,26 @@ const preIncrement = ++counter;
 // counter = counter + 1;
 // preIncrement = counter;
 console.log(`preIncrement: ${preIncrement}, counter: ${counter}`);
+// preIncrement: 3, counter: 3
 
 const postIncrement = counter++;
 // as follows 
 // postIncrement = counter;
 // counter = counter + 1;
 console.log(`postIncrement: ${postIncrement}, counter: ${counter}`);
+// postIncrement: 3, counter: 4
 
 const preDecrement = --counter;
+// counter = counter - 1;
+// preDecrement = counter;
 console.log(`preDecrement: ${preDecrement}, counter: ${counter}`);
+// preDecrement: 3, counter: 3
 
 const postDecrement = counter--;
+// postDecrement = counter;
+// counter = counter - 1;
 console.log(`postDecrement: ${postDecrement}, counter: ${counter}`);
+// postDecrement: 3, counter: 1;
 
 // 4. Assignment operators
 let x = 3;
@@ -46,10 +54,10 @@ x *= y;
 x /= y;
 
 // 5. Comparison operators
-console.log(10 < 6); // less than - 10이 6보다 작다
-console.log(10 <= 6); //less than or equal - 10이 6보다 작거나 같다
-console.log(10 > 6); //greater than - 10이 6보다 크다
-console.log(10 >= 6); //greater than or equal - 10이 6보다 크거나 같다
+console.log(10 < 6); // less than - 10이 6보다 작다 // false
+console.log(10 <= 6); // less than or equal - 10이 6보다 작거나 같다 // false
+console.log(10 > 6); // greater than - 10이 6보다 크다 // true
+console.log(10 >= 6); // greater than or equal - 10이 6보다 크거나 같다 // true
 
 // 6. Logical operators: || (or), && (and), ! (not)
 const value1 = false;
@@ -118,6 +126,7 @@ console.log(null === undefined); //다른 타입이기 때문에 f
 // 8. Conditional operators: if
 // if, else if, else
 const name = 'ellie';
+
 if (name === 'ellie') {
   console.log('Welcome, Ellie');
 } else if (name === 'coder') {
