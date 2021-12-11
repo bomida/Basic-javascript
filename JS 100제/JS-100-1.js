@@ -802,8 +802,26 @@ console.groupEnd('40. 놀이동산에 가자'); }
 console.groupEnd('41. 소수판별'); }
 
 
-{ console.group('배열 메소드');
+{ console.group('42. 2020년');
+
+  const month = 12 //prompt('달을 입력하시오.');
+  const date = 12 //prompt('일을 입력하시오.');
+
+  function solution(a, b) {
+    const day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+    const x = new Date('2020-' + a + '-' + b);
+    return day[x.getDay()];
+  }
+  console.log(solution(month, date));
+
+console.groupEnd('42. 2020년'); }
 
 
+{ console.group('43. 10진수를 2진수로');
 
-console.groupEnd('배열 메소드'); }
+  const num = 23435;
+  const intNum = num.toString(2);
+  console.log(intNum);
+
+console.groupEnd('43. 10진수를 2진수로'); }
