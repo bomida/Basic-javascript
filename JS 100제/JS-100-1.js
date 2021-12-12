@@ -862,22 +862,44 @@ console.groupEnd('47. set 자료형의 응용'); }
 
 { console.group('48. 대소문자 바꿔서 출력하기');
 
-  let data = prompt('put the message plz');
-  let b = [];
-  let s = '';
+  // let data = // prompt('put the message plz');
+  // let b = [];
+  // let s = '';
 
-  for(let i = 0; i <data.length; i++) {
-    if(data[i] === data[i].toLowerCase()) {
-      b.push(data[i].toUpperCase());
-    } else {
-      b.push(data[i].toLowerCase());
-    }
-  }
+  // for(let i = 0; i <data.length; i++) {
+  //   if(data[i] === data[i].toLowerCase()) {
+  //     b.push(data[i].toUpperCase());
+  //   } else {
+  //     b.push(data[i].toLowerCase());
+  //   }
+  // }
 
-  for(let j = 0; j < b.length; j++) {
-    s += b[j];
-  }
-  console.log(s)
-
+  // for(let j = 0; j < b.length; j++) {
+  //   s += b[j];
+  // }
+  // console.log(s)
 
 console.groupEnd('48. 대소문자 바꿔서 출력하기'); }
+
+
+{ console.group('49 : 최댓값 구하기');
+
+  let nums = prompt('숫자를 입력하세요.').split(' ')
+  .map((n) => {
+    return parseInt(n, 10);
+  });
+  console.log(nums);
+  const arr = nums.sort((a, b) => {
+    return b - a;
+  });
+  console.log(nums[0]);
+
+  // let n = prompt().split(' ');
+  // console.log(Math.max(...n));
+
+  // mine answer
+  // const n = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+  // const arr = n.reduce((a, b) => a > b ? a : b);
+  // console.log(arr);
+
+console.groupEnd('49 : 최댓값 구하기'); }
