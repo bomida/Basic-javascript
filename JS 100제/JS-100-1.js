@@ -677,13 +677,20 @@ console.groupEnd('35. Factory 함수 사용하기'); }
   // 입력 : 2
   // 출력 : 2 4 6 8 10 12 14 16 18
 
-  const num = 2 // prompt('숫자를 입력하세요');
-  let result = '';
-
-  for (let i=1; i<=9; i++){
-    result += i * num + '\n';
+  const num = prompt();
+  
+  for(let i = 1; i <= 9; i++) {
+    // result = result + i * num + '\n';
+    console.log(num * i);
   }
-  console.log(result);
+
+  // const num = 2 // prompt('숫자를 입력하세요');
+  // let result = '';
+
+  // for (let i=1; i<=9; i++){
+  //   result += i * num + '\n';
+  // }
+  // console.log(result);
 
 console.groupEnd('36. 구구단 출력하기'); }
 
@@ -696,12 +703,21 @@ console.groupEnd('36. 구구단 출력하기'); }
   // 출력
   // 혜원(이)가 총 4표로 반장이 되었습니다.
 
-  // const arr = prompt('뽑은 후보들을 입력하세요.').split(' ');
-  const arr = ['원범', '원범', '혜원', '혜원', '혜원', '혜원', '유진', '유진'];
-  // const filter = arr.filter(())
+  const arr = '원범 원범 혜원 혜원 혜원 혜원 유진 유진'.split(' ');
+  // 원범 원범 혜원 혜원 혜원 혜원 유진 유진
+  let result = {};
+  let winner = '';
 
+  for(let index in arr){
+    let value = arr[index];
+    result[value] = result[value] === undefined ? 1 : result[value] = result[value] + 1;
+  }
 
-  // console.log(`${winner}(이)가 총 ${}표로 반장이 되었습니다.`);
+  winner = Object.keys(result).reduce((a, b) => {
+    return result[a] > result[b] ? a : b
+  });
+
+  console.log(`${winner}(이)가 총 ${result[winner]}표로 반장이 되었습니다.`);
 
 console.groupEnd('37. 반장 선거'); }
 
@@ -884,22 +900,59 @@ console.groupEnd('48. 대소문자 바꿔서 출력하기'); }
 
 { console.group('49 : 최댓값 구하기');
 
-  let nums = prompt('숫자를 입력하세요.').split(' ')
-  .map((n) => {
-    return parseInt(n, 10);
-  });
-  console.log(nums);
-  const arr = nums.sort((a, b) => {
-    return b - a;
-  });
-  console.log(nums[0]);
+  // let nums = prompt('숫자를 입력하세요.').split(' ')
+  // .map((n) => {
+  //   return parseInt(n, 10);
+  // });
+  // console.log(nums);
+  // const arr = nums.sort((a, b) => {
+  //   return b - a;
+  // });
+  // console.log(nums[0]);
 
   // let n = prompt().split(' ');
   // console.log(Math.max(...n));
 
   // mine answer
-  // const n = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-  // const arr = n.reduce((a, b) => a > b ? a : b);
-  // console.log(arr);
+  const n = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+  const arr = n.reduce((a, b) => a > b ? a : b);
+  console.log(arr);
 
 console.groupEnd('49 : 최댓값 구하기'); }
+
+
+{ console.group('50. 버블정렬 구현하기 - ???');
+
+  // function bubble(arr) {
+  //   let result = arr.slice(); // 원본 배열 복사
+
+  //   for (let i = 0; i < result.length - 1; i++) {
+  //     for (let j = 0; j < result.length - i; j++) {
+  //       if (result[j] > result[j + 1]) {
+  //         let temp = result[j];
+  //         result[j] = result[j+1];
+  //         result[j+1] = temp;
+  //       }
+  //     }
+  //   }
+  //   return result;
+  // }
+
+  // const items = prompt('입력해주세요.').split(' ').map((n) => {
+  //   return parseInt(n, 10);
+  // });
+
+  // console.log(bubble(items));
+
+console.groupEnd('50. 버블정렬 구현하기'); }
+
+
+// { console.group('parseInt');
+
+// let nums = prompt('숫자를 입력하세요.').split(' ')
+// .map((n) => {
+//   return parseInt(n, 10);
+// });
+// console.log(nums);
+
+// console.groupEnd('parseInt'); }
