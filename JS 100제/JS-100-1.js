@@ -677,10 +677,9 @@ console.groupEnd('35. Factory 함수 사용하기'); }
   // 입력 : 2
   // 출력 : 2 4 6 8 10 12 14 16 18
 
-  const num = prompt();
+  const num = 2 // prompt();
   
   for(let i = 1; i <= 9; i++) {
-    // result = result + i * num + '\n';
     console.log(num * i);
   }
 
@@ -728,20 +727,26 @@ console.groupEnd('37. 반장 선거'); }
   // 입력 : 97 86 75 66 55 97 85 97 97 95
   // 출력 : 6
 
-  // const scores = prompt('점수를 입력하세요.')
-  // .split(' ').map((n) => parseInt(n, 10));
-  // scores.sort((x, y) => x - y );
+  // const scores = prompt('점수입력').split(' ').map(n => {
+  //   return parseInt(n, 10);
+  // });
+
+  // const result = scores.sort((a, b) => {
+  //   return a - b;
+  // });
+  // console.log(result);
 
   // let count = 0;
   // let arr = [];
-
-  // while(arr.length < 3) {
+  
+  // while (arr.length < 3) {
   //   let n = scores.pop();
-  //   if(!arr.includes(n)) {
+  //   if (!arr.includes(n)){
   //     arr.push(n);
   //   }
   //   count += 1;
   // }
+  
   // console.log(count);
 
 console.groupEnd('38. 호준이의 아르바이트'); }
@@ -749,7 +754,10 @@ console.groupEnd('38. 호준이의 아르바이트'); }
 
 { console.group('39. 오타 수정하기 *****');
 
+  // 문장이 입력되면 모든 q를 e로 바꾸는 프로그램을 작성해 주세요.
 
+  const data = prompt('문자를 입력하세요.');
+  console.log(data.replaceAll('q', 'e'));
 
 console.groupEnd('39. 오타 수정하기'); }
 
