@@ -756,8 +756,8 @@ console.groupEnd('38. 호준이의 아르바이트'); }
 
   // 문장이 입력되면 모든 q를 e로 바꾸는 프로그램을 작성해 주세요.
 
-  const data = prompt('문자를 입력하세요.');
-  console.log(data.replaceAll('q', 'e'));
+  // const data = prompt('문자를 입력하세요.');
+  // console.log(data.replace('q', 'e'));
 
 console.groupEnd('39. 오타 수정하기'); }
 
@@ -801,7 +801,6 @@ console.groupEnd('41. 소수판별'); }
 
   function solution(a, b) {
     const day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-
     const x = new Date('2020-' + a + '-' + b);
     return day[x.getDay()];
   }
