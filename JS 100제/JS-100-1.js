@@ -811,9 +811,15 @@ console.groupEnd('42. 2020년'); }
 
 { console.group('43. 10진수를 2진수로');
 
-  const num = 23435;
+  const num = 234;
   const intNum = num.toString(2);
-  console.log(intNum);
+  console.log('intNum: ' + intNum);
+
+  const intNum2 = parseInt(11101010, 2); // 234
+  console.log('intNum2: ' + intNum2);
+
+  const intNum3 = parseInt(11001, 2).toString(10);
+  console.log('intNum3: ' + intNum3);
 
 console.groupEnd('43. 10진수를 2진수로'); }
 
