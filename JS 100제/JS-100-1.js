@@ -794,13 +794,13 @@ console.groupEnd('40. 놀이동산에 가자'); }
         return false;
       }
     }
-
     if(result === 1) {
       console.log('NO');
       return;
     }
     console.log('YES');
   };
+  
   primeNum(random);
 
 console.groupEnd('41. 소수판별'); }
@@ -808,15 +808,15 @@ console.groupEnd('41. 소수판별'); }
 
 { console.group('42. 2020년');
 
-  const month = 12 //prompt('달을 입력하시오.');
-  const date = 12 //prompt('일을 입력하시오.');
+  // const month = 12 //prompt('달을 입력하시오.');
+  // const date = 12 //prompt('일을 입력하시오.');
 
-  function solution(a, b) {
-    const day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const x = new Date('2020-' + a + '-' + b);
-    return day[x.getDay()];
-  }
-  console.log(solution(month, date));
+  // function solution(a, b) {
+  //   const day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  //   const x = new Date('2020-' + a + '-' + b);
+  //   return day[x.getDay()];
+  // }
+  // console.log(solution(month, date));
 
 console.groupEnd('42. 2020년'); }
 
