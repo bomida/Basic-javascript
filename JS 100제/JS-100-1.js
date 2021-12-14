@@ -794,13 +794,13 @@ console.groupEnd('40. 놀이동산에 가자'); }
         return false;
       }
     }
-    if(result === 1) {
+    if(random === 1) {
       console.log('NO');
       return;
     }
     console.log('YES');
   };
-  
+
   primeNum(random);
 
 console.groupEnd('41. 소수판별'); }
@@ -817,6 +817,32 @@ console.groupEnd('41. 소수판별'); }
   //   return day[x.getDay()];
   // }
   // console.log(solution(month, date));
+
+
+  const month = 1;
+  const date = 9;
+
+  function day(a, b) {
+    const days = ['MON', 'TUE', 'WED', 'TUR', 'FRI', 'SAT', 'SUN'];
+    const x = new Date('2022-' + a + '-' + b);
+    return days[x.getDay()];
+  }
+  console.log(day(month, date));
+
+  let d = new Date();
+  let array = new Array(7);
+
+  array[0] = 'Sunday';
+  array[1] = 'Monday';
+  array[2] = 'Tuesday';
+  array[3] = 'Wedsnday';
+  array[4] = 'Thursday';
+  array[5] = 'Friday';
+  array[6] = 'Saterday';
+  array[7] = 'Sunday';
+
+  const result = array[d.getDay()]; // 배열[날짜 변수.요일 메소드] -> 요일을 불러올 수 있다.
+  console.log('practice: ' + result);
 
 console.groupEnd('42. 2020년'); }
 
