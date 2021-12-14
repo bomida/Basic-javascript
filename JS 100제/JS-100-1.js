@@ -764,16 +764,29 @@ console.groupEnd('39. 오타 수정하기'); }
 
 { console.group('40. 놀이동산에 가자');
 
+  // let total = 0;
+  // let count = 0;
+  // const limit = prompt('제한 무게를 입력하세요.');
+  // const n = prompt('인원수를 입력하세요.');
 
+  // for(let i = 0; i <= n; i++) {
+  //   total += parseInt(prompt('무게를 입력해주세요.'), 10);
+  //   if (total <= limit) {
+  //     count = i;
+  //   }
+  // }
+
+  // console.log(count);
 
 console.groupEnd('40. 놀이동산에 가자'); }
 
 
 { console.group('41. 소수판별');
 
-  const random = Math.floor(Math.random() * 10);
+  const random = Math.floor(Math.random()*10);
   console.log(random);
-  function check_prim(random) {
+
+  function primeNum(random) {
     for(let i = 2; i < random; i++) {
       const result = random % 1;
       if(result === 0) {
@@ -782,14 +795,13 @@ console.groupEnd('40. 놀이동산에 가자'); }
       }
     }
 
-    if(random === 1) {
+    if(result === 1) {
       console.log('NO');
       return;
     }
     console.log('YES');
-  }
-  check_prim(random);
-  
+  };
+  primeNum(random);
 
 console.groupEnd('41. 소수판별'); }
 
@@ -818,8 +830,14 @@ console.groupEnd('42. 2020년'); }
   const intNum2 = parseInt(11101010, 2); // 234
   console.log('intNum2: ' + intNum2);
 
-  const intNum3 = parseInt(11001, 2).toString(10);
+  const intNum3 = parseInt(11001, 2);
   console.log('intNum3: ' + intNum3);
+
+  const num2 = 110011;
+  const intNum4 = parseInt(num2, 2);
+  const intNum5 = parseInt(num2, 2).toString(2);
+  console.log('intNum4: ' + intNum4);
+  console.log('intNum5: ' + intNum5);
 
 console.groupEnd('43. 10진수를 2진수로'); }
 
