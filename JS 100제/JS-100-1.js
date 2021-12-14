@@ -808,17 +808,6 @@ console.groupEnd('41. 소수판별'); }
 
 { console.group('42. 2020년');
 
-  // const month = 12 //prompt('달을 입력하시오.');
-  // const date = 12 //prompt('일을 입력하시오.');
-
-  // function solution(a, b) {
-  //   const day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-  //   const x = new Date('2020-' + a + '-' + b);
-  //   return day[x.getDay()];
-  // }
-  // console.log(solution(month, date));
-
-
   const month = 1;
   const date = 9;
 
@@ -870,13 +859,22 @@ console.groupEnd('43. 10진수를 2진수로'); }
 
 { console.group('44. 각 자리수의 합');
 
-  let arr = [1, 2]// prompt('숫자를 입력하세요.').toString().split('');
-  let set = 0;
+  // let arr = [1, 2]// prompt('숫자를 입력하세요.').toString().split('');
+  // let set = 0;
 
-  arr.forEach((item) => {
-    set += item;
-  });
-  console.log(set);
+  // arr.forEach((item) => {
+  //   set += item;
+  // });
+  // console.log(set);
+
+  const arr = ['2', '2']//prompt('숫자를 입력하세요.').split('');
+  let set = 0;
+  for (let item in arr) {
+    sum = Math.floor(item/10);
+  }
+  console.log(sum);
+
+  console.log('각 자리수의 합: ' + set);
 
 console.groupEnd('44. 각 자리수의 합');}
 
