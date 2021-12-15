@@ -859,34 +859,18 @@ console.groupEnd('43. 10진수를 2진수로'); }
 
 { console.group('44. 각 자리수의 합');
 
-  // let arr = [1, 2]// prompt('숫자를 입력하세요.').toString().split('');
+  // let arr = prompt('숫자를 입력하세요.');
+  /* string to number */
+  // let nArr = arr.split(' ').map(item => parseInt(item, 10));
+  // let nArr = arr.split(' ').map(Number);
   // let set = 0;
+  // console.log(nArr);
+  // nArr.forEach(item => set += item);
 
-  // arr.forEach((item) => {
-  //   set += item;
-  // });
-  // console.log(set);
 
-  const arr = ['2', '2'] //prompt('숫자를 입력하세요.').split('');
-  let set = 0;
-  for (let item in arr) {
-    sum = Math.floor(item/10);
-  }
-  console.log(sum);
-
-  console.log('각 자리수의 합: ' + set);
-
-  // 문자 배열을 숫자 배열로 만드는 방법 찾기
+  // console.log(`각 자리수의 합: ${set}`);
 
 console.groupEnd('44. 각 자리수의 합');}
-
-
-{ console.group('문자배열 > 숫자로');
-
-  const arr = ['2', '2'];
-
-
-console.groupEnd('문자배열 > 숫자로'); }
 
 
 { console.group('45. getTime()함수 사용하기');
