@@ -867,18 +867,25 @@ console.groupEnd('43. 10진수를 2진수로'); }
   // console.log(nArr);
   // nArr.forEach(item => set += item);
 
-
   // console.log(`각 자리수의 합: ${set}`);
+
+  // https://stackoverflow.com/questions/15677869/how-to-convert-a-string-of-numbers-to-an-array-of-numbers
 
 console.groupEnd('44. 각 자리수의 합');}
 
 
 { console.group('45. getTime()함수 사용하기');
 
+  // const currentDate = new Date();
+  // let year = currentDate.getTime();
+  // year = Math.floor(year/(3600*24*365*1000))+1970
+  // console.log(year);
+
   const currentDate = new Date();
   let year = currentDate.getTime();
-  year = Math.floor(year/(3600*24*365*1000))+1970
-  console.log(year)
+  console.log('year' + year);
+
+  // 1000ms는 1초 > 1초에 60을 곱하면 1분 > 1분에 60을 곱하면 1시간
 
 console.groupEnd('45. getTime()함수 사용하기')}
 
