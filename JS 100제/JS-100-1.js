@@ -867,7 +867,7 @@ console.groupEnd('43. 10진수를 2진수로'); }
   // });
   // console.log(set);
 
-  const arr = ['2', '2']//prompt('숫자를 입력하세요.').split('');
+  const arr = ['2', '2'] //prompt('숫자를 입력하세요.').split('');
   let set = 0;
   for (let item in arr) {
     sum = Math.floor(item/10);
@@ -876,7 +876,17 @@ console.groupEnd('43. 10진수를 2진수로'); }
 
   console.log('각 자리수의 합: ' + set);
 
+  // 문자 배열을 숫자 배열로 만드는 방법 찾기
+
 console.groupEnd('44. 각 자리수의 합');}
+
+
+{ console.group('문자배열 > 숫자로');
+
+  const arr = ['2', '2'];
+
+
+console.groupEnd('문자배열 > 숫자로'); }
 
 
 { console.group('45. getTime()함수 사용하기');
