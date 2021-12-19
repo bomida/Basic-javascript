@@ -884,8 +884,10 @@ console.groupEnd('44. 각 자리수의 합');}
   const currentDate = new Date();
   let year = currentDate.getTime();
   console.log('year' + year);
+  year = Math.floor(year / (1000*60*60*24*365)+1970);
+  console.log('This year: ' + year);
 
-  // 1000ms는 1초 > 1초에 60을 곱하면 1분 > 1분에 60을 곱하면 1시간
+  // 1000ms는 1초 > 1초에 60을 곱하면 1분 > 1분에 60을 곱하면 1시간 > 1시간에 24를 곱하면 하루 > 하루에 365를 곱하면 1년
 
 console.groupEnd('45. getTime()함수 사용하기')}
 
@@ -934,22 +936,22 @@ console.groupEnd('47. set 자료형의 응용'); }
 
 { console.group('48. 대소문자 바꿔서 출력하기');
 
-  // let data = // prompt('put the message plz');
-  // let b = [];
-  // let s = '';
+  let data = 'LOW upper' // prompt('put the message plz');
+  let a = [];
+  let b = '';
 
-  // for(let i = 0; i <data.length; i++) {
-  //   if(data[i] === data[i].toLowerCase()) {
-  //     b.push(data[i].toUpperCase());
-  //   } else {
-  //     b.push(data[i].toLowerCase());
-  //   }
-  // }
+  for(let i = 0; i <data.length; i++) {
+    if(data[i] === data[i].toLowerCase()) {
+      a.push(data[i].toUpperCase());
+    } else {
+      a.push(data[i].toLowerCase());
+    }
+  }
 
-  // for(let j = 0; j < b.length; j++) {
-  //   s += b[j];
-  // }
-  // console.log(s)
+  for(let j = 0; j < a.length; j++) {
+    b += a[j];
+  }
+  console.log(`result: ${b}`);
 
 console.groupEnd('48. 대소문자 바꿔서 출력하기'); }
 
@@ -1001,14 +1003,3 @@ console.groupEnd('49 : 최댓값 구하기'); }
   // console.log(bubble(items));
 
 console.groupEnd('50. 버블정렬 구현하기'); }
-
-
-// { console.group('parseInt');
-
-// let nums = prompt('숫자를 입력하세요.').split(' ')
-// .map((n) => {
-//   return parseInt(n, 10);
-// });
-// console.log(nums);
-
-// console.groupEnd('parseInt'); }
