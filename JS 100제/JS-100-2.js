@@ -121,3 +121,122 @@ console.groupEnd('54. 연속되는 수'); }
   
 
 console.groupEnd('55. 하노이의 탑'); }
+
+
+{ console.group('56. 객체의 함수 응용');
+  // 다음의 객체가 주어졌을 때 한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요.
+
+  // 데이터
+  const nationWidth = {
+    'Korea': 220877,
+    'Rusia': 17098242,
+    'China': 9596961,
+    'France': 543965,
+    'Japan': 377915,
+    'England' : 242900,
+  }
+
+  let korea = nationWidth[Object.keys(nationWidth)[0]]; // 220877
+  console.log(nationWidth.Korea);
+  delete nationWidth.Korea;
+
+  let result = Math.max(...Object.values(nationWidth)) - korea;
+  let country;
+
+  for(let nation in nationWidth) {
+    const output = Math.abs(korea - nationWidth[nation]);
+    if(result > output) {
+      result = output;
+      country = nation;
+    }
+  }
+
+  console.log(`${country} ${result}`);
+
+console.groupEnd('56. 객체의 함수 응용'); }
+
+
+{ console.group('57. 1의 개수');
+
+  // 0부터 1000까지의 수에서 1은 몇 번이나 들어갔을까요? 출력해 주세요.
+
+  // let n = '';
+  // for(let i = 0; i <= 1000; i++) {
+  //   n += i;
+  // }
+  // console.log(n.match(/1/g).length);
+
+  let n = '';
+  for(let i = 0; i <= 1000; i++) {
+    n += i;
+  }
+  console.log(n);
+
+  let count = 0;
+  for(let j of n) {
+    if(j == 1) {
+      count++
+    }
+  }
+  console.log(`result: ${count}`);
+
+console.groupEnd('57. 1의 개수'); }
+
+
+{ console.group('58. 콤마 찍기');
+
+  // 숫자를 입력받고 천 단위로 콤마(,)를 찍어주세요.
+
+  // mine
+  // let num = prompt('정산금을 입력해주세요.').split(' ').map(Number);
+  // // console.log(num);
+  // const result = num.toLocaleString();
+  // console.log(result);
+
+  // 재귀 함수 사용
+  // function comma(s) {
+  //   if(s.length <= 3) {
+  //     return s;
+  //   } else {
+  //     return comma(s.slice(0, s.length - 3)) + ',' + s.slice(s.length - 3);
+  //   }
+  // }
+
+  // const n = prompt('숫자를 입력해주세요.');
+  // console.log(comma(n));
+
+console.groupEnd('58. 콤마 찍기'); }
+
+
+{ console.group('59. 빈칸 채우기');
+
+  // 총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 그 문자열을 가운데 정렬을 해주고, 나머지 빈 부분에는 '='을 채워 넣어주세요.
+
+  const data = 'hi';
+  const n = 25 + parseInt((data.length/2), 10);
+  const a = data.padStart(n, '=');
+
+  console.log(`${a.padEnd(50, '=')}`);
+
+  //padStart(길이, 채울 문자열) : 주어진 길이만큼 원래 문자열의 왼쪽부터 주어진 문자열로 채움
+  //padEnd(길이, 채울 문자열) : 주어진 길이만큼 원래 문자열의 오른쪽부터 주어진 문자열로 채움
+
+console.groupEnd('59. 빈칸 채우기'); }
+
+
+{ console.group('');
+
+  let students = ['강은지','김유정','박현서','최성훈','홍유진','박지호','권윤일','김채리','한지호','김진이','김민호','강채연'];
+
+  // mine
+  // for(let i = 0; i < students.length; i++) {
+  //   console.log(`번호: ${i+1}, 이름: ${students[i]}`);
+  // }
+
+  // answer
+  students.sort();
+  for(let key in students) {
+    console.log(`번호: ${parseInt(key, 10)+1}, 이름: ${students[key]}`);
+  }
+
+console.groupEnd(''); }
