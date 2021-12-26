@@ -1,7 +1,7 @@
 # 📗 자바스크립트 기초(ES5+)
 
 ## Description
-It is the note that study the basic JavaScript by myself
+This is a note I wrote while studying basic JavaScript on my own.
 
 <br>
 <br>
