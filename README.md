@@ -2,6 +2,8 @@
 
 ## Description
 It is the note that study the basic JavaScript by myself
+
+<br>
 <br>
 
 ## Index
