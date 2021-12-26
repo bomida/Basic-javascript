@@ -2,7 +2,7 @@
 
 ## 목차
 - [자바스크립트 기초문법](https://github.com/bomida/Basic-javascript/tree/main/기본%20문법)
-    - [1-1.datatype-var-hoisting](Basic-javascript/blob/main)
+    - [1-1.datatype-var-hoisting](https://github.com/bomida/Basic-javascript/blob/main/기본%20문법/1-1.datatype-var-hoisting.js)
     - [1-2.operator-if-for-loof]()
     - [1-3.arrow-function]()
     - [1-4.class-ojbject]()
