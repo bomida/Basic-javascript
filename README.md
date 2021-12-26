@@ -1,10 +1,10 @@
 # 📗 자바스크립트 기초(ES5+)
 
+<br>
+
 ## Description
 This is a note I wrote while studying basic JavaScript on my own.
 
-<br>
-<br>
 
 ## Index
 ### 자바스크립트 기초문법
