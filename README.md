@@ -2,4 +2,15 @@
 
 ## 목차
 - [자바스크립트 기초문법](https://github.com/bomida/Basic-javascript/tree/main/기본%20문법)
+    - [1-1.datatype-var-hoisting]()
+    - [1-2.operator-if-for-loof]()
+    - [1-3.arrow-function]()
+    - [1-4.class-ojbject]()
+    - [1-5.object]()
+    - [1-6.array-apis]()
+    - [1-7.quiz-array-apis]()
+    - [1-8.json]()
+    - [1-9.callback]()
+    - [2-1.number-string]()
+    - [2-2.boolean-null-undfined]()
 - [JS 100제](https://github.com/bomida/Basic-javascript/tree/main/JS%20100제)
