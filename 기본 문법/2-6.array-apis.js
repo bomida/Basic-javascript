@@ -8,8 +8,8 @@
 const empty = []; // 빈 배열
 const numbers = [1, 2, 3]; // 숫자가 들어있는 배열
 const string = ['one', 'two', 'three']; // 문자열이 들어있는 배열
-const objects = [{prop: 1}, {prop: 2}, {prop: 3}]; // 객체가 들어있는 배열
-const mixed = [1, 'one', {prop: 1}, null]; // 아무거나? 들어있는 배열
+const objects = [{ prop: 1 }, { prop: 2 }, { prop: 3 }]; // 객체가 들어있는 배열
+const mixed = [1, 'one', { prop: 1 }, null]; // 아무거나? 들어있는 배열
 
 // Array 생성장
 // Array 생성자는 주어지는 인수에 따라 두가지 서로 다른 방식으로 동작한다.
@@ -39,18 +39,19 @@ console.log(Array.from('hello'));
 
 
 {
-// element 읽기
-// 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
-// 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
-const arr = ['one', 'two', 'three'];
-arr[0]; // 'one'
-arr[1]; // 'two'
-arr[2]; // 'three'
-arr[3]; // 'undefined'
-} 
+  // element 읽기
+  // 배열의 각 요소는 인덱스(index)를 이용해 읽어올 수 있다. 인덱스는 객체의 속성 이름과 비슷한 역할을 하지만, 0 이상의 정수만이 배열의 인덱스가 될 수 있다.
+  // 배열 안의 요소의 인덱스 순서는 0부터 시작한다.
+  const arr = ['one', 'two', 'three'];
+  arr[0]; // 'one'
+  arr[1]; // 'two'
+  arr[2]; // 'three'
+  arr[3]; // 'undefined'
+}
 
 
-{ console.group('요소 수정하기');
+{
+  console.group('요소 수정하기');
 
   // fill: 한꺼번에 많은 요소를 같은 값으로 바꿀 수 있다.
   const arr = [1, 2, 3, 4, 5];
@@ -68,10 +69,12 @@ arr[3]; // 'undefined'
   const fillArray = new Array(1000).fill(5);
   console.log(fillArray);
 
-console.groupEnd('요소 수정하기'); }
+  console.groupEnd('요소 수정하기');
+}
 
 
-{ console.group('요소 추가/삭제');
+{
+  console.group('요소 추가/삭제');
   const arr = [];
 
   // push: '배열의 끝 부분에' 요소를 추가하는 메소드
@@ -79,7 +82,7 @@ console.groupEnd('요소 수정하기'); }
   console.log(arr);
   arr.push('two', 'three');
   console.log(arr);
-  
+
   // pop: '배열의 끝 부분에' 요소를 삭제하는 메소드
   arr.pop();
   console.log(arr);
@@ -96,10 +99,12 @@ console.groupEnd('요소 수정하기'); }
   // shift: '배열의 앞 부분에' 요소를 삭제하는 메소드
   arr.shift();
   console.log(arr);
-console.groupEnd('요소 추가/삭제'); }
+  console.groupEnd('요소 추가/삭제');
+}
 
 
-{ console.group('요소를 배열 중간에 삽입');
+{
+  console.group('요소를 배열 중간에 삽입');
   // splice: 배열에 속해있는 연속된 여러요소 즉, 배열의 일부분을 통째로 바꿀 수도 있다.
   let arr = [1, 2, 3, 4, 5];
 
@@ -118,18 +123,22 @@ console.groupEnd('요소 추가/삭제'); }
   // 두번째 인수로 0을 입력하면 삭제없이 그 위치에 요소를 삽입할 수 있다.
   arr.splice(1, 0, 2, 3, 4);
   console.log(arr);
-console.groupEnd('요소를 배열 중간에 삽입'); }
+  console.groupEnd('요소를 배열 중간에 삽입');
+}
 
 
-{ console.group('배열 뒤집기');
+{
+  console.group('배열 뒤집기');
   // reverse: 메소드를 호출 하면 해당 배열을 거꾸로 뒤집는다.
   let arr = [1, 2, 3, 4, 5];
   arr.reverse();
   console.log(arr);
-console.groupEnd('배열 뒤집기'); }
+  console.groupEnd('배열 뒤집기');
+}
 
 
-{ console.group('배열 정렬하기');
+{
+  console.group('배열 정렬하기');
   // sort: 메소드를 통해 원하는 방식대로 배열을 정렬할 수 있다.
   // `sort` 메소드는 `arr`을 비교 함수에 따라 정렬한 뒤, `arr`을 그대로 반환한다.)
   const arr = [3, 1, 4, 5, 2];
@@ -156,7 +165,7 @@ console.groupEnd('배열 뒤집기'); }
   console.log(arr2);
   // 비교 함수를 인수로 넘겨주지 않으면, sort 메소드는 먼저 요소를 전부 문자열로 변환한 후, 유니코드 코드포인트를 비교하는 방식으로 정렬한다.
   // sort를 사용할 때에는 꼭 비교함수를 넘겨주도록 하자!
-  
+
   let ex1 = [20, 3, 100].sort();
   console.log(`ex1: ${ex1}`);
   let ex2 = ['abc', 'DEF', 'aBC'].sort();
@@ -167,12 +176,14 @@ console.groupEnd('배열 뒤집기'); }
   let ex4 = ['abc', 'DEF', 'aBC'].sort((x, y) => x.localeCompare(y));
   console.log(`ex2: ${ex4}`);
 
-console.groupEnd('배열 정렬하기'); }
+  console.groupEnd('배열 정렬하기');
+}
 
 
-{ console.group('SELF PRACTICE');
+{
+  console.group('SELF PRACTICE');
   class Friend {
-    constructor (name, job, area) {
+    constructor(name, job, area) {
       this.name = name;
       this.drink = job;
       this.area = area;
@@ -187,31 +198,37 @@ console.groupEnd('배열 정렬하기'); }
   ];
 
   const result = friends
-  .map((friend) => friend.name)
-  .sort((x, y) => x.localeCompare(y) + x.length - y.length);
+    .map((friend) => friend.name)
+    .sort((x, y) => x.localeCompare(y) + x.length - y.length);
   console.log(result);
-console.groupEnd('SELF PRACTICE'); }
+  console.groupEnd('SELF PRACTICE');
+}
 
 
-{ console.group('배열 순회하기');
+{
+  console.group('배열 순회하기');
   // 배열의 각 요소를 차례대로 돌면서 요소에 대한 작업을 하는 것을 순회(traverse)라고 한다.
-  
+
   const arr = [1, 2, 3];
 
   // for 구문: 단순하게 for loop를 사용해 배열의 길이만큼 돌며, 전통적으로 많이 쓰이던 방식이었으나 forEach 메소드와 for...of 구문이 추가됨으로써 현재는 잘 쓰이지 않는다.
-  for(let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     console.log(`for: ${arr[i]}`);
   }
 
   // forEach 메소드: 배열의 각 요소에 대해 함수를 호출할 수 있다.
   // 1. 화살 함수를 사용하여 더욱 간결하고 읽기 편한 코드가 되었다.
-  arr.forEach(item => console.log(`item 요소${item}에 대한 요소가 실행 중`));
+  arr.forEach(item =>
+    console.log(`item 요소${item}에 대한 요소가 실행 중`)
+  );
   // 2. 메소드에 넘기는 함수에는 총 세 개의 인수가 들어가는데 현재 순회중인 배열의 요소, 인덱스 값, 순회중인 배열이 들어온다.
-  arr.forEach((item, index, array) => console.log(`index ${index + 1}번째 요소에 대해 함수가 실행 중`));
+  arr.forEach((item, index, array) =>
+    console.log(`${item} : index ${index}번째 요소에 대해 함수가 실행 중`)
+  );
 
   // for...of 구문: iterable을 순회하기 위해 사용할 수 있다.
   const arr2 = [1, 2, 3, 4, 5];
-  for(let item of arr2) {
+  for (let item of arr2) {
     console.log(`for...of: ${item}`);
   }
 
@@ -220,10 +237,12 @@ console.groupEnd('SELF PRACTICE'); }
   // forEach - 배열을 순회하면서 배열의 인덱스가 필요한 경우
   // for - 코드의 실행 속도가 정말로 중요할 때
 
-console.groupEnd('배열 순회하기'); }
+  console.groupEnd('배열 순회하기');
+}
 
 
-{ console.group('배열로부터 새로운 값 생성');
+{
+  console.group('배열로부터 새로운 값 생성');
   // slice: 메소드는 배열의 일부분에 해당하는 새로운 배열을 반환
   const sliceArr = [1, 2, 3, 4, 5];
 
@@ -294,7 +313,7 @@ console.groupEnd('배열 순회하기'); }
 
 
   // filter: 배열에서 원하는 요소만을 골라내어 새로운 배열을 생성할 수 있다.
-  // filter 메소드에는 진릭밧(boolean)을 반환하는 함수를 주어야한다.
+  // filter 메소드에는 진리값(boolean)을 반환하는 함수를 주어야한다.
   // 진리값을 반환하는 함수를 predicate라고 한다.
   // filter에 주어지는 함수도 forEach와 같이 (현재요소, 인덱스, 배열)의 세 인수를 받는다.
   const filterArr = [1, 2, 3, 4, 5];
@@ -313,18 +332,20 @@ console.groupEnd('배열 순회하기'); }
 
   const join2 = joinArr.join(); // 구분자를 넘기지 않으면 `,` 문자가 구분자로 사용된다.
   console.log(`join2: ${join2}`);
-console.groupEnd('배열로부터 새로운 값 생성'); }
+  console.groupEnd('배열로부터 새로운 값 생성');
+}
 
 
-{ console.group('요소 찾기');
+{
+  console.group('요소 찾기');
   // indexOf와 lastIndexOf 메소드를 사용하면 특정 요소가 배열의 몇 번째에 위치하는 지를 알아낼 수 있다.
   // indexOf는 배열의 왼쪽부터, lastIndexOf는 오른쪽부터 검색해서 처음 만나는 요소의 인덱스를 반환한다. 만약 일치하는 요소가 없다면, 두 메소드 모두 -1을 반환한다.
   const arr = ['a', 'b', 'c', 'b', 'a'];
 
-  console.log('indexOf1: '+ arr.indexOf('b'));
-  console.log('lastIndexOf1: '+ arr.lastIndexOf('b'));
-  console.log('indexOf1: '+ arr.indexOf('z'));
-  console.log('lastIndexOf1: '+ arr.lastIndexOf('z'));
+  console.log('indexOf1: ' + arr.indexOf('b'));
+  console.log('lastIndexOf1: ' + arr.lastIndexOf('b'));
+  console.log('indexOf1: ' + arr.indexOf('z'));
+  console.log('lastIndexOf1: ' + arr.lastIndexOf('z'));
 
   // 두 메소드 모두 두 번째 인수로 시작 인덱스를 받는다. 시작 인덱스가 주어지면 해당 인덱스부터 검사를 시작한다.
   const arr2 = ['a', 'b', 'c', 'b', 'a'];
@@ -341,10 +362,12 @@ console.groupEnd('배열로부터 새로운 값 생성'); }
   console.log(names.find(item => item.length > 8));
   console.log(names.findIndex(item => item.length > 8));
 
-console.groupEnd('요소 찾기'); }
+  console.groupEnd('요소 찾기');
+}
 
 
-{ console.group('배열이 특정 조건을 만족하는지 판별하기');
+{
+  console.group('배열이 특정 조건을 만족하는지 판별하기');
   // 배열의 세 메소드 includes, every, some는 모두 배열이 특정 조건을 만족하는지를 나타내는 진리값을 반환
   // includes 메소드는 배열이 특정 요소를 포함하고 있는지를 판별한다. indexOf로도 비슷한 일을 할 수 있지만 includes가 진리값을 반환한다는 점에서 조금 더 편리하다.
   // includes 메소드 또한 시작 인덱스를 인수로 받는다.
@@ -363,28 +386,34 @@ console.groupEnd('요소 찾기'); }
   console.log('some: ' + arr3.some(item => item.length > 5));
 
   // NOTE! - forEach와 마찬가지로, every와 some에 주어지는 predicate에는 (현재요소, 인덱스, 배열)의 세 인수가 넘겨진다.
-console.groupEnd('배열이 특정 조건을 만족하는지 판별하기'); }
+  console.groupEnd('배열이 특정 조건을 만족하는지 판별하기');
+}
 
 
-{ console.group('배열인지 아닌지 판별하기');
+{
+  console.group('배열인지 아닌지 판별하기');
   // 어떤 값이 배열인지 아닌지 판별하기 위해서 Array.isArray 정적 메소드를 사용할 수 있다.
   console.log(Array.isArray([]));
   console.log(Array.isArray({}));
   console.log(Array.isArray('hello'));
-console.groupEnd('배열인지 아닌지 판별하기'); }
+  console.groupEnd('배열인지 아닌지 판별하기');
+}
 
 
-{ console.group('문자열과 배열');
+{
+  console.group('문자열과 배열');
   // 문자열은 배열과 유사한 문법을 통해 다뤄질 수 있다. 그리고 문자열의 메소드 중에는 배열의 메소드 중 몇몇과 이름이 같고 완전히 같은 방식으로 동작하는 것들이 있다.
   console.log('hello'[0]);
   console.log('hello'.slice(2, 4));
   for (let c of 'hello') {
     console.log(c);
   }
-console.groupEnd('문자열과 배열'); }
+  console.groupEnd('문자열과 배열');
+}
 
 
-{ console.group('다차원 배열(Multidimensional Array)');
+{
+  console.group('다차원 배열(Multidimensional Array)');
   // 컴퓨터를 사용하다보면 표 형태의 자료를 많이 다르게 된다. JS에서는 표 형태의 자료를 간단히 나타내기 위해 배열을 요소로 갖는 배열을 사용할 수 있다.
   const table = [
     [1, 2, 3],
@@ -395,7 +424,8 @@ console.groupEnd('문자열과 배열'); }
   // 다차원 배열 속에 있는 요소를 다루기 위해서, 대문자 표기법을 연이어 사용할 수 있다.
   console.log(table[0][1]);
   console.log(table[2][0]);
-console.groupEnd('다차원 배열(Multidimensional Array)'); }
+  console.groupEnd('다차원 배열(Multidimensional Array)');
+}
 
 
 // 1. 배열의 요소는 비어있을 수 있다. 이는 undefined와는 다름. 비어있는 요소에 대해서는 for...of나 forEach 등의 메소드를 통해 순회를 하려고 해도 순회가 되지 않는다. Array 생성자를 사용하거나, length 속성을 조작하거나, 배열의 길이를 넘어서는 인덱스를 사용하여 요소를 추가하려고 하면 비어있는 요소가 생기게 되고, 의도치 않은 동작을 할 수 있으므로 주의해야한다.
